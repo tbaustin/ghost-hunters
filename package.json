@@ -18,6 +18,7 @@
     "debug": "latest",
     "dotenv": "latest",
     "moment": "latest",
+    "react": "^16.0.0",
     "react-bootstrap": "latest",
     "react-dom": "latest",
     "react-dropzone": "latest",
@@ -68,6 +69,8 @@
     "turbo360": "latest"
   },
   "app": "59e0c137221d130012ee41dc",
-  "deploy": ["."],
+  "deploy": [
+    "."
+  ],
   "format": "vertex"
 }
