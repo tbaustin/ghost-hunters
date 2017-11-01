@@ -52275,7 +52275,12 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
+var loadData = function loadData(store) {
+  return store.dispatch(_actions2.default.fetchPosts());
+};
+
 exports.default = {
+  loadData: loadData,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Posts)
 };
 
@@ -54236,7 +54241,7 @@ var Promise=__webpack_require__(8),superagent=__webpack_require__(7),TURBO_VECTO
 /* 280 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"ghost-hunters","version":"0.0.0","server":false,"private":true,"scripts":{"dev":"concurrently \"webpack -w\" \"turbo devserver\"","clean":"rimraf ./public/dist/*","build":"npm run clean && set NODE_ENV=production && webpack && gulp prod","postinstall":"npm run build"},"dependencies":{"bluebird":"latest","concurrently":"^3.5.0","debug":"latest","dotenv":"latest","moment":"latest","react":"latest","react-bootstrap":"latest","react-dom":"latest","react-dropzone":"latest","react-helmet":"^5.2.0","react-redux":"latest","react-router-config":"^1.0.0-beta.4","react-router-dom":"^4.2.2","react-time":"latest","redux":"latest","redux-thunk":"latest","serialize-javascript":"^1.4.0","superagent":"latest","sweetalert2":"^6.11.1","turbo360":"latest","vertex360":"latest"},"devDependencies":{"babel-core":"latest","babel-loader":"latest","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-preset-env":"latest","babel-preset-es2015":"latest","babel-preset-react":"latest","babel-preset-stage-0":"latest","babel-preset-stage-1":"latest","babel-preset-stage-2":"latest","chai":"latest","chai-http":"latest","gulp":"latest","gulp-6to5":"latest","gulp-autoprefixer":"latest","gulp-babel":"^7.0.0","gulp-concat":"latest","gulp-less":"latest","gulp-minify-css":"latest","gulp-rename":"latest","gulp-uglify":"latest","json-loader":"latest","mocha":"latest","mocha-jscs":"latest","mocha-jshint":"latest","nodemon":"latest","rimraf":"latest","webpack":"latest"},"functions":{"turbo360":"latest"},"app":"59e0c137221d130012ee41dc","deploy":["."],"format":"vertex"}
+module.exports = {"name":"ghost-hunters","version":"0.0.0","server":false,"private":true,"scripts":{"dev":"npm-run-all --parallel dev:*","dev:turbo":"turbo devserver","dev:webpack":"webpack -w","clean":"rimraf ./public/dist/*","build":"npm run clean && set NODE_ENV=production && webpack && gulp prod","postinstall":"npm run build"},"dependencies":{"bluebird":"latest","concurrently":"^3.5.0","debug":"latest","dotenv":"latest","moment":"latest","npm-run-all":"^4.1.1","react":"latest","react-bootstrap":"latest","react-dom":"latest","react-dropzone":"latest","react-helmet":"^5.2.0","react-redux":"latest","react-router-config":"^1.0.0-beta.4","react-router-dom":"^4.2.2","react-time":"latest","redux":"latest","redux-thunk":"latest","serialize-javascript":"^1.4.0","superagent":"latest","sweetalert2":"^6.11.1","turbo360":"latest","vertex360":"latest"},"devDependencies":{"babel-core":"latest","babel-loader":"latest","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-preset-env":"latest","babel-preset-es2015":"latest","babel-preset-react":"latest","babel-preset-stage-0":"latest","babel-preset-stage-1":"latest","babel-preset-stage-2":"latest","chai":"latest","chai-http":"latest","gulp":"latest","gulp-6to5":"latest","gulp-autoprefixer":"latest","gulp-babel":"^7.0.0","gulp-concat":"latest","gulp-less":"latest","gulp-minify-css":"latest","gulp-rename":"latest","gulp-uglify":"latest","json-loader":"latest","mocha":"latest","mocha-jscs":"latest","mocha-jshint":"latest","nodemon":"latest","rimraf":"latest","webpack":"latest"},"functions":{"turbo360":"latest"},"app":"59e0c137221d130012ee41dc","deploy":["."],"format":"vertex"}
 
 /***/ }),
 /* 281 */
@@ -56076,7 +56081,12 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
+var loadData = function loadData(store) {
+  return store.dispatch(_actions2.default.getRecord(undefined.props.match.params.id));
+};
+
 exports.default = {
+  loadData: loadData,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Post)
 };
 
@@ -56391,7 +56401,12 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
+var loadData = function loadData(store) {
+  return store.dispatch(_actions2.default.getProfile(undefined.props.match.params.id));
+};
+
 exports.default = {
+  loadData: loadData,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile)
 };
 
@@ -56644,7 +56659,12 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
+var loadData = function loadData(store) {
+  return store.dispatch(_actions2.default.getReplies());
+};
+
 exports.default = {
+  loadData: loadData,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Reply)
 };
 

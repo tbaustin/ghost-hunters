@@ -4,7 +4,9 @@
   "server": false,
   "private": true,
   "scripts": {
-    "dev": "concurrently \"webpack -w\" \"turbo devserver\"",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:turbo": "turbo devserver",
+    "dev:webpack": "webpack -w",
     "clean": "rimraf ./public/dist/*",
     "build": "npm run clean && set NODE_ENV=production && webpack && gulp prod",
     "postinstall": "npm run build"
@@ -15,6 +17,7 @@
     "debug": "latest",
     "dotenv": "latest",
     "moment": "latest",
+    "npm-run-all": "^4.1.1",
     "react": "latest",
     "react-bootstrap": "latest",
     "react-dom": "latest",
@@ -65,8 +68,6 @@
     "turbo360": "latest"
   },
   "app": "59e0c137221d130012ee41dc",
-  "deploy": [
-    "."
-  ],
+  "deploy": ["."],
   "format": "vertex"
 }
