@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import swal from 'sweetalert2/dist/sweetalert2.all.min.js';
+import swal from 'sweetalert';
 import Dropzone from 'react-dropzone';
 
 import { TurboClient } from '../../utils';
@@ -11,7 +11,8 @@ class CreatePost extends Component {
       post: {
         title: '',
         text: '',
-        image: 'https://lh3.googleusercontent.com/jt6x5sv4Q06g2LB_hnSeEqFWfBt2OvIqNKeNBBJa-lzEvWMNy886eiXVPcjWK-zLIs6m9Tj9VZzjcDUuVVANQaZXhA',
+        image:
+          'https://lh3.googleusercontent.com/jt6x5sv4Q06g2LB_hnSeEqFWfBt2OvIqNKeNBBJa-lzEvWMNy886eiXVPcjWK-zLIs6m9Tj9VZzjcDUuVVANQaZXhA',
         video: null
       }
     };
@@ -116,11 +117,23 @@ class CreatePost extends Component {
       <div>
         <div className="form-group">
           <label htmlFor="title">Title</label>
-          <input onChange={this.updatePost.bind(this, 'title')} className="form-control" id="title" type="text" placeholder="Title" />
+          <input
+            onChange={this.updatePost.bind(this, 'title')}
+            className="form-control"
+            id="title"
+            type="text"
+            placeholder="Title"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="text">Text</label>
-          <input onChange={this.updatePost.bind(this, 'text')} className="form-control" id="text" type="text" placeholder="Text" />
+          <input
+            onChange={this.updatePost.bind(this, 'text')}
+            className="form-control"
+            id="text"
+            type="text"
+            placeholder="Text"
+          />
         </div>
         <div className="row">
           <div className="col-sm-6">
@@ -149,7 +162,9 @@ class CreatePost extends Component {
           </div>
           {this.state.post.video == null ? null : (
             <div className="col-sm-6">
-              <h3 style={{ color: 'red', border: '1px dashed red', borderRadius: '8px' }}>Video Uploaded</h3>
+              <h3 style={{ color: 'red', border: '1px dashed red', borderRadius: '8px' }}>
+                Video Uploaded
+              </h3>
             </div>
           )}
         </div>

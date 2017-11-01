@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _sweetalert2AllMin = require('sweetalert2/dist/sweetalert2.all.min.js');
+var _sweetalert = require('sweetalert');
 
-var _sweetalert2AllMin2 = _interopRequireDefault(_sweetalert2AllMin);
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 var _reactDropzone = require('react-dropzone');
 
@@ -67,7 +67,7 @@ var CreatePost = function (_Component) {
       var file = files[0];
       var imageType = new RegExp(/^image[/](?:jpe?g|gif|png)$/);
       if (file.type.match(imageType) == null) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Unacceptable Image Type',
           text: 'Please only use .png .jpg .gif .jpeg',
           type: 'error'
@@ -80,7 +80,7 @@ var CreatePost = function (_Component) {
         _this2.setState({
           post: updated
         });
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Image Uploaded',
           html: '<img src=\'' + data.result.url + '=s100\' />',
           type: 'success'
@@ -98,7 +98,7 @@ var CreatePost = function (_Component) {
       var file = files[0];
       var videoType = new RegExp(/^video\/(?:mp4|webm|ogg)$/);
       if (file.type.match(videoType == null)) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Unacceptable Video Type',
           text: 'Please only use .webm .ogg .mp4',
           type: 'error'
@@ -113,7 +113,7 @@ var CreatePost = function (_Component) {
         _this3.setState({
           post: updated
         });
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Video Uploaded',
           text: '' + data.result.name,
           type: 'success'
@@ -131,7 +131,7 @@ var CreatePost = function (_Component) {
           text = _state$post.text;
 
       if (title.length == 0) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please include a Title',
           type: 'error'
@@ -139,7 +139,7 @@ var CreatePost = function (_Component) {
         return;
       }
       if (text.length == 0) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please include some text',
           type: 'error'
@@ -162,7 +162,13 @@ var CreatePost = function (_Component) {
             { htmlFor: 'title' },
             'Title'
           ),
-          _react2.default.createElement('input', { onChange: this.updatePost.bind(this, 'title'), className: 'form-control', id: 'title', type: 'text', placeholder: 'Title' })
+          _react2.default.createElement('input', {
+            onChange: this.updatePost.bind(this, 'title'),
+            className: 'form-control',
+            id: 'title',
+            type: 'text',
+            placeholder: 'Title'
+          })
         ),
         _react2.default.createElement(
           'div',
@@ -172,7 +178,13 @@ var CreatePost = function (_Component) {
             { htmlFor: 'text' },
             'Text'
           ),
-          _react2.default.createElement('input', { onChange: this.updatePost.bind(this, 'text'), className: 'form-control', id: 'text', type: 'text', placeholder: 'Text' })
+          _react2.default.createElement('input', {
+            onChange: this.updatePost.bind(this, 'text'),
+            className: 'form-control',
+            id: 'text',
+            type: 'text',
+            placeholder: 'Text'
+          })
         ),
         _react2.default.createElement(
           'div',

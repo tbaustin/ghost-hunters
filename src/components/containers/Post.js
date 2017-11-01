@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import swal from 'sweetalert2/dist/sweetalert2.all.min.js';
+import swal from 'sweetalert';
 
 import actions from '../../actions';
 import { DateUtils } from '../../utils';

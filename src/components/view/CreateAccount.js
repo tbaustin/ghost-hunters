@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import swal from 'sweetalert2/dist/sweetalert2.all.min.js';
+import swal from 'sweetalert';
 
 class CreateAccount extends Component {
   constructor() {

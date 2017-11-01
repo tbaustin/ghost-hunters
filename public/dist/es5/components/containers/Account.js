@@ -12,9 +12,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
-var _sweetalert2AllMin = require('sweetalert2/dist/sweetalert2.all.min.js');
+var _sweetalert = require('sweetalert');
 
-var _sweetalert2AllMin2 = _interopRequireDefault(_sweetalert2AllMin);
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 var _reactRouterDom = require('react-router-dom');
 
@@ -56,7 +56,7 @@ var Account = function (_Component) {
     key: 'register',
     value: function register(params) {
       this.props.register(params).then(function (data) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Thank you for joining',
           type: 'success'
@@ -69,7 +69,7 @@ var Account = function (_Component) {
     key: 'login',
     value: function login(params) {
       this.props.loginUser(params).then(function (data) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Welcome Back!',
           type: 'success'
@@ -82,7 +82,7 @@ var Account = function (_Component) {
     key: 'logout',
     value: function logout() {
       this.props.logoutUser().then(function (data) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'User Logged Out',
           text: 'We hope to see you again',
           type: 'success'

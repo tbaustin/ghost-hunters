@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _sweetalert2AllMin = require('sweetalert2/dist/sweetalert2.all.min.js');
+var _sweetalert = require('sweetalert');
 
-var _sweetalert2AllMin2 = _interopRequireDefault(_sweetalert2AllMin);
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -58,7 +58,7 @@ var CreateAccount = function (_Component) {
           password = _state$account.password;
 
       if (username.length == 0) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Username',
           type: 'error'
@@ -66,7 +66,7 @@ var CreateAccount = function (_Component) {
         return;
       }
       if (password.length == 0) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Password',
           type: 'error'
@@ -84,7 +84,7 @@ var CreateAccount = function (_Component) {
           password = _state$account2.password;
 
       if (username.length == 0) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Username',
           type: 'error'
@@ -92,7 +92,7 @@ var CreateAccount = function (_Component) {
         return;
       }
       if (password.length == 0) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Password',
           type: 'error'

@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _sweetalert2AllMin = require('sweetalert2/dist/sweetalert2.all.min.js');
+var _sweetalert = require('sweetalert');
 
-var _sweetalert2AllMin2 = _interopRequireDefault(_sweetalert2AllMin);
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 var _reactDropzone = require('react-dropzone');
 
@@ -61,7 +61,7 @@ var UpdateRecord = function (_Component) {
       var file = files[0];
       var imageType = new RegExp(/^image[/](?:jpe?g|gif|png)$/);
       if (file.type.match(imageType) == null) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Unacceptable Image Type',
           text: 'Please only use .png .jpg .gif .jpeg',
           type: 'error'
@@ -74,7 +74,7 @@ var UpdateRecord = function (_Component) {
         _this2.setState({
           record: updated
         });
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Image Uploaded',
           html: '<img src=\'' + data.result.url + '=s100\' />',
           type: 'success'
@@ -92,7 +92,7 @@ var UpdateRecord = function (_Component) {
       var file = files[0];
       var videoType = new RegExp(/^video\/(?:mp4|webm|ogg)$/);
       if (file.type.match(videoType == null)) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Unacceptable Video Type',
           text: 'Please only use .webm .ogg .mp4',
           type: 'error'
@@ -107,7 +107,7 @@ var UpdateRecord = function (_Component) {
         _this3.setState({
           post: updated
         });
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Video Uploaded',
           text: '' + data.result.name,
           type: 'success'
@@ -224,7 +224,11 @@ var UpdateRecord = function (_Component) {
             _react2.default.createElement('hr', { className: 'my-4' }),
             _react2.default.createElement(
               'button',
-              { onClick: this.createUpdatedRecord.bind(this), className: 'btn btn-success', style: { marginBottom: '100px' } },
+              {
+                onClick: this.createUpdatedRecord.bind(this),
+                className: 'btn btn-success',
+                style: { marginBottom: '100px' }
+              },
               'Update'
             )
           )

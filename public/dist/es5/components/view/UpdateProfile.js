@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _sweetalert2AllMin = require('sweetalert2/dist/sweetalert2.all.min.js');
+var _sweetalert = require('sweetalert');
 
-var _sweetalert2AllMin2 = _interopRequireDefault(_sweetalert2AllMin);
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 var _reactDropzone = require('react-dropzone');
 
@@ -62,7 +62,7 @@ var UpdateProfile = function (_Component) {
       var file = files[0];
       var imageType = new RegExp(/^image[/](?:jpe?g|gif|png)$/);
       if (file.type.match(imageType) == null) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Unacceptable Image Type',
           text: 'Please only use .png .jpg .gif .jpeg',
           type: 'error'
@@ -75,7 +75,7 @@ var UpdateProfile = function (_Component) {
         _this2.setState({
           profile: updated
         });
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Image Uploaded',
           html: '<img src=\'' + data.result.url + '=s100\' />',
           type: 'success'
@@ -217,7 +217,10 @@ var UpdateProfile = function (_Component) {
                 { className: 'form-group col-sm-4' },
                 _react2.default.createElement(
                   _reactDropzone2.default,
-                  { className: 'btn btn-warning', onDrop: this.imageUpload.bind(this, 'image') },
+                  {
+                    className: 'btn btn-warning',
+                    onDrop: this.imageUpload.bind(this, 'image')
+                  },
                   'Upload Image'
                 )
               ),
@@ -235,7 +238,10 @@ var UpdateProfile = function (_Component) {
                 { className: 'form-group col-sm-4' },
                 _react2.default.createElement(
                   _reactDropzone2.default,
-                  { className: 'btn btn-info', onDrop: this.imageUpload.bind(this, 'bannerImage') },
+                  {
+                    className: 'btn btn-info',
+                    onDrop: this.imageUpload.bind(this, 'bannerImage')
+                  },
                   'Upload Banner Image'
                 )
               ),
@@ -248,7 +254,11 @@ var UpdateProfile = function (_Component) {
             _react2.default.createElement('hr', { className: 'my-4' }),
             _react2.default.createElement(
               'button',
-              { onClick: this.createUpdatedProfile.bind(this), className: 'btn btn-success', style: { marginBottom: '100px' } },
+              {
+                onClick: this.createUpdatedProfile.bind(this),
+                className: 'btn btn-success',
+                style: { marginBottom: '100px' }
+              },
               'Update'
             )
           )

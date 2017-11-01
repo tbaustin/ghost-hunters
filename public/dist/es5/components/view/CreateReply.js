@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _sweetalert2AllMin = require('sweetalert2/dist/sweetalert2.all.min.js');
+var _sweetalert = require('sweetalert');
 
-var _sweetalert2AllMin2 = _interopRequireDefault(_sweetalert2AllMin);
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55,7 +55,7 @@ var CreateReply = function (_Component) {
       var text = this.state.reply.text;
 
       if (text.length == 0) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please provide some text',
           type: 'error'
@@ -73,7 +73,11 @@ var CreateReply = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'form-group col-sm-12' },
-          _react2.default.createElement('textarea', { onChange: this.updateReply.bind(this, 'text'), className: 'form-control', rows: '3' })
+          _react2.default.createElement('textarea', {
+            onChange: this.updateReply.bind(this, 'text'),
+            className: 'form-control',
+            rows: '3'
+          })
         ),
         _react2.default.createElement(
           'div',

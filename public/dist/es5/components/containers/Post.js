@@ -14,9 +14,9 @@ var _reactRedux = require('react-redux');
 
 var _reactRouterDom = require('react-router-dom');
 
-var _sweetalert2AllMin = require('sweetalert2/dist/sweetalert2.all.min.js');
+var _sweetalert = require('sweetalert');
 
-var _sweetalert2AllMin2 = _interopRequireDefault(_sweetalert2AllMin);
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 var _actions = require('../../actions');
 
@@ -71,7 +71,7 @@ var Post = function (_Component) {
       var currentUser = this.props.user.currentUser;
 
       if (post.profile.id !== currentUser.id) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Must be owner of post',
           type: 'error'
@@ -80,7 +80,7 @@ var Post = function (_Component) {
       }
 
       this.props.updateRecord(post, params).then(function (response) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Success',
           text: currentUser.username + ' Your post has been updated!',
           type: 'success'
@@ -101,7 +101,7 @@ var Post = function (_Component) {
 
 
       if (currentUser.id !== post.profile.id) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Must be owner of post',
           type: 'error'
@@ -112,7 +112,7 @@ var Post = function (_Component) {
       this.props.deleteRecord(post).then(function () {
         _this2.props.history.push('/');
 
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Post Delete',
           text: 'Please create a new post',
           type: 'success'
@@ -267,6 +267,11 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
+var loadData = function loadData(store) {
+  return store.dispatch(_actions2.default.getRecord(undefined.props.match.params.id));
+};
+
 exports.default = {
+  loadData: loadData,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Post)
 };

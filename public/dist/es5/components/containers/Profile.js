@@ -12,9 +12,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
-var _sweetalert2AllMin = require('sweetalert2/dist/sweetalert2.all.min.js');
+var _sweetalert = require('sweetalert');
 
-var _sweetalert2AllMin2 = _interopRequireDefault(_sweetalert2AllMin);
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 var _actions = require('../../actions');
 
@@ -79,7 +79,7 @@ var Profile = function (_Component) {
 
 
       if (currentUser.id !== profile.id) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You do not own this profile',
           type: 'error'
@@ -89,7 +89,7 @@ var Profile = function (_Component) {
       }
 
       this.props.updateProfile(currentUser, params).then(function (response) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: response.username + ' Updated!',
           text: 'Thank you for updating your profile',
           type: 'success'
@@ -110,7 +110,7 @@ var Profile = function (_Component) {
 
 
       if (currentUser.id !== profile.id) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You do not own this profile',
           type: 'error'
@@ -119,7 +119,7 @@ var Profile = function (_Component) {
         return;
       }
 
-      (0, _sweetalert2AllMin2.default)({
+      (0, _sweetalert2.default)({
         title: 'Are you sure?',
         text: 'Your Profile will be lost forever!',
         type: 'warning',
@@ -144,7 +144,7 @@ var Profile = function (_Component) {
           return _this2.props.logoutUser();
         }).then(function (data) {
           _this2.props.history.push('/');
-          (0, _sweetalert2AllMin2.default)('Deleted!', 'Your Profile has been deleted.', 'success');
+          (0, _sweetalert2.default)('Deleted!', 'Your Profile has been deleted.', 'success');
           return null;
         }).catch(function (err) {
           console.log(err);
@@ -304,6 +304,11 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
+var loadData = function loadData(store) {
+  return store.dispatch(_actions2.default.getProfile(undefined.props.match.params.id));
+};
+
 exports.default = {
+  loadData: loadData,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile)
 };

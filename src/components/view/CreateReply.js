@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import swal from 'sweetalert2/dist/sweetalert2.all.min.js';
+import swal from 'sweetalert';
 
 class CreateReply extends Component {
   constructor() {
@@ -38,7 +38,11 @@ class CreateReply extends Component {
     return (
       <div className="row" style={{ border: '1px solid #e6e6e6', padding: '20px' }}>
         <div className="form-group col-sm-12">
-          <textarea onChange={this.updateReply.bind(this, 'text')} className="form-control" rows="3" />
+          <textarea
+            onChange={this.updateReply.bind(this, 'text')}
+            className="form-control"
+            rows="3"
+          />
         </div>
         <div className="col-sm-12">
           <button onClick={this.createReply.bind(this)} className="btn btn-warning">

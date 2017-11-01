@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import swal from 'sweetalert2/dist/sweetalert2.all.min.js';
+import swal from 'sweetalert';
 import Dropzone from 'react-dropzone';
 
 import { TurboClient } from '../../utils';
@@ -153,7 +153,11 @@ class UpdateRecord extends Component {
               </div>
             </div>
             <hr className="my-4" />
-            <button onClick={this.createUpdatedRecord.bind(this)} className="btn btn-success" style={{ marginBottom: '100px' }}>
+            <button
+              onClick={this.createUpdatedRecord.bind(this)}
+              className="btn btn-success"
+              style={{ marginBottom: '100px' }}
+            >
               Update
             </button>
           </div>

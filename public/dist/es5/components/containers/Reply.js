@@ -12,9 +12,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
-var _sweetalert2AllMin = require('sweetalert2/dist/sweetalert2.all.min.js');
+var _sweetalert = require('sweetalert');
 
-var _sweetalert2AllMin2 = _interopRequireDefault(_sweetalert2AllMin);
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 var _reactRouterDom = require('react-router-dom');
 
@@ -64,7 +64,7 @@ var Reply = function (_Component) {
       var currentUser = this.props.user.currentUser;
 
       if (currentUser == null) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register',
           type: 'error'
@@ -90,7 +90,7 @@ var Reply = function (_Component) {
       var currentUser = this.props.user.currentUser;
 
       if (currentUser == null) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register',
           type: 'error'
@@ -112,7 +112,7 @@ var Reply = function (_Component) {
       var currentUser = this.props.user.currentUser;
 
       if (currentUser == null) {
-        (0, _sweetalert2AllMin2.default)({
+        (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register',
           type: 'error'
@@ -242,6 +242,11 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
+var loadData = function loadData(store) {
+  return store.dispatch(_actions2.default.getReplies());
+};
+
 exports.default = {
+  loadData: loadData,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Reply)
 };

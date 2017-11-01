@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import swal from 'sweetalert2/dist/sweetalert2.all.min.js';
+import swal from 'sweetalert';
 import Dropzone from 'react-dropzone';
 
 import { TurboClient } from '../../utils';
@@ -131,7 +131,10 @@ class UpdateProfile extends Component {
               </div>
               <div className="row">
                 <div className="form-group col-sm-4">
-                  <Dropzone className="btn btn-warning" onDrop={this.imageUpload.bind(this, 'image')}>
+                  <Dropzone
+                    className="btn btn-warning"
+                    onDrop={this.imageUpload.bind(this, 'image')}
+                  >
                     Upload Image
                   </Dropzone>
                 </div>
@@ -145,7 +148,10 @@ class UpdateProfile extends Component {
               </div>
               <div className="row" style={{ marginTop: '15px' }}>
                 <div className="form-group col-sm-4">
-                  <Dropzone className="btn btn-info" onDrop={this.imageUpload.bind(this, 'bannerImage')}>
+                  <Dropzone
+                    className="btn btn-info"
+                    onDrop={this.imageUpload.bind(this, 'bannerImage')}
+                  >
                     Upload Banner Image
                   </Dropzone>
                 </div>
@@ -158,7 +164,11 @@ class UpdateProfile extends Component {
                 </div>
               </div>
               <hr className="my-4" />
-              <button onClick={this.createUpdatedProfile.bind(this)} className="btn btn-success" style={{ marginBottom: '100px' }}>
+              <button
+                onClick={this.createUpdatedProfile.bind(this)}
+                className="btn btn-success"
+                style={{ marginBottom: '100px' }}
+              >
                 Update
               </button>
             </div>
