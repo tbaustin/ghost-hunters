@@ -1,0 +1,17 @@
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+
+import store from './stores';
+import routes from './routes';
+
+ReactDOM.hydrate(
+  <Provider store={store.configure(null)}>
+    <BrowserRouter>
+      <div>{renderRoutes(routes)}</div>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root')
+);
