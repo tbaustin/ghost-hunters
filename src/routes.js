@@ -1,6 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { Route, Switch } from 'react-router-dom';
 
 import { Post, Posts, Profile, NotFound } from './components/containers';
 import App from './components/App';

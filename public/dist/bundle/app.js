@@ -52072,10 +52072,6 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(39);
-
-var _reactRouterDom = __webpack_require__(12);
-
 var _containers = __webpack_require__(36);
 
 var _App = __webpack_require__(294);
@@ -54256,7 +54252,7 @@ var Promise=__webpack_require__(8),superagent=__webpack_require__(7),TURBO_VECTO
 /* 280 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"ghost-hunters","version":"0.0.0","server":false,"private":true,"scripts":{"dev":"npm-run-all --parallel dev:*","dev:server":"nodemon --watch build --exec node build/bundle.js","dev:build-server":"webpack --config webpack.server.js --watch","dev:build-client":"webpack -w","clean":"rimraf ./public/dist/*","build":"npm run clean && set NODE_ENV=production && webpack && gulp prod","postinstall":"npm run build"},"dependencies":{"bluebird":"latest","concurrently":"^3.5.0","debug":"latest","dotenv":"latest","moment":"latest","react":"^16.0.0","react-bootstrap":"latest","react-dom":"latest","react-dropzone":"latest","react-helmet":"^5.2.0","react-redux":"latest","react-router-config":"^1.0.0-beta.4","react-router-dom":"^4.2.2","react-time":"latest","redux":"latest","redux-thunk":"latest","serialize-javascript":"^1.4.0","superagent":"latest","sweetalert":"^2.0.8","turbo360":"latest","vertex360":"latest","webpack-node-externals":"^1.6.0"},"devDependencies":{"babel-core":"latest","babel-loader":"latest","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-preset-env":"latest","babel-preset-es2015":"latest","babel-preset-react":"latest","babel-preset-stage-0":"latest","babel-preset-stage-1":"latest","babel-preset-stage-2":"latest","chai":"latest","chai-http":"latest","gulp":"latest","gulp-6to5":"latest","gulp-autoprefixer":"latest","gulp-babel":"^7.0.0","gulp-concat":"latest","gulp-less":"latest","gulp-minify-css":"latest","gulp-rename":"latest","gulp-uglify":"latest","json-loader":"latest","mocha":"latest","mocha-jscs":"latest","mocha-jshint":"latest","nodemon":"latest","rimraf":"latest","webpack":"latest"},"functions":{"turbo360":"latest"},"app":"59e0c137221d130012ee41dc","deploy":["."],"format":"vertex"}
+module.exports = {"name":"ghost-hunters","version":"0.0.0","server":false,"private":true,"scripts":{"dev":"npm-run-all --parallel dev:*","dev:server":"turbo devserver","dev:client":"webpack -w","clean":"rimraf ./public/dist/*","build":"npm run clean && set NODE_ENV=production && webpack && gulp prod","postinstall":"npm run build"},"dependencies":{"bluebird":"latest","concurrently":"^3.5.0","debug":"latest","dotenv":"latest","moment":"latest","npm-run-all":"^4.1.1","react":"^16.0.0","react-bootstrap":"latest","react-dom":"latest","react-dropzone":"latest","react-helmet":"^5.2.0","react-redux":"latest","react-router-config":"^1.0.0-beta.4","react-router-dom":"^4.2.2","react-time":"latest","redux":"latest","redux-thunk":"latest","serialize-javascript":"^1.4.0","superagent":"latest","sweetalert":"^2.0.8","turbo360":"latest","vertex360":"latest","webpack-node-externals":"^1.6.0"},"devDependencies":{"babel-core":"latest","babel-loader":"latest","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-preset-env":"latest","babel-preset-es2015":"latest","babel-preset-react":"latest","babel-preset-stage-0":"latest","babel-preset-stage-1":"latest","babel-preset-stage-2":"latest","chai":"latest","chai-http":"latest","gulp":"latest","gulp-6to5":"latest","gulp-autoprefixer":"latest","gulp-babel":"^7.0.0","gulp-concat":"latest","gulp-less":"latest","gulp-minify-css":"latest","gulp-rename":"latest","gulp-uglify":"latest","json-loader":"latest","mocha":"latest","mocha-jscs":"latest","mocha-jshint":"latest","nodemon":"latest","rimraf":"latest","webpack":"latest"},"functions":{"turbo360":"latest"},"app":"59e0c137221d130012ee41dc","deploy":["."],"format":"vertex"}
 
 /***/ }),
 /* 281 */
