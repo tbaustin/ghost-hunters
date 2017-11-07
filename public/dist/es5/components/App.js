@@ -25,7 +25,7 @@ var App = function App(_ref) {
 
   return _react2.default.createElement(
     'div',
-    null,
+    { className: 'container' },
     _react2.default.createElement(_Header2.default, null),
     (0, _reactRouterConfig.renderRoutes)(route.routes)
   );

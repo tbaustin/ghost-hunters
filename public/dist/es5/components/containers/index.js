@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Reply = exports.Post = exports.Profile = exports.Account = exports.Posts = undefined;
+exports.NotFound = exports.Reply = exports.Post = exports.Profile = exports.Account = exports.Posts = undefined;
 
 var _Posts = require('./Posts');
 
@@ -25,6 +25,10 @@ var _Reply = require('./Reply');
 
 var _Reply2 = _interopRequireDefault(_Reply);
 
+var _NotFound = require('./NotFound');
+
+var _NotFound2 = _interopRequireDefault(_NotFound);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Posts = _Posts2.default;
@@ -32,3 +36,4 @@ exports.Account = _Account2.default;
 exports.Profile = _Profile2.default;
 exports.Post = _Post2.default;
 exports.Reply = _Reply2.default;
+exports.NotFound = _NotFound2.default;

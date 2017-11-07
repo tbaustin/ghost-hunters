@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import { CreatePost } from '../view';
 import { Account } from '../containers';
@@ -30,6 +31,15 @@ class Posts extends Component {
           console.log(err);
         });
     }
+  }
+
+  head() {
+    return (
+      <Helmet>
+        <title>{`${this.props.post.all.length} Posts Loaded`}</title>
+        <meta property="og:title" content="Ghosts App" />
+      </Helmet>
+    );
   }
 
   createPost(params) {
@@ -64,6 +74,7 @@ class Posts extends Component {
     const { currentUser } = this.props.user;
     return (
       <div>
+        {this.head()}
         <div className="row">
           <div className="col-sm-8">
             <div className="card-columns">

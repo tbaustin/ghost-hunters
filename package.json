@@ -30,6 +30,7 @@
     "react-time": "latest",
     "redux": "latest",
     "redux-thunk": "latest",
+    "rimraf": "^2.6.2",
     "serialize-javascript": "^1.4.0",
     "superagent": "latest",
     "sweetalert": "^2.0.8",
@@ -63,7 +64,7 @@
     "mocha-jscs": "latest",
     "mocha-jshint": "latest",
     "nodemon": "latest",
-    "rimraf": "latest",
+    "rimraf": "^2.6.2",
     "webpack": "latest"
   },
   "functions": {

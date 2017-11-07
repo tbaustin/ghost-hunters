@@ -18,6 +18,8 @@ var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
 var _reactRouterDom = require('react-router-dom');
 
+var _reactHelmet = require('react-helmet');
+
 var _view = require('../view');
 
 var _containers = require('../containers');
@@ -64,6 +66,20 @@ var Posts = function (_Component) {
       }
     }
   }, {
+    key: 'head',
+    value: function head() {
+      return _react2.default.createElement(
+        _reactHelmet.Helmet,
+        null,
+        _react2.default.createElement(
+          'title',
+          null,
+          this.props.post.all.length + ' Posts Loaded'
+        ),
+        _react2.default.createElement('meta', { property: 'og:title', content: 'Ghosts App' })
+      );
+    }
+  }, {
     key: 'createPost',
     value: function createPost(params) {
       var currentUser = this.props.user.currentUser;
@@ -98,6 +114,7 @@ var Posts = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
+        this.head(),
         _react2.default.createElement(
           'div',
           { className: 'row' },

@@ -242,11 +242,4 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
-var loadData = function loadData(store) {
-  return store.dispatch(_actions2.default.getReplies());
-};
-
-exports.default = {
-  loadData: loadData,
-  component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Reply)
-};
+exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Reply);

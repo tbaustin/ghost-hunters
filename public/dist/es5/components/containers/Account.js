@@ -172,6 +172,4 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
-exports.default = {
-  component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Account)
-};
+exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Account);
