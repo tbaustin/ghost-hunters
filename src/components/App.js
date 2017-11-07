@@ -6,7 +6,7 @@ import actions from '../actions';
 
 const App = ({ route }) => {
   return (
-    <div>
+    <div className="container">
       <Header />
       {renderRoutes(route.routes)}
     </div>

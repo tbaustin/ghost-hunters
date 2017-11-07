@@ -182,11 +182,4 @@ const dispatchToProps = dispatch => {
   };
 };
 
-const loadData = store => {
-  return store.dispatch(actions.getReplies());
-};
-
-export default {
-  loadData: loadData,
-  component: connect(stateToProps, dispatchToProps)(Reply)
-};
+export default connect(stateToProps, dispatchToProps)(Reply);

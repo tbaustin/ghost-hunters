@@ -22,6 +22,7 @@
     "react-bootstrap": "latest",
     "react-dom": "latest",
     "react-dropzone": "latest",
+    "react-google-maps": "^9.2.2",
     "react-helmet": "^5.2.0",
     "react-redux": "latest",
     "react-router-config": "^1.0.0-beta.4",

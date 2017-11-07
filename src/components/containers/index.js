@@ -3,5 +3,6 @@ import Account from './Account';
 import Post from './Post';
 import Profile from './Profile';
 import Reply from './Reply';
+import NotFound from './NotFound';
 
-export { Posts, Account, Profile, Post, Reply };
+export { Posts, Account, Profile, Post, Reply, NotFound };

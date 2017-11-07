@@ -10,7 +10,7 @@ import { matchRoutes } from 'react-router-config';
 import routes from './src/routes';
 import createStore from './src/stores';
 
-function handleRender(res, req) {
+function handleRender(req, res) {
   const store = createStore.configure(null); // create Store in order to get data from redux
 
   const promises = matchRoutes(routes, req.path)

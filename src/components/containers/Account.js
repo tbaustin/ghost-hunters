@@ -114,6 +114,4 @@ const dispatchToProps = dispatch => {
   };
 };
 
-export default {
-  component: connect(stateToProps, dispatchToProps)(Account)
-};
+export default connect(stateToProps, dispatchToProps)(Account);
