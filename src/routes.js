@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Post, Posts, Profile, NotFound } from './components/containers';
+import { Post, Posts, Profile, NotFound, UsersList, GhostMap } from './components/containers';
 import App from './components/App';
 
 export default [
@@ -19,6 +19,14 @@ export default [
       {
         ...Profile,
         path: '/profile/:id'
+      },
+      {
+        ...UsersList,
+        path: '/users'
+      },
+      {
+        ...GhostMap,
+        path: '/map'
       },
       {
         ...NotFound

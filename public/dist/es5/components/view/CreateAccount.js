@@ -61,7 +61,7 @@ var CreateAccount = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Username',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -69,7 +69,7 @@ var CreateAccount = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Password',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -87,7 +87,7 @@ var CreateAccount = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Username',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -95,7 +95,7 @@ var CreateAccount = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Password',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }

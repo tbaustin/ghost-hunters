@@ -65,7 +65,7 @@ var UpdateProfile = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Unacceptable Image Type',
           text: 'Please only use .png .jpg .gif .jpeg',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -78,7 +78,7 @@ var UpdateProfile = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Image Uploaded',
           html: '<img src=\'' + data.result.url + '=s100\' />',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);

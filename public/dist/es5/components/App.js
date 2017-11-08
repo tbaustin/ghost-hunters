@@ -31,10 +31,11 @@ var App = function App(_ref) {
   );
 };
 
+var loadData = function loadData(store) {
+  return store.dispatch(_actions2.default.currentUser());
+};
+
 exports.default = {
   component: App,
-  loadData: function loadData(_ref2) {
-    var dispatch = _ref2.dispatch;
-    return dispatch(_actions2.default.currentUser());
-  }
+  loadData: loadData
 };

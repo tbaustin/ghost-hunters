@@ -59,7 +59,7 @@ var Account = function (_Component) {
         (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Thank you for joining',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         alert(err);
@@ -72,7 +72,7 @@ var Account = function (_Component) {
         (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Welcome Back!',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         alert(err);
@@ -85,7 +85,7 @@ var Account = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'User Logged Out',
           text: 'We hope to see you again',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         alert(err);
@@ -107,14 +107,21 @@ var Account = function (_Component) {
             { className: 'row' },
             _react2.default.createElement(
               'div',
-              { className: 'col-md-8' },
+              { className: 'col-md-12' },
               _react2.default.createElement(
-                'h3',
+                'h2',
                 null,
                 _react2.default.createElement(
                   _reactRouterDom.Link,
                   { to: '/profile/' + currentUser.id },
-                  currentUser.username
+                  currentUser.username,
+                  '  ',
+                  currentUser.friendRequests && currentUser.friendRequests.length > 0 ? _react2.default.createElement(
+                    'span',
+                    { className: 'badge badge-primary' },
+                    currentUser.friendRequests.length,
+                    ' Request (s)'
+                  ) : null
                 )
               )
             )

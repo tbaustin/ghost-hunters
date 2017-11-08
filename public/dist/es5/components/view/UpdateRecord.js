@@ -64,7 +64,7 @@ var UpdateRecord = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Unacceptable Image Type',
           text: 'Please only use .png .jpg .gif .jpeg',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -77,7 +77,7 @@ var UpdateRecord = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Image Uploaded',
           html: '<img src=\'' + data.result.url + '=s100\' />',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -95,7 +95,7 @@ var UpdateRecord = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Unacceptable Video Type',
           text: 'Please only use .webm .ogg .mp4',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -110,7 +110,7 @@ var UpdateRecord = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Video Uploaded',
           text: '' + data.result.name,
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);

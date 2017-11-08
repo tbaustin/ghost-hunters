@@ -67,7 +67,7 @@ var Reply = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -93,7 +93,7 @@ var Reply = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -115,7 +115,7 @@ var Reply = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }

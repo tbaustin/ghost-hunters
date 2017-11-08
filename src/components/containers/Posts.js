@@ -36,7 +36,7 @@ class Posts extends Component {
   head() {
     return (
       <Helmet>
-        <title>{`${this.props.post.all.length} Posts Loaded`}</title>
+        <title>{`${this.props.post.all.length || ''} Posts Loaded`}</title>
         <meta property="og:title" content="Ghosts App" />
       </Helmet>
     );

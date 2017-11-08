@@ -88,7 +88,7 @@ var Posts = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register before posting',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -99,7 +99,7 @@ var Posts = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Post Created',
           text: 'Title: ' + data.title,
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -110,6 +110,7 @@ var Posts = function (_Component) {
     value: function render() {
       var posts = this.props.post.all;
       var currentUser = this.props.user.currentUser;
+      // console.log(currentUser);
 
       return _react2.default.createElement(
         'div',

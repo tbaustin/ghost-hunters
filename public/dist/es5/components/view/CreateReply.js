@@ -58,7 +58,7 @@ var CreateReply = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please provide some text',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }

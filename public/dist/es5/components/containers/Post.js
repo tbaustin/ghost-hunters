@@ -74,7 +74,7 @@ var Post = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Must be owner of post',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -83,7 +83,7 @@ var Post = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Success',
           text: currentUser.username + ' Your post has been updated!',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -104,7 +104,7 @@ var Post = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Must be owner of post',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -115,7 +115,7 @@ var Post = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Post Delete',
           text: 'Please create a new post',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);

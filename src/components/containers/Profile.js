@@ -231,6 +231,55 @@ class Profile extends Component {
       });
   }
 
+  deleteFriend() {
+    const { id } = this.props.match.params;
+    const profile = this.props.profiles[id];
+    const { currentUser } = this.props.user;
+    if (currentUser == null || profile == null || currentUser.id == profile.id) {
+      swal({
+        title: 'Oops...',
+        text: 'Must be logged in, and user must exist',
+        icon: 'error'
+      });
+      return;
+    }
+
+    // User's Friends
+    const userFriends = currentUser.friends;
+    const index = userFriends.indexOf(profile.id);
+    if (index > -1) {
+      userFriends.splice(index, 1);
+    }
+    const userParams = {};
+    userParams.friends = userFriends;
+
+    // Profile's Friends
+    const profileFriends = profile.friends;
+    const pIndex = profileFriends.indexOf(currentUser.id);
+    if (pIndex > -1) {
+      profileFriends.splice(pIndex, 1);
+    }
+    const profileParams = {};
+    profileParams.friends = profileFriends;
+
+    // Removing friend from each profiles
+    this.props
+      .updateProfile(currentUser, userParams)
+      .then(() => {
+        return this.props.updateProfile(profile, profileParams);
+      })
+      .then(data => {
+        swal({
+          title: 'Friend Deleted',
+          text: `${data.username} is no longer your friend`,
+          icon: 'success'
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   acceptRequest(requestId) {
     const { id } = this.props.match.params;
     const profile = this.props.profiles[requestId];
@@ -457,7 +506,12 @@ class Profile extends Component {
                         Add Friend
                       </button>
                     ) : (
-                      <button className="btn btn-info btn-large btn-block">You are Friends</button>
+                      <button
+                        onClick={this.deleteFriend.bind(this)}
+                        className="btn btn-danger btn-large btn-block"
+                      >
+                        Delete Friend
+                      </button>
                     )
                   ) : (
                     <button className="btn btn-success btn-lg btn-block">

@@ -57,9 +57,9 @@ exports.default = {
     };
   },
 
-  updateProfile: function updateProfile(currentUser, params) {
+  updateProfile: function updateProfile(entity, params) {
     return function (dispatch) {
-      return dispatch(_utils.TurboClient.putRequest('user', currentUser, params, _constants2.default.UPDATE_PROFILE));
+      return dispatch(_utils.TurboClient.putRequest('user', entity, params, _constants2.default.UPDATE_PROFILE));
     };
   },
 
