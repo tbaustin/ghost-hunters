@@ -33,7 +33,7 @@ class Reply extends Component {
       swal({
         title: 'Oops...',
         text: 'Please Login or Register',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -58,7 +58,7 @@ class Reply extends Component {
       swal({
         title: 'Oops...',
         text: 'Please Login or Register',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -81,7 +81,7 @@ class Reply extends Component {
       swal({
         title: 'Oops...',
         text: 'Please Login or Register',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }

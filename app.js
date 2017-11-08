@@ -12,6 +12,7 @@ const app = vertex.app();
 // import routes
 const index = require('./routes/index');
 const api = require('./routes/api');
+const users = require('./routes/users');
 
 // hopefully will be used on every Route, this should handle SSR RR4
 app.use(renderer);
@@ -19,5 +20,6 @@ app.use(renderer);
 // set routes
 app.use('/', index);
 app.use('/api', api); // sample API Routes
+app.use('/user', users);
 
 module.exports = app;

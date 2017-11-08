@@ -11812,9 +11812,9 @@ exports.default = {
     };
   },
 
-  updateProfile: function updateProfile(currentUser, params) {
+  updateProfile: function updateProfile(entity, params) {
     return function (dispatch) {
-      return dispatch(_utils.TurboClient.putRequest('user', currentUser, params, _constants2.default.UPDATE_PROFILE));
+      return dispatch(_utils.TurboClient.putRequest('user', entity, params, _constants2.default.UPDATE_PROFILE));
     };
   },
 
@@ -51960,6 +51960,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 var initialState = {
   all: null
 };
@@ -51973,7 +51975,7 @@ exports.default = function () {
   switch (action.type) {
     case _constants2.default.POST_CREATED:
       return _extends({}, state, _defineProperty({
-        all: state.all.concat(action.data)
+        all: [action.data].concat(_toConsumableArray(state.all))
       }, action.data.id, action.data));
 
     case _constants2.default.RECORD_UPDATED:
@@ -52260,7 +52262,7 @@ var Posts = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register before posting',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -52271,7 +52273,7 @@ var Posts = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Post Created',
           text: 'Title: ' + data.title,
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -52282,6 +52284,7 @@ var Posts = function (_Component) {
     value: function render() {
       var posts = this.props.post.all;
       var currentUser = this.props.user.currentUser;
+      // console.log(currentUser);
 
       return _react2.default.createElement(
         'div',
@@ -53911,7 +53914,7 @@ var CreatePost = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Unacceptable Image Type',
           text: 'Please only use .png .jpg .gif .jpeg',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -53924,7 +53927,7 @@ var CreatePost = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Image Uploaded',
           html: '<img src=\'' + data.result.url + '=s100\' />',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -53942,7 +53945,7 @@ var CreatePost = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Unacceptable Video Type',
           text: 'Please only use .webm .ogg .mp4',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -53957,7 +53960,7 @@ var CreatePost = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Video Uploaded',
           text: '' + data.result.name,
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -53975,7 +53978,7 @@ var CreatePost = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please include a Title',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -53983,7 +53986,7 @@ var CreatePost = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please include some text',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -56106,7 +56109,7 @@ var CreateAccount = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Username',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -56114,7 +56117,7 @@ var CreateAccount = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Password',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -56132,7 +56135,7 @@ var CreateAccount = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Username',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -56140,7 +56143,7 @@ var CreateAccount = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You forgot your Password',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -56285,7 +56288,7 @@ var CreateReply = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please provide some text',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -56396,7 +56399,7 @@ var UpdateProfile = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Unacceptable Image Type',
           text: 'Please only use .png .jpg .gif .jpeg',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -56409,7 +56412,7 @@ var UpdateProfile = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Image Uploaded',
           html: '<img src=\'' + data.result.url + '=s100\' />',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -56674,7 +56677,7 @@ var UpdateRecord = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Unacceptable Image Type',
           text: 'Please only use .png .jpg .gif .jpeg',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -56687,7 +56690,7 @@ var UpdateRecord = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Image Uploaded',
           html: '<img src=\'' + data.result.url + '=s100\' />',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -56705,7 +56708,7 @@ var UpdateRecord = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Unacceptable Video Type',
           text: 'Please only use .webm .ogg .mp4',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -56720,7 +56723,7 @@ var UpdateRecord = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Video Uploaded',
           text: '' + data.result.name,
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -57018,7 +57021,7 @@ var Account = function (_Component) {
         (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Thank you for joining',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         alert(err);
@@ -57031,7 +57034,7 @@ var Account = function (_Component) {
         (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Welcome Back!',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         alert(err);
@@ -57044,7 +57047,7 @@ var Account = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'User Logged Out',
           text: 'We hope to see you again',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         alert(err);
@@ -57066,14 +57069,21 @@ var Account = function (_Component) {
             { className: 'row' },
             _react2.default.createElement(
               'div',
-              { className: 'col-md-8' },
+              { className: 'col-md-12' },
               _react2.default.createElement(
-                'h3',
+                'h2',
                 null,
                 _react2.default.createElement(
                   _reactRouterDom.Link,
                   { to: '/profile/' + currentUser.id },
-                  currentUser.username
+                  currentUser.username,
+                  '  ',
+                  currentUser.friendRequests && currentUser.friendRequests.length > 0 ? _react2.default.createElement(
+                    'span',
+                    { className: 'badge badge-primary' },
+                    currentUser.friendRequests.length,
+                    ' Request (s)'
+                  ) : null
                 )
               )
             )
@@ -57214,7 +57224,7 @@ var Post = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Must be owner of post',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -57223,7 +57233,7 @@ var Post = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Success',
           text: currentUser.username + ' Your post has been updated!',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -57244,7 +57254,7 @@ var Post = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Must be owner of post',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -57255,7 +57265,7 @@ var Post = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Post Delete',
           text: 'Please create a new post',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -57439,6 +57449,8 @@ var _sweetalert = __webpack_require__(6);
 
 var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
+var _reactRouterDom = __webpack_require__(14);
+
 var _actions = __webpack_require__(15);
 
 var _actions2 = _interopRequireDefault(_actions);
@@ -57458,10 +57470,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Profile = function (_Component) {
   _inherits(Profile, _Component);
 
-  function Profile() {
+  function Profile(props) {
     _classCallCheck(this, Profile);
 
-    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this));
+    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
 
     _this.state = {
       profile: {
@@ -57475,22 +57487,81 @@ var Profile = function (_Component) {
     };
 
     _this.deleteProfile = _this.deleteProfile.bind(_this);
+    _this.fetchRequestsUsers = _this.fetchRequestsUsers.bind(_this);
+    _this.acceptRequest = _this.acceptRequest.bind(_this);
+    _this.declineRequest = _this.declineRequest.bind(_this);
+    _this.fetchFriends = _this.fetchFriends.bind(_this);
     return _this;
   }
 
   _createClass(Profile, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this2 = this;
+
       var id = this.props.match.params.id;
+      var currentUser = this.props.user.currentUser;
 
 
       if (this.props.profiles[id] != null) {
+        this.fetchRequestsUsers();
+        this.fetchFriends();
         return;
       }
 
-      this.props.getProfile(id).then(function () {}).catch(function (err) {
+      this.props.getProfile(id).then(function () {
+        _this2.fetchRequestsUsers();
+        _this2.fetchFriends();
+        return null;
+      }).catch(function (err) {
         console.log(err);
       });
+    }
+  }, {
+    key: 'fetchRequestsUsers',
+    value: function fetchRequestsUsers() {
+      var _this3 = this;
+
+      var id = this.props.match.params.id;
+      var currentUser = this.props.user.currentUser;
+
+      var profile = this.props.profiles[id];
+
+      if (currentUser != null && currentUser.id === profile.id && currentUser.friendRequests) {
+        currentUser.friendRequests.map(function (request) {
+          if (_this3.props.profiles[request] != null) {
+            return;
+          }
+          _this3.props.getProfile(request).then(function (data) {
+            return null;
+          }).catch(function (err) {
+            console.log(err);
+          });
+        });
+      }
+    }
+  }, {
+    key: 'fetchFriends',
+    value: function fetchFriends() {
+      var _this4 = this;
+
+      var id = this.props.match.params.id;
+
+      var profile = this.props.profiles[id];
+
+      if (profile.friends) {
+        profile.friends.map(function (friendId) {
+          if (_this4.props.profiles[friendId] != null) {
+            return;
+          }
+
+          _this4.props.getProfile(friendId).then(function () {
+            return null;
+          }).catch(function (err) {
+            console.log(err);
+          });
+        });
+      }
     }
   }, {
     key: 'createUpdatedProfile',
@@ -57505,7 +57576,7 @@ var Profile = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You do not own this profile',
-          type: 'error'
+          icon: 'error'
         });
 
         return;
@@ -57515,7 +57586,7 @@ var Profile = function (_Component) {
         (0, _sweetalert2.default)({
           title: response.username + ' Updated!',
           text: 'Thank you for updating your profile',
-          type: 'success'
+          icon: 'success'
         });
       }).catch(function (err) {
         console.log(err);
@@ -57524,7 +57595,7 @@ var Profile = function (_Component) {
   }, {
     key: 'deleteProfile',
     value: function deleteProfile() {
-      var _this2 = this;
+      var _this5 = this;
 
       var id = this.props.match.params.id;
 
@@ -57536,53 +57607,203 @@ var Profile = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'You do not own this profile',
-          type: 'error'
+          icon: 'error'
         });
 
         return;
       }
 
       (0, _sweetalert2.default)({
+        closeOnClickOutside: false,
+        closeOnEsc: false,
         title: 'Are you sure?',
-        text: 'Your Profile will be lost forever!',
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then(function () {
-        var userPosts = _this2.props.post.all.filter(function (p) {
-          return p.profile.id === profile.id;
+        text: 'All data related to profile will be deleted as well with the profile! If you wish to delete your profile you must type DELETE',
+        icon: 'warning',
+        dangerMode: true,
+        buttons: true,
+        content: 'input'
+      }).then(function (value) {
+        if (value === 'DELETE') {
+          var userPosts = _this5.props.post.all.filter(function (p) {
+            return p.profile.id === profile.id;
+          });
+          var userReplies = _this5.props.reply.all.filter(function (r) {
+            return r.user.id === profile.id;
+          });
+          var _currentUser = _this5.props.user.currentUser;
+
+          if (_currentUser.friends != null) {
+            _currentUser.friends.map(function (friendId) {
+              var friend = _this5.props.profiles[friendId];
+              if (friend == null) {
+                return;
+              }
+
+              var params = {};
+              var friendsArr = friend.friends;
+              var index = friendsArr.indexOf(_currentUser.id);
+              if (index > -1) {
+                friendsArr.splice(index, 1);
+              }
+              params.friends = friendsArr;
+              _this5.props.updateProfile(friend, params);
+            });
+          }
+          userPosts.map(function (post) {
+            _this5.props.deleteRecord(post);
+          });
+          userReplies.map(function (reply) {
+            _this5.props.deleteReply(reply);
+          });
+          _this5.props.deleteProfile(profile).then(function (data) {
+            return _this5.props.logoutUser();
+          }).then(function (data) {
+            _this5.props.history.push('/');
+            (0, _sweetalert2.default)('Deleted!', 'Your Profile has been deleted.', 'success');
+            return null;
+          }).catch(function (err) {
+            console.log(err);
+          });
+        } else {
+          (0, _sweetalert2.default)({
+            title: 'Profile not deleted',
+            text: 'Make sure you type "DELETE" with caps',
+            icon: 'error'
+          });
+        }
+      });
+    }
+  }, {
+    key: 'addFriend',
+    value: function addFriend() {
+      var id = this.props.match.params.id;
+
+      var profile = this.props.profiles[id];
+      var currentUser = this.props.user.currentUser;
+
+      if (currentUser == null || profile == null) {
+        (0, _sweetalert2.default)({
+          title: 'Oops...',
+          text: 'Must be logged in, and user must exist',
+          icon: 'error'
         });
-        var userReplies = _this2.props.reply.all.filter(function (r) {
-          return r.user.id === profile.id;
+        return;
+      }
+      var friendRequests = profile.friendRequests || [];
+      var params = {};
+      friendRequests.push(currentUser.id);
+      params.friendRequests = friendRequests;
+      this.props.updateProfile(profile, params).then(function () {
+        (0, _sweetalert2.default)({
+          title: 'Success',
+          text: 'Friend Request Sent',
+          icon: 'success'
         });
-        userPosts.map(function (post) {
-          _this2.props.deleteRecord(post);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }, {
+    key: 'acceptRequest',
+    value: function acceptRequest(requestId) {
+      var _this6 = this;
+
+      var id = this.props.match.params.id;
+
+      var profile = this.props.profiles[requestId];
+      var currentUserProfile = this.props.profiles[id];
+      var currentUser = this.props.user.currentUser;
+
+
+      if (currentUser == null || currentUser.id !== currentUserProfile.id) {
+        return;
+      }
+
+      var reqArr = currentUser.friendRequests;
+      var index = reqArr.indexOf(requestId);
+
+      if (index > -1) {
+        reqArr.splice(index, 1);
+      }
+
+      // User's params
+      var userParams = {};
+      var userFriends = currentUser.friends || [];
+      if (userFriends.indexOf(requestId) === -1) {
+        userFriends.push(requestId);
+      }
+
+      userParams.friendRequest = reqArr;
+      userParams.friends = userFriends;
+
+      // Requested Friends params
+      var requestParams = {};
+      var requestFriends = profile.friends || [];
+      if (requestFriends.indexOf(currentUser.id) === -1) {
+        requestFriends.push(currentUser.id);
+      }
+
+      requestParams.friends = requestFriends;
+
+      this.props.updateProfile(currentUser, userParams).then(function () {
+        return _this6.props.updateProfile(profile, requestParams);
+      }).then(function (data) {
+        (0, _sweetalert2.default)({
+          title: 'Friend Request Accepted',
+          text: data.username + ' is your friend',
+          icon: 'success'
         });
-        userReplies.map(function (reply) {
-          _this2.props.deleteReply(reply);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }, {
+    key: 'declineRequest',
+    value: function declineRequest(requestId) {
+      var id = this.props.match.params.id;
+
+      var profile = this.props.profiles[requestId];
+      var currentUserProfile = this.props.profiles[id];
+      var currentUser = this.props.user.currentUser;
+
+
+      if (currentUser == null || currentUser.id !== currentUserProfile.id) {
+        return;
+      }
+
+      var reqArr = currentUser.friendRequests;
+      var index = reqArr.indexOf(requestId);
+
+      if (index > -1) {
+        reqArr.splice(index, 1);
+      }
+
+      var params = {};
+      params.friendRequests = reqArr;
+      this.props.updateProfile(currentUser, params).then(function () {
+        (0, _sweetalert2.default)({
+          title: 'Friend Request Declined',
+          text: 'User will not be your friend',
+          icon: 'error'
         });
-        _this2.props.deleteProfile(profile).then(function (data) {
-          return _this2.props.logoutUser();
-        }).then(function (data) {
-          _this2.props.history.push('/');
-          (0, _sweetalert2.default)('Deleted!', 'Your Profile has been deleted.', 'success');
-          return null;
-        }).catch(function (err) {
-          console.log(err);
-        });
+      }).catch(function (err) {
+        console.log(err);
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this7 = this;
+
       var id = this.props.match.params.id;
 
       var profile = this.props.profiles[id];
       var currentUser = this.props.user.currentUser;
 
       var defaultProfile = this.state.profile;
+
+      var profileFriends = profile != null ? profile.friends || [] : [];
+      var profileFriendRequests = profile != null ? profile.friendRequests || [] : [];
       var bannerUrl = profile == null ? defaultProfile.bannerImage : profile.bannerImage || defaultProfile.bannerImage;
       var bannerStyle = {
         backgroundImage: 'url(' + bannerUrl + ')',
@@ -57613,6 +57834,74 @@ var Profile = function (_Component) {
         ) : _react2.default.createElement(
           'div',
           null,
+          _react2.default.createElement('div', { className: 'list-group' }),
+          currentUser != null && currentUser.id === profile.id && currentUser.friendRequests ? currentUser.friendRequests.map(function (request) {
+            var requestedUser = _this7.props.profiles[request];
+            if (requestedUser == null) {
+              return;
+            }
+            return _react2.default.createElement(
+              'div',
+              {
+                key: requestedUser.id,
+                className: 'list-group-item list-group-item-action flex-column align-items-start'
+              },
+              _react2.default.createElement(
+                'div',
+                { className: 'row' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-8' },
+                  _react2.default.createElement(
+                    'h3',
+                    null,
+                    requestedUser.username
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-2' },
+                  _react2.default.createElement(
+                    'button',
+                    {
+                      onClick: function onClick() {
+                        return _this7.acceptRequest(requestedUser.id);
+                      },
+                      className: 'btn btn-primary'
+                    },
+                    'Accept'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-2' },
+                  _react2.default.createElement(
+                    'button',
+                    {
+                      onClick: function onClick() {
+                        return _this7.declineRequest(requestedUser.id);
+                      },
+                      className: 'btn btn-danger'
+                    },
+                    'Decline'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'row' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-12' },
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    'Has sent you a friend request'
+                  )
+                )
+              )
+            );
+          }) : null,
           _react2.default.createElement(
             'div',
             { className: 'jumbotron jumbotron-fluid', style: bannerStyle },
@@ -57652,7 +57941,7 @@ var Profile = function (_Component) {
               _react2.default.createElement(
                 'p',
                 { className: 'text-center text-muted' },
-                'User since: ',
+                'Became a User: ',
                 _utils.DateUtils.relativeTime(profile.timestamp)
               ),
               _react2.default.createElement('hr', { className: 'my-4' }),
@@ -57663,7 +57952,62 @@ var Profile = function (_Component) {
               )
             )
           ),
-          currentUser == null ? null : currentUser.id !== profile.id ? null : _react2.default.createElement(
+          profile.friends ? _react2.default.createElement(
+            'div',
+            { className: 'list-group' },
+            _react2.default.createElement(
+              'h2',
+              { className: 'text-center' },
+              'Friends'
+            ),
+            profile.friends.map(function (friendId) {
+              var friend = _this7.props.profiles[friendId];
+              if (friend == null) {
+                return;
+              }
+              return _react2.default.createElement(
+                _reactRouterDom.Link,
+                {
+                  to: '/profile/' + friend.id,
+                  key: friend.id,
+                  className: 'list-group-item list-group-item-action flex-column align-items-start col-md-12'
+                },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'text-center' },
+                  _react2.default.createElement(
+                    'h4',
+                    null,
+                    friend.username
+                  )
+                )
+              );
+            })
+          ) : null,
+          currentUser == null ? null : currentUser.id !== profile.id ? _react2.default.createElement(
+            'div',
+            { className: 'row justify-content-center', style: { marginBottom: '100px' } },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-6' },
+              profileFriendRequests.indexOf(currentUser.id) === -1 ? profileFriends.indexOf(currentUser.id) === -1 ? _react2.default.createElement(
+                'button',
+                {
+                  className: 'btn btn-primary btn-lg btn-block',
+                  onClick: this.addFriend.bind(this)
+                },
+                'Add Friend'
+              ) : _react2.default.createElement(
+                'button',
+                { className: 'btn btn-info btn-large btn-block' },
+                'You are Friends'
+              ) : _react2.default.createElement(
+                'button',
+                { className: 'btn btn-success btn-lg btn-block' },
+                'Pending Friend Request'
+              )
+            )
+          ) : _react2.default.createElement(
             'div',
             null,
             _react2.default.createElement(_view.UpdateProfile, {
@@ -57709,8 +58053,8 @@ var dispatchToProps = function dispatchToProps(dispatch) {
     getProfile: function getProfile(id) {
       return dispatch(_actions2.default.getProfile(id));
     },
-    updateProfile: function updateProfile(currentUser, params) {
-      return dispatch(_actions2.default.updateProfile(currentUser, params));
+    updateProfile: function updateProfile(entity, params) {
+      return dispatch(_actions2.default.updateProfile(entity, params));
     },
     deleteProfile: function deleteProfile(entity) {
       return dispatch(_actions2.default.deleteProfile(entity));
@@ -57723,6 +58067,9 @@ var dispatchToProps = function dispatchToProps(dispatch) {
     },
     logoutUser: function logoutUser() {
       return dispatch(_actions2.default.logoutUser());
+    },
+    fetchUsers: function fetchUsers(params) {
+      return dispatch(_actions2.default.fetchUsers(params));
     }
   };
 };
@@ -57810,7 +58157,7 @@ var Reply = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -57836,7 +58183,7 @@ var Reply = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -57858,7 +58205,7 @@ var Reply = function (_Component) {
         (0, _sweetalert2.default)({
           title: 'Oops...',
           text: 'Please Login or Register',
-          type: 'error'
+          icon: 'error'
         });
         return;
       }
@@ -58058,12 +58405,13 @@ var App = function App(_ref) {
   );
 };
 
+var loadData = function loadData(store) {
+  return store.dispatch(_actions2.default.currentUser());
+};
+
 exports.default = {
   component: App,
-  loadData: function loadData(_ref2) {
-    var dispatch = _ref2.dispatch;
-    return dispatch(_actions2.default.currentUser());
-  }
+  loadData: loadData
 };
 
 /***/ }),

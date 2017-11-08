@@ -27,7 +27,7 @@ class CreateReply extends Component {
       swal({
         title: 'Oops...',
         text: 'Please provide some text',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }

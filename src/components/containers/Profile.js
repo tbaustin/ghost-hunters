@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 
 import actions from '../../actions';
 import { UpdateProfile } from '../view';
 import { DateUtils } from '../../utils';
 
 class Profile extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       profile: {
         image:
@@ -23,21 +24,76 @@ class Profile extends Component {
     };
 
     this.deleteProfile = this.deleteProfile.bind(this);
+    this.fetchRequestsUsers = this.fetchRequestsUsers.bind(this);
+    this.acceptRequest = this.acceptRequest.bind(this);
+    this.declineRequest = this.declineRequest.bind(this);
+    this.fetchFriends = this.fetchFriends.bind(this);
   }
 
   componentDidMount() {
     const { id } = this.props.match.params;
+    const { currentUser } = this.props.user;
 
     if (this.props.profiles[id] != null) {
+      this.fetchRequestsUsers();
+      this.fetchFriends();
       return;
     }
 
     this.props
       .getProfile(id)
-      .then(() => {})
+      .then(() => {
+        this.fetchRequestsUsers();
+        this.fetchFriends();
+        return null;
+      })
       .catch(err => {
         console.log(err);
       });
+  }
+
+  fetchRequestsUsers() {
+    const { id } = this.props.match.params;
+    const { currentUser } = this.props.user;
+    const profile = this.props.profiles[id];
+
+    if (currentUser != null && currentUser.id === profile.id && currentUser.friendRequests) {
+      currentUser.friendRequests.map(request => {
+        if (this.props.profiles[request] != null) {
+          return;
+        }
+        this.props
+          .getProfile(request)
+          .then(data => {
+            return null;
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      });
+    }
+  }
+
+  fetchFriends() {
+    const { id } = this.props.match.params;
+    const profile = this.props.profiles[id];
+
+    if (profile.friends) {
+      profile.friends.map(friendId => {
+        if (this.props.profiles[friendId] != null) {
+          return;
+        }
+
+        this.props
+          .getProfile(friendId)
+          .then(() => {
+            return null;
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      });
+    }
   }
 
   createUpdatedProfile(params) {
@@ -49,7 +105,7 @@ class Profile extends Component {
       swal({
         title: 'Oops...',
         text: 'You do not own this profile',
-        type: 'error'
+        icon: 'error'
       });
 
       return;
@@ -61,7 +117,7 @@ class Profile extends Component {
         swal({
           title: `${response.username} Updated!`,
           text: 'Thank you for updating your profile',
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {
@@ -78,43 +134,187 @@ class Profile extends Component {
       swal({
         title: 'Oops...',
         text: 'You do not own this profile',
-        type: 'error'
+        icon: 'error'
       });
 
       return;
     }
 
     swal({
+      closeOnClickOutside: false,
+      closeOnEsc: false,
       title: 'Are you sure?',
-      text: 'Your Profile will be lost forever!',
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then(() => {
-      const userPosts = this.props.post.all.filter(p => p.profile.id === profile.id);
-      const userReplies = this.props.reply.all.filter(r => r.user.id === profile.id);
-      userPosts.map(post => {
-        this.props.deleteRecord(post);
-      });
-      userReplies.map(reply => {
-        this.props.deleteReply(reply);
-      });
-      this.props
-        .deleteProfile(profile)
-        .then(data => {
-          return this.props.logoutUser();
-        })
-        .then(data => {
-          this.props.history.push('/');
-          swal('Deleted!', 'Your Profile has been deleted.', 'success');
-          return null;
-        })
-        .catch(err => {
-          console.log(err);
+      text:
+        'All data related to profile will be deleted as well with the profile! If you wish to delete your profile you must type DELETE',
+      icon: 'warning',
+      dangerMode: true,
+      buttons: true,
+      content: 'input'
+    }).then(value => {
+      if (value === 'DELETE') {
+        const userPosts = this.props.post.all.filter(p => p.profile.id === profile.id);
+        const userReplies = this.props.reply.all.filter(r => r.user.id === profile.id);
+        const { currentUser } = this.props.user;
+        if (currentUser.friends != null) {
+          currentUser.friends.map(friendId => {
+            const friend = this.props.profiles[friendId];
+            if (friend == null) {
+              return;
+            }
+
+            const params = {};
+            const friendsArr = friend.friends;
+            const index = friendsArr.indexOf(currentUser.id);
+            if (index > -1) {
+              friendsArr.splice(index, 1);
+            }
+            params.friends = friendsArr;
+            this.props.updateProfile(friend, params);
+          });
+        }
+        userPosts.map(post => {
+          this.props.deleteRecord(post);
         });
+        userReplies.map(reply => {
+          this.props.deleteReply(reply);
+        });
+        this.props
+          .deleteProfile(profile)
+          .then(data => {
+            return this.props.logoutUser();
+          })
+          .then(data => {
+            this.props.history.push('/');
+            swal('Deleted!', 'Your Profile has been deleted.', 'success');
+            return null;
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      } else {
+        swal({
+          title: 'Profile not deleted',
+          text: 'Make sure you type "DELETE" with caps',
+          icon: 'error'
+        });
+      }
     });
+  }
+
+  addFriend() {
+    const { id } = this.props.match.params;
+    const profile = this.props.profiles[id];
+    const { currentUser } = this.props.user;
+    if (currentUser == null || profile == null) {
+      swal({
+        title: 'Oops...',
+        text: 'Must be logged in, and user must exist',
+        icon: 'error'
+      });
+      return;
+    }
+    const friendRequests = profile.friendRequests || [];
+    const params = {};
+    friendRequests.push(currentUser.id);
+    params.friendRequests = friendRequests;
+    this.props
+      .updateProfile(profile, params)
+      .then(() => {
+        swal({
+          title: 'Success',
+          text: 'Friend Request Sent',
+          icon: 'success'
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  acceptRequest(requestId) {
+    const { id } = this.props.match.params;
+    const profile = this.props.profiles[requestId];
+    const currentUserProfile = this.props.profiles[id];
+    const { currentUser } = this.props.user;
+
+    if (currentUser == null || currentUser.id !== currentUserProfile.id) {
+      return;
+    }
+
+    const reqArr = currentUser.friendRequests;
+    const index = reqArr.indexOf(requestId);
+
+    if (index > -1) {
+      reqArr.splice(index, 1);
+    }
+
+    // User's params
+    const userParams = {};
+    const userFriends = currentUser.friends || [];
+    if (userFriends.indexOf(requestId) === -1) {
+      userFriends.push(requestId);
+    }
+
+    userParams.friendRequest = reqArr;
+    userParams.friends = userFriends;
+
+    // Requested Friends params
+    const requestParams = {};
+    const requestFriends = profile.friends || [];
+    if (requestFriends.indexOf(currentUser.id) === -1) {
+      requestFriends.push(currentUser.id);
+    }
+
+    requestParams.friends = requestFriends;
+
+    this.props
+      .updateProfile(currentUser, userParams)
+      .then(() => {
+        return this.props.updateProfile(profile, requestParams);
+      })
+      .then(data => {
+        swal({
+          title: 'Friend Request Accepted',
+          text: `${data.username} is your friend`,
+          icon: 'success'
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  declineRequest(requestId) {
+    const { id } = this.props.match.params;
+    const profile = this.props.profiles[requestId];
+    const currentUserProfile = this.props.profiles[id];
+    const { currentUser } = this.props.user;
+
+    if (currentUser == null || currentUser.id !== currentUserProfile.id) {
+      return;
+    }
+
+    const reqArr = currentUser.friendRequests;
+    const index = reqArr.indexOf(requestId);
+
+    if (index > -1) {
+      reqArr.splice(index, 1);
+    }
+
+    const params = {};
+    params.friendRequests = reqArr;
+    this.props
+      .updateProfile(currentUser, params)
+      .then(() => {
+        swal({
+          title: 'Friend Request Declined',
+          text: 'User will not be your friend',
+          icon: 'error'
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -122,6 +322,9 @@ class Profile extends Component {
     const profile = this.props.profiles[id];
     const { currentUser } = this.props.user;
     const defaultProfile = this.state.profile;
+
+    const profileFriends = profile != null ? profile.friends || [] : [];
+    const profileFriendRequests = profile != null ? profile.friendRequests || [] : [];
     const bannerUrl =
       profile == null
         ? defaultProfile.bannerImage
@@ -149,6 +352,49 @@ class Profile extends Component {
           </div>
         ) : (
           <div>
+            <div className="list-group" />
+            {currentUser != null && currentUser.id === profile.id && currentUser.friendRequests
+              ? currentUser.friendRequests.map(request => {
+                  const requestedUser = this.props.profiles[request];
+                  if (requestedUser == null) {
+                    return;
+                  }
+                  return (
+                    <div
+                      key={requestedUser.id}
+                      className="list-group-item list-group-item-action flex-column align-items-start"
+                    >
+                      <div className="row">
+                        <div className="col-md-8">
+                          <h3>{requestedUser.username}</h3>
+                        </div>
+                        <div className="col-md-2">
+                          <button
+                            onClick={() => this.acceptRequest(requestedUser.id)}
+                            className="btn btn-primary"
+                          >
+                            Accept
+                          </button>
+                        </div>
+                        <div className="col-md-2">
+                          <button
+                            onClick={() => this.declineRequest(requestedUser.id)}
+                            className="btn btn-danger"
+                          >
+                            Decline
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="row">
+                        <div className="col-md-12">
+                          <p>Has sent you a friend request</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              : null}
             <div className="jumbotron jumbotron-fluid" style={bannerStyle}>
               <div className="container" style={nameStyle}>
                 <img
@@ -169,7 +415,7 @@ class Profile extends Component {
                   {profile.email || defaultProfile.email}
                 </p>
                 <p className="text-center text-muted">
-                  User since: {DateUtils.relativeTime(profile.timestamp)}
+                  Became a User: {DateUtils.relativeTime(profile.timestamp)}
                 </p>
                 <hr className="my-4" />
                 <p className="lead" style={{ border: '1px solid #e6e6e6', padding: '20px' }}>
@@ -177,7 +423,50 @@ class Profile extends Component {
                 </p>
               </div>
             </div>
-            {currentUser == null ? null : currentUser.id !== profile.id ? null : (
+            {profile.friends ? (
+              <div className="list-group">
+                <h2 className="text-center">Friends</h2>
+                {profile.friends.map(friendId => {
+                  const friend = this.props.profiles[friendId];
+                  if (friend == null) {
+                    return;
+                  }
+                  return (
+                    <Link
+                      to={`/profile/${friend.id}`}
+                      key={friend.id}
+                      className="list-group-item list-group-item-action flex-column align-items-start col-md-12"
+                    >
+                      <div className="text-center">
+                        <h4>{friend.username}</h4>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            ) : null}
+            {currentUser == null ? null : currentUser.id !== profile.id ? (
+              <div className="row justify-content-center" style={{ marginBottom: '100px' }}>
+                <div className="col-sm-6">
+                  {profileFriendRequests.indexOf(currentUser.id) === -1 ? (
+                    profileFriends.indexOf(currentUser.id) === -1 ? (
+                      <button
+                        className="btn btn-primary btn-lg btn-block"
+                        onClick={this.addFriend.bind(this)}
+                      >
+                        Add Friend
+                      </button>
+                    ) : (
+                      <button className="btn btn-info btn-large btn-block">You are Friends</button>
+                    )
+                  ) : (
+                    <button className="btn btn-success btn-lg btn-block">
+                      Pending Friend Request
+                    </button>
+                  )}
+                </div>
+              </div>
+            ) : (
               <div>
                 <UpdateProfile
                   currentProfile={profile}
@@ -214,11 +503,12 @@ const stateToProps = state => {
 const dispatchToProps = dispatch => {
   return {
     getProfile: id => dispatch(actions.getProfile(id)),
-    updateProfile: (currentUser, params) => dispatch(actions.updateProfile(currentUser, params)),
+    updateProfile: (entity, params) => dispatch(actions.updateProfile(entity, params)),
     deleteProfile: entity => dispatch(actions.deleteProfile(entity)),
     deleteRecord: entity => dispatch(actions.deleteRecord(entity)),
     deleteReply: entity => dispatch(actions.deleteReply(entity)),
-    logoutUser: () => dispatch(actions.logoutUser())
+    logoutUser: () => dispatch(actions.logoutUser()),
+    fetchUsers: params => dispatch(actions.fetchUsers(params))
   };
 };
 

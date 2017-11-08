@@ -28,7 +28,7 @@ class CreateAccount extends Component {
       swal({
         title: 'Oops...',
         text: 'You forgot your Username',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -36,7 +36,7 @@ class CreateAccount extends Component {
       swal({
         title: 'Oops...',
         text: 'You forgot your Password',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -50,7 +50,7 @@ class CreateAccount extends Component {
       swal({
         title: 'Oops...',
         text: 'You forgot your Username',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -58,7 +58,7 @@ class CreateAccount extends Component {
       swal({
         title: 'Oops...',
         text: 'You forgot your Password',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }

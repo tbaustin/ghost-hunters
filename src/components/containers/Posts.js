@@ -48,7 +48,7 @@ class Posts extends Component {
       swal({
         title: 'Oops...',
         text: 'Please Login or Register before posting',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -61,7 +61,7 @@ class Posts extends Component {
         swal({
           title: 'Post Created',
           text: `Title: ${data.title}`,
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {
@@ -72,6 +72,7 @@ class Posts extends Component {
   render() {
     const posts = this.props.post.all;
     const { currentUser } = this.props.user;
+    // console.log(currentUser);
     return (
       <div>
         {this.head()}

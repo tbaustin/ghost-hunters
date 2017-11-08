@@ -13,7 +13,11 @@ const App = ({ route }) => {
   );
 };
 
+const loadData = store => {
+  return store.dispatch(actions.currentUser());
+};
+
 export default {
   component: App,
-  loadData: ({ dispatch }) => dispatch(actions.currentUser())
+  loadData: loadData
 };

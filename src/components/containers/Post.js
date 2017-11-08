@@ -37,7 +37,7 @@ class Post extends Component {
       swal({
         title: 'Oops...',
         text: 'Must be owner of post',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -48,7 +48,7 @@ class Post extends Component {
         swal({
           title: 'Success',
           text: `${currentUser.username} Your post has been updated!`,
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {
@@ -65,7 +65,7 @@ class Post extends Component {
       swal({
         title: 'Oops...',
         text: 'Must be owner of post',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -78,7 +78,7 @@ class Post extends Component {
         swal({
           title: 'Post Delete',
           text: 'Please create a new post',
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {

@@ -46,11 +46,9 @@ export default {
     };
   },
 
-  updateProfile: (currentUser, params) => {
+  updateProfile: (entity, params) => {
     return dispatch => {
-      return dispatch(
-        TurboClient.putRequest('user', currentUser, params, constants.UPDATE_PROFILE)
-      );
+      return dispatch(TurboClient.putRequest('user', entity, params, constants.UPDATE_PROFILE));
     };
   },
 

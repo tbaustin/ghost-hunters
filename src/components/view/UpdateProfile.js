@@ -30,7 +30,7 @@ class UpdateProfile extends Component {
       swal({
         title: 'Unacceptable Image Type',
         text: 'Please only use .png .jpg .gif .jpeg',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -44,7 +44,7 @@ class UpdateProfile extends Component {
         swal({
           title: 'Image Uploaded',
           html: `<img src='${data.result.url}=s100' />`,
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {

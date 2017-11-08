@@ -36,7 +36,7 @@ class CreatePost extends Component {
       swal({
         title: 'Unacceptable Image Type',
         text: 'Please only use .png .jpg .gif .jpeg',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -50,7 +50,7 @@ class CreatePost extends Component {
         swal({
           title: 'Image Uploaded',
           html: `<img src='${data.result.url}=s100' />`,
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {
@@ -66,7 +66,7 @@ class CreatePost extends Component {
       swal({
         title: 'Unacceptable Video Type',
         text: 'Please only use .webm .ogg .mp4',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -82,7 +82,7 @@ class CreatePost extends Component {
         swal({
           title: 'Video Uploaded',
           text: `${data.result.name}`,
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {
@@ -97,7 +97,7 @@ class CreatePost extends Component {
       swal({
         title: 'Oops...',
         text: 'Please include a Title',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }
@@ -105,7 +105,7 @@ class CreatePost extends Component {
       swal({
         title: 'Oops...',
         text: 'Please include some text',
-        type: 'error'
+        icon: 'error'
       });
       return;
     }

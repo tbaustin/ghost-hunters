@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
     case constants.POST_CREATED:
       return {
         ...state,
-        all: state.all.concat(action.data),
+        all: [action.data, ...state.all],
         [action.data.id]: action.data
       };
 

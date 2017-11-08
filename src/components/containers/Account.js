@@ -27,7 +27,7 @@ class Account extends Component {
         swal({
           title: `${data.username}`,
           text: 'Thank you for joining',
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {
@@ -42,7 +42,7 @@ class Account extends Component {
         swal({
           title: `${data.username}`,
           text: 'Welcome Back!',
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {
@@ -57,7 +57,7 @@ class Account extends Component {
         swal({
           title: 'User Logged Out',
           text: 'We hope to see you again',
-          type: 'success'
+          icon: 'success'
         });
       })
       .catch(err => {
@@ -74,10 +74,18 @@ class Account extends Component {
         ) : (
           <div>
             <div className="row">
-              <div className="col-md-8">
-                <h3>
-                  <Link to={`/profile/${currentUser.id}`}>{currentUser.username}</Link>
-                </h3>
+              <div className="col-md-12">
+                <h2>
+                  <Link to={`/profile/${currentUser.id}`}>
+                    {currentUser.username}
+                    {'  '}
+                    {currentUser.friendRequests && currentUser.friendRequests.length > 0 ? (
+                      <span className="badge badge-primary">
+                        {currentUser.friendRequests.length} Request (s)
+                      </span>
+                    ) : null}
+                  </Link>
+                </h2>
               </div>
             </div>
             <div className="row">
