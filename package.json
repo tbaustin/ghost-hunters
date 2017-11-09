@@ -12,6 +12,7 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
+    "axios": "^0.17.0",
     "bluebird": "latest",
     "concurrently": "^3.5.0",
     "debug": "latest",

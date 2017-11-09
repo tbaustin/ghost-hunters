@@ -74,7 +74,7 @@ var Posts = function (_Component) {
         _react2.default.createElement(
           'title',
           null,
-          this.props.post.all.length + ' Posts Loaded'
+          (this.props.post.all.length || '') + ' Posts Loaded'
         ),
         _react2.default.createElement('meta', { property: 'og:title', content: 'Ghosts App' })
       );

@@ -271,9 +271,59 @@ var Profile = function (_Component) {
       });
     }
   }, {
+    key: 'deleteFriend',
+    value: function deleteFriend() {
+      var _this6 = this;
+
+      var id = this.props.match.params.id;
+
+      var profile = this.props.profiles[id];
+      var currentUser = this.props.user.currentUser;
+
+      if (currentUser == null || profile == null || currentUser.id == profile.id) {
+        (0, _sweetalert2.default)({
+          title: 'Oops...',
+          text: 'Must be logged in, and user must exist',
+          icon: 'error'
+        });
+        return;
+      }
+
+      // User's Friends
+      var userFriends = currentUser.friends;
+      var index = userFriends.indexOf(profile.id);
+      if (index > -1) {
+        userFriends.splice(index, 1);
+      }
+      var userParams = {};
+      userParams.friends = userFriends;
+
+      // Profile's Friends
+      var profileFriends = profile.friends;
+      var pIndex = profileFriends.indexOf(currentUser.id);
+      if (pIndex > -1) {
+        profileFriends.splice(pIndex, 1);
+      }
+      var profileParams = {};
+      profileParams.friends = profileFriends;
+
+      // Removing friend from each profiles
+      this.props.updateProfile(currentUser, userParams).then(function () {
+        return _this6.props.updateProfile(profile, profileParams);
+      }).then(function (data) {
+        (0, _sweetalert2.default)({
+          title: 'Friend Deleted',
+          text: data.username + ' is no longer your friend',
+          icon: 'success'
+        });
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }, {
     key: 'acceptRequest',
     value: function acceptRequest(requestId) {
-      var _this6 = this;
+      var _this7 = this;
 
       var id = this.props.match.params.id;
 
@@ -313,7 +363,7 @@ var Profile = function (_Component) {
       requestParams.friends = requestFriends;
 
       this.props.updateProfile(currentUser, userParams).then(function () {
-        return _this6.props.updateProfile(profile, requestParams);
+        return _this7.props.updateProfile(profile, requestParams);
       }).then(function (data) {
         (0, _sweetalert2.default)({
           title: 'Friend Request Accepted',
@@ -360,7 +410,7 @@ var Profile = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this7 = this;
+      var _this8 = this;
 
       var id = this.props.match.params.id;
 
@@ -403,7 +453,7 @@ var Profile = function (_Component) {
           null,
           _react2.default.createElement('div', { className: 'list-group' }),
           currentUser != null && currentUser.id === profile.id && currentUser.friendRequests ? currentUser.friendRequests.map(function (request) {
-            var requestedUser = _this7.props.profiles[request];
+            var requestedUser = _this8.props.profiles[request];
             if (requestedUser == null) {
               return;
             }
@@ -432,7 +482,7 @@ var Profile = function (_Component) {
                     'button',
                     {
                       onClick: function onClick() {
-                        return _this7.acceptRequest(requestedUser.id);
+                        return _this8.acceptRequest(requestedUser.id);
                       },
                       className: 'btn btn-primary'
                     },
@@ -446,7 +496,7 @@ var Profile = function (_Component) {
                     'button',
                     {
                       onClick: function onClick() {
-                        return _this7.declineRequest(requestedUser.id);
+                        return _this8.declineRequest(requestedUser.id);
                       },
                       className: 'btn btn-danger'
                     },
@@ -528,7 +578,7 @@ var Profile = function (_Component) {
               'Friends'
             ),
             profile.friends.map(function (friendId) {
-              var friend = _this7.props.profiles[friendId];
+              var friend = _this8.props.profiles[friendId];
               if (friend == null) {
                 return;
               }
@@ -566,8 +616,11 @@ var Profile = function (_Component) {
                 'Add Friend'
               ) : _react2.default.createElement(
                 'button',
-                { className: 'btn btn-info btn-large btn-block' },
-                'You are Friends'
+                {
+                  onClick: this.deleteFriend.bind(this),
+                  className: 'btn btn-danger btn-large btn-block'
+                },
+                'Delete Friend'
               ) : _react2.default.createElement(
                 'button',
                 { className: 'btn btn-success btn-lg btn-block' },

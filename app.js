@@ -20,6 +20,6 @@ app.use(renderer);
 // set routes
 app.use('/', index);
 app.use('/api', api); // sample API Routes
-app.use('/user', users);
+app.use('/users', users);
 
 module.exports = app;

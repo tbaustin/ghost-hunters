@@ -2,12 +2,35 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import actions from '../../actions';
+import { MapComponent } from '../../utils';
 
 class GhostMap extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isMarkerShown: false
+    };
+  }
+
+  delayedShowMarker() {
+    setTimeout(() => {
+      this.setState({ isMarkerShown: true });
+    }, 3000);
+  }
+
+  handleMarkerClick = () => {
+    this.setState({ isMarkerShown: false });
+    this.delayedShowMarker();
+  };
+
   render() {
     return (
       <div>
-        <h2>This is the Map</h2>
+        <MapComponent
+          isMarkerShown={this.state.isMarkerShown}
+          onMarkerClick={this.handleMarkerClick}
+        />
       </div>
     );
   }

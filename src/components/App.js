@@ -2,7 +2,7 @@ import React from 'react';
 import { renderRoutes } from 'react-router-config';
 
 import Header from './partials/Header';
-import actions from '../actions';
+import apiActions from '../actions/apiActions';
 
 const App = ({ route }) => {
   return (
@@ -14,7 +14,7 @@ const App = ({ route }) => {
 };
 
 const loadData = store => {
-  return store.dispatch(actions.currentUser());
+  return store.dispatch(apiActions.apiCurrentUser());
 };
 
 export default {

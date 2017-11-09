@@ -5,6 +5,7 @@ const router = vertex.router();
 
 router.post('/register', (req, res) => {
   const body = req.body;
+  console.log(body);
 
   // very basic validation:
   if (body.username.length == 0) {
@@ -146,6 +147,41 @@ router.get('/:userid', (req, res) => {
         confirmation: 'fail',
         message: err.message,
         details: 'In the URL above, enter the ID number of an existing user from your project.'
+      });
+    });
+});
+
+router.put('/update/:userid', (req, res) => {
+  const { body } = req;
+  turbo
+    .updateEntity('user', req.params.id, body)
+    .then(data => {
+      res.json({
+        confirmation: 'success',
+        user: data
+      });
+    })
+    .catch(err => {
+      res.json({
+        confirmation: 'fail',
+        message: err.message
+      });
+    });
+});
+
+router.delete('/delete/:userid', (req, res) => {
+  turbo
+    .removeEntity('user', req.params.id)
+    .then(data => {
+      res.json({
+        confirmation: 'success',
+        user: data
+      });
+    })
+    .catch(err => {
+      res.json({
+        confirmation: 'fail',
+        message: err.message
       });
     });
 });

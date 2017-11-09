@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 
 import { CreateAccount } from '../view';
 import actions from '../../actions';
+import apiActions from '../../actions/apiActions';
 
 class Account extends Component {
   componentDidMount() {
     if (this.props.user.currentUser == null) {
       this.props
-        .currentUser()
+        .apiCurrentUser()
         .then(data => {
           return null;
         })
@@ -22,7 +23,7 @@ class Account extends Component {
 
   register(params) {
     this.props
-      .register(params)
+      .apiRegister(params)
       .then(data => {
         swal({
           title: `${data.username}`,
@@ -37,7 +38,7 @@ class Account extends Component {
 
   login(params) {
     this.props
-      .loginUser(params)
+      .apiLogin(params)
       .then(data => {
         swal({
           title: `${data.username}`,
@@ -116,8 +117,11 @@ const stateToProps = state => {
 const dispatchToProps = dispatch => {
   return {
     register: params => dispatch(actions.register(params)),
+    apiRegister: params => dispatch(apiActions.apiRegister(params)),
     loginUser: params => dispatch(actions.loginUser(params)),
+    apiLogin: params => dispatch(apiActions.apiLogin(params)),
     currentUser: () => dispatch(actions.currentUser()),
+    apiCurrentUser: () => dispatch(apiActions.apiCurrentUser()),
     logoutUser: () => dispatch(actions.logoutUser())
   };
 };
