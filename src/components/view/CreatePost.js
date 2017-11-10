@@ -136,6 +136,53 @@ class CreatePost extends Component {
           />
         </div>
         <div className="row">
+          <div className="form-group col-md-12">
+            <label htmlFor="text">Address</label>
+            <input
+              onChange={this.updatePost.bind(this, 'address')}
+              className="form-control"
+              id="address"
+              type="text"
+              placeholder="Address"
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="form-group col-md-6">
+            <label htmlFor="text">City</label>
+            <input
+              onChange={this.updatePost.bind(this, 'city')}
+              className="form-control"
+              id="city"
+              type="text"
+              placeholder="City"
+            />
+          </div>
+          <div className="form-group col-md-6">
+            <label htmlFor="text">State</label>
+            <input
+              onChange={this.updatePost.bind(this, 'state')}
+              className="form-control"
+              id="state"
+              type="text"
+              placeholder="State"
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="form-group col-md-6">
+            <label htmlFor="text">Zip Code</label>
+            <input
+              onChange={this.updatePost.bind(this, 'zipCode')}
+              className="form-control"
+              id="zipCode"
+              type="text"
+              placeholder="Zip Code"
+            />
+          </div>
+        </div>
+
+        <div className="row">
           <div className="col-sm-6">
             <Dropzone className="btn btn-success" onDrop={this.imageUpload.bind(this)}>
               Upload Image

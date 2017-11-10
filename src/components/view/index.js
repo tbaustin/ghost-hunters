@@ -4,5 +4,14 @@ import CreateReply from './CreateReply';
 import UpdateProfile from './UpdateProfile';
 import UpdateRecord from './UpdateRecord';
 import UpdateReply from './UpdateReply';
+import MarkerInfo from './MarkerInfo';
 
-export { CreatePost, CreateAccount, CreateReply, UpdateProfile, UpdateRecord, UpdateReply };
+export {
+  CreatePost,
+  CreateAccount,
+  CreateReply,
+  UpdateProfile,
+  UpdateRecord,
+  UpdateReply,
+  MarkerInfo
+};

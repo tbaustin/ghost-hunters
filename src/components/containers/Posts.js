@@ -128,6 +128,7 @@ class Posts extends Component {
                 <div className="row">
                   <div className="col-sm-12">
                     <h3>Create a Post</h3>
+                    <p>Include an address if you want post on the Map</p>
                   </div>
                 </div>
                 <div className="row">
