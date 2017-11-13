@@ -131,7 +131,6 @@ class Posts extends Component {
   render() {
     const posts = this.props.post.all;
     const { currentUser } = this.props.user;
-    console.log(posts);
     return (
       <div>
         {this.head()}

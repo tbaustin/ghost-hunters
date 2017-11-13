@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import actions from '../../actions';
 import { MapComponent, Geocode } from '../../utils';
+import { requireAuth } from '../HOC';
 
 class GhostMap extends Component {
   constructor(props) {
@@ -227,6 +228,6 @@ export default {
         enableHighAccuracy: false
       },
       userDecisionTimeout: 5000
-    })(GhostMap)
+    })(requireAuth(GhostMap))
   )
 };

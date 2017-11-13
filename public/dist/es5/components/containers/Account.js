@@ -24,6 +24,10 @@ var _actions = require('../../actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
+var _apiActions = require('../../actions/apiActions');
+
+var _apiActions2 = _interopRequireDefault(_apiActions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45,7 +49,7 @@ var Account = function (_Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       if (this.props.user.currentUser == null) {
-        this.props.currentUser().then(function (data) {
+        this.props.apiCurrentUser().then(function (data) {
           return null;
         }).catch(function (err) {
           console.log(err);
@@ -55,7 +59,7 @@ var Account = function (_Component) {
   }, {
     key: 'register',
     value: function register(params) {
-      this.props.register(params).then(function (data) {
+      this.props.apiRegister(params).then(function (data) {
         (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Thank you for joining',
@@ -68,7 +72,7 @@ var Account = function (_Component) {
   }, {
     key: 'login',
     value: function login(params) {
-      this.props.loginUser(params).then(function (data) {
+      this.props.apiLogin(params).then(function (data) {
         (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Welcome Back!',
@@ -167,11 +171,20 @@ var dispatchToProps = function dispatchToProps(dispatch) {
     register: function register(params) {
       return dispatch(_actions2.default.register(params));
     },
+    apiRegister: function apiRegister(params) {
+      return dispatch(_apiActions2.default.apiRegister(params));
+    },
     loginUser: function loginUser(params) {
       return dispatch(_actions2.default.loginUser(params));
     },
+    apiLogin: function apiLogin(params) {
+      return dispatch(_apiActions2.default.apiLogin(params));
+    },
     currentUser: function currentUser() {
       return dispatch(_actions2.default.currentUser());
+    },
+    apiCurrentUser: function apiCurrentUser() {
+      return dispatch(_apiActions2.default.apiCurrentUser());
     },
     logoutUser: function logoutUser() {
       return dispatch(_actions2.default.logoutUser());

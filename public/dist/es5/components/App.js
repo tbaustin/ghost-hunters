@@ -14,9 +14,9 @@ var _Header = require('./partials/Header');
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _actions = require('../actions');
+var _apiActions = require('../actions/apiActions');
 
-var _actions2 = _interopRequireDefault(_actions);
+var _apiActions2 = _interopRequireDefault(_apiActions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32,7 +32,7 @@ var App = function App(_ref) {
 };
 
 var loadData = function loadData(store) {
-  return store.dispatch(_actions2.default.currentUser());
+  return store.dispatch(_apiActions2.default.apiCurrentUser());
 };
 
 exports.default = {

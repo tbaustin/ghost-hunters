@@ -8,18 +8,7 @@ import actions from '../../actions';
 import apiActions from '../../actions/apiActions';
 
 class Account extends Component {
-  componentDidMount() {
-    if (this.props.user.currentUser == null) {
-      this.props
-        .apiCurrentUser()
-        .then(data => {
-          return null;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  }
+  componentDidMount() {}
 
   register(params) {
     this.props
@@ -68,6 +57,7 @@ class Account extends Component {
 
   render() {
     const { currentUser } = this.props.user;
+    console.log(currentUser);
     return (
       <div>
         {currentUser == null ? (

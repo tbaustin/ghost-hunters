@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.UpdateReply = exports.UpdateRecord = exports.UpdateProfile = exports.CreateReply = exports.CreateAccount = exports.CreatePost = undefined;
+exports.MarkerInfo = exports.UpdateReply = exports.UpdateRecord = exports.UpdateProfile = exports.CreateReply = exports.CreateAccount = exports.CreatePost = undefined;
 
 var _CreatePost = require('./CreatePost');
 
@@ -29,6 +29,10 @@ var _UpdateReply = require('./UpdateReply');
 
 var _UpdateReply2 = _interopRequireDefault(_UpdateReply);
 
+var _MarkerInfo = require('./MarkerInfo');
+
+var _MarkerInfo2 = _interopRequireDefault(_MarkerInfo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.CreatePost = _CreatePost2.default;
@@ -37,3 +41,4 @@ exports.CreateReply = _CreateReply2.default;
 exports.UpdateProfile = _UpdateProfile2.default;
 exports.UpdateRecord = _UpdateRecord2.default;
 exports.UpdateReply = _UpdateReply2.default;
+exports.MarkerInfo = _MarkerInfo2.default;

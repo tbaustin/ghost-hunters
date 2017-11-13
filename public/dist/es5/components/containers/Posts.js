@@ -41,10 +41,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Posts = function (_Component) {
   _inherits(Posts, _Component);
 
-  function Posts() {
+  function Posts(props) {
     _classCallCheck(this, Posts);
 
-    return _possibleConstructorReturn(this, (Posts.__proto__ || Object.getPrototypeOf(Posts)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Posts.__proto__ || Object.getPrototypeOf(Posts)).call(this, props));
+
+    _this.state = {
+      friendPosts: [],
+      showFriendPosts: false
+    };
+    _this.renderPosts = _this.renderPosts.bind(_this);
+    return _this;
   }
 
   _createClass(Posts, [{
@@ -66,6 +73,31 @@ var Posts = function (_Component) {
       }
     }
   }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      var currentUser = this.props.user.currentUser;
+
+      var posts = this.props.post.all;
+
+      if (currentUser != null && currentUser.friends) {
+        var friendArr = [];
+        currentUser.friends.map(function (friendId) {
+          posts.filter(function (post) {
+            return post.profile.id === friendId;
+          }).map(function (foundPost) {
+            friendArr.push(foundPost);
+          });
+        });
+
+        if (this.state.friendPosts.length === friendArr.length) {
+          return;
+        }
+        this.setState({
+          friendPosts: friendArr
+        });
+      }
+    }
+  }, {
     key: 'head',
     value: function head() {
       return _react2.default.createElement(
@@ -74,7 +106,7 @@ var Posts = function (_Component) {
         _react2.default.createElement(
           'title',
           null,
-          (this.props.post.all.length || '') + ' Posts Loaded'
+          (this.props.post.all ? this.props.post.all.length : '') + ' Posts Loaded'
         ),
         _react2.default.createElement('meta', { property: 'og:title', content: 'Ghosts App' })
       );
@@ -106,16 +138,105 @@ var Posts = function (_Component) {
       });
     }
   }, {
+    key: 'renderPosts',
+    value: function renderPosts(post) {
+      return _react2.default.createElement(
+        'div',
+        { key: post.id, className: 'card text-white bg-dark mb-3', style: { maxWidth: '20rem' } },
+        _react2.default.createElement(
+          'div',
+          { className: 'card-header' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/post/' + post.id },
+            _react2.default.createElement('img', { className: 'card-img-top', src: post.image, alt: 'Card image cap' })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'card-body text-white' },
+          _react2.default.createElement(
+            'h4',
+            { className: 'card-title', style: { color: 'white' } },
+            post.title.length > 17 ? post.title.substr(0, 17) + '...' : post.title
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: 'card-text' },
+            post.text.length > 30 ? post.text.substr(0, 30) + '...' : post.text
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            '~',
+            ' ',
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/profile/' + post.profile.id, style: { color: 'white' } },
+              _react2.default.createElement(
+                'strong',
+                null,
+                post.profile.username || 'Anonymous'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'card-footer' },
+          _react2.default.createElement(
+            'small',
+            { className: 'text-muted' },
+            _utils.DateUtils.relativeTime(post.timestamp)
+          )
+        )
+      );
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var posts = this.props.post.all;
       var currentUser = this.props.user.currentUser;
-      // console.log(currentUser);
 
+      console.log(posts);
       return _react2.default.createElement(
         'div',
         null,
         this.head(),
+        _react2.default.createElement(
+          'div',
+          { className: 'row', style: { marginBottom: '20px' } },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-2' },
+            _react2.default.createElement(
+              'button',
+              {
+                onClick: function onClick() {
+                  return _this2.setState({ showFriendPosts: false });
+                },
+                className: 'btn btn-secondary'
+              },
+              'ALL POSTS'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-2' },
+            _react2.default.createElement(
+              'button',
+              {
+                onClick: function onClick() {
+                  return _this2.setState({ showFriendPosts: true });
+                },
+                className: 'btn btn-secondary'
+              },
+              'FRIENDS POSTS'
+            )
+          )
+        ),
         _react2.default.createElement(
           'div',
           { className: 'row' },
@@ -125,62 +246,10 @@ var Posts = function (_Component) {
             _react2.default.createElement(
               'div',
               { className: 'card-columns' },
-              posts == null ? null : posts.map(function (post) {
-                return _react2.default.createElement(
-                  'div',
-                  {
-                    key: post.id,
-                    className: 'card text-white bg-dark mb-3',
-                    style: { maxWidth: '20rem' }
-                  },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'card-header' },
-                    _react2.default.createElement(
-                      _reactRouterDom.Link,
-                      { to: '/post/' + post.id },
-                      _react2.default.createElement('img', { className: 'card-img-top', src: post.image, alt: 'Card image cap' })
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'card-body text-white' },
-                    _react2.default.createElement(
-                      'h4',
-                      { className: 'card-title', style: { color: 'white' } },
-                      post.title.length > 17 ? post.title.substr(0, 17) + '...' : post.title
-                    ),
-                    _react2.default.createElement(
-                      'p',
-                      { className: 'card-text' },
-                      post.text.length > 30 ? post.text.substr(0, 30) + '...' : post.text
-                    ),
-                    _react2.default.createElement(
-                      'span',
-                      null,
-                      '~',
-                      ' ',
-                      _react2.default.createElement(
-                        _reactRouterDom.Link,
-                        { to: '/profile/' + post.profile.id, style: { color: 'white' } },
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          post.profile.username || 'Anonymous'
-                        )
-                      )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'card-footer' },
-                    _react2.default.createElement(
-                      'small',
-                      { className: 'text-muted' },
-                      _utils.DateUtils.relativeTime(post.timestamp)
-                    )
-                  )
-                );
+              posts == null ? null : this.state.showFriendPosts ? this.state.friendPosts.map(function (post) {
+                return _this2.renderPosts(post);
+              }) : posts.map(function (post) {
+                return _this2.renderPosts(post);
               })
             )
           ),
@@ -209,6 +278,11 @@ var Posts = function (_Component) {
                     'h3',
                     null,
                     'Create a Post'
+                  ),
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    'Include an address if you want post on the Map'
                   )
                 )
               ),

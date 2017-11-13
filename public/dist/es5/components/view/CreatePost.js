@@ -191,6 +191,82 @@ var CreatePost = function (_Component) {
           { className: 'row' },
           _react2.default.createElement(
             'div',
+            { className: 'form-group col-md-12' },
+            _react2.default.createElement(
+              'label',
+              { htmlFor: 'text' },
+              'Address'
+            ),
+            _react2.default.createElement('input', {
+              onChange: this.updatePost.bind(this, 'address'),
+              className: 'form-control',
+              id: 'address',
+              type: 'text',
+              placeholder: 'Address'
+            })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group col-md-6' },
+            _react2.default.createElement(
+              'label',
+              { htmlFor: 'text' },
+              'City'
+            ),
+            _react2.default.createElement('input', {
+              onChange: this.updatePost.bind(this, 'city'),
+              className: 'form-control',
+              id: 'city',
+              type: 'text',
+              placeholder: 'City'
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group col-md-6' },
+            _react2.default.createElement(
+              'label',
+              { htmlFor: 'text' },
+              'State'
+            ),
+            _react2.default.createElement('input', {
+              onChange: this.updatePost.bind(this, 'state'),
+              className: 'form-control',
+              id: 'state',
+              type: 'text',
+              placeholder: 'State'
+            })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group col-md-6' },
+            _react2.default.createElement(
+              'label',
+              { htmlFor: 'text' },
+              'Zip Code'
+            ),
+            _react2.default.createElement('input', {
+              onChange: this.updatePost.bind(this, 'zipCode'),
+              className: 'form-control',
+              id: 'zipCode',
+              type: 'text',
+              placeholder: 'Zip Code'
+            })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
             { className: 'col-sm-6' },
             _react2.default.createElement(
               _reactDropzone2.default,
