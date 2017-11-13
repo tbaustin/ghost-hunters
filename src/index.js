@@ -7,7 +7,7 @@ import { renderRoutes } from 'react-router-config';
 import store from './stores';
 import routes from './routes';
 
-const initialState = window.INITIAL_STATE;
+const initialState = typeof window === 'undefined' ? {} : window.INITIAL_STATE;
 
 ReactDOM.hydrate(
   <Provider store={store.configure(initialState)}>

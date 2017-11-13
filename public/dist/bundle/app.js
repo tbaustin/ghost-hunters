@@ -5681,6 +5681,65 @@ $exports.store = store;
 
 /***/ }),
 /* 21 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(359);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(361);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "HashRouter", function() { return __WEBPACK_IMPORTED_MODULE_1__HashRouter__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(136);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(363);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(366);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NavLink", function() { return __WEBPACK_IMPORTED_MODULE_4__NavLink__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(368);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_5__Prompt__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(370);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(137);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(84);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_8__Router__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(376);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_9__StaticRouter__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(378);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return __WEBPACK_IMPORTED_MODULE_10__Switch__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(380);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return __WEBPACK_IMPORTED_MODULE_11__matchPath__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(381);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_12__withRouter__["a"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -6604,7 +6663,7 @@ request.put = function(url, data, fn) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global, setImmediate) {/* @preserve
@@ -12233,7 +12292,7 @@ module.exports = ret;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(36), __webpack_require__(90).setImmediate))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12275,7 +12334,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12287,65 +12346,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
-
-
-
-
-
-
-/***/ }),
-/* 25 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(359);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(361);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "HashRouter", function() { return __WEBPACK_IMPORTED_MODULE_1__HashRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(136);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(363);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(366);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NavLink", function() { return __WEBPACK_IMPORTED_MODULE_4__NavLink__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(368);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_5__Prompt__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(370);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(137);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(84);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_8__Router__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(376);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_9__StaticRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(378);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return __WEBPACK_IMPORTED_MODULE_10__Switch__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(380);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return __WEBPACK_IMPORTED_MODULE_11__matchPath__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(381);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_12__withRouter__["a"]; });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -13284,7 +13284,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(23);
+var emptyFunction = __webpack_require__(24);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -17386,7 +17386,7 @@ module.exports = isKey;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(23);
+var emptyFunction = __webpack_require__(24);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -19733,7 +19733,7 @@ module.exports = isObject;
 /* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Promise=__webpack_require__(22),superagent=__webpack_require__(21),IndexDB=function(e){var r=e;return{dbTransaction:function(e){if(window){if(null==r.site_id){var n=new Error("Please Set Your TURBO_APP_ID");return void e(n,null)}if(r.site_id.length<20){var n=new Error("Please Set Your TURBO_APP_ID");return void e(n,null)}var t=window.indexedDB||window.mozIndexedDB||window.webkitIndexedDB||window.msIndexedDB||window.shimIndexedDB;if(null==t)return null;if(void 0==t)return null;var o=t.open("turbo",1);return o.onupgradeneeded=function(){var e=o.result;e.createObjectStore("MyObjectStore",{keyPath:"id"})},o.onsuccess=function(){var r=o.result,n=r.transaction("MyObjectStore","readwrite"),t=n.objectStore("MyObjectStore");e(null,t),n.oncomplete=function(){r.close()}},o}}}};module.exports=IndexDB;
+var Promise=__webpack_require__(23),superagent=__webpack_require__(22),IndexDB=function(e){var r=e;return{dbTransaction:function(e){if(window){if(null==r.site_id){var n=new Error("Please Set Your TURBO_APP_ID");return void e(n,null)}if(r.site_id.length<20){var n=new Error("Please Set Your TURBO_APP_ID");return void e(n,null)}var t=window.indexedDB||window.mozIndexedDB||window.webkitIndexedDB||window.msIndexedDB||window.shimIndexedDB;if(null==t)return null;if(void 0==t)return null;var o=t.open("turbo",1);return o.onupgradeneeded=function(){var e=o.result;e.createObjectStore("MyObjectStore",{keyPath:"id"})},o.onsuccess=function(){var r=o.result,n=r.transaction("MyObjectStore","readwrite"),t=n.objectStore("MyObjectStore");e(null,t),n.oncomplete=function(){r.close()}},o}}}};module.exports=IndexDB;
 
 /***/ }),
 /* 146 */
@@ -33122,9 +33122,9 @@ var _reactDom = __webpack_require__(76);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(24);
+var _reactRedux = __webpack_require__(25);
 
-var _reactRouterDom = __webpack_require__(25);
+var _reactRouterDom = __webpack_require__(21);
 
 var _reactRouterConfig = __webpack_require__(141);
 
@@ -33138,7 +33138,7 @@ var _routes2 = _interopRequireDefault(_routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var initialState = window.INITIAL_STATE;
+var initialState = typeof window === 'undefined' ? {} : window.INITIAL_STATE;
 
 _reactDom2.default.hydrate(_react2.default.createElement(
   _reactRedux.Provider,
@@ -33168,7 +33168,7 @@ _reactDom2.default.hydrate(_react2.default.createElement(
  This source code is licensed under the MIT license found in the
  LICENSE file in the root directory of this source tree.
 */
-var f=__webpack_require__(35),p=__webpack_require__(51);__webpack_require__(29);var r=__webpack_require__(23);
+var f=__webpack_require__(35),p=__webpack_require__(51);__webpack_require__(29);var r=__webpack_require__(24);
 function t(a){for(var b=arguments.length-1,d="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,e=0;e<b;e++)d+="\x26args[]\x3d"+encodeURIComponent(arguments[e+1]);b=Error(d+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var u={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function v(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}v.prototype.isReactComponent={};v.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?t("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};v.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function w(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}function x(){}x.prototype=v.prototype;var y=w.prototype=new x;y.constructor=w;f(y,v.prototype);y.isPureReactComponent=!0;function z(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}var A=z.prototype=new x;A.constructor=z;f(A,v.prototype);A.unstable_isAsyncReactComponent=!0;A.render=function(){return this.props.children};
@@ -33209,7 +33209,7 @@ var objectAssign$1 = __webpack_require__(35);
 var require$$0 = __webpack_require__(52);
 var emptyObject = __webpack_require__(51);
 var invariant = __webpack_require__(29);
-var emptyFunction = __webpack_require__(23);
+var emptyFunction = __webpack_require__(24);
 var checkPropTypes = __webpack_require__(74);
 
 /**
@@ -34905,7 +34905,7 @@ module.exports = ReactEntry;
  LICENSE file in the root directory of this source tree.
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1);__webpack_require__(29);var l=__webpack_require__(77),n=__webpack_require__(35),ba=__webpack_require__(119),ca=__webpack_require__(23),da=__webpack_require__(51),ea=__webpack_require__(78),fa=__webpack_require__(120),ha=__webpack_require__(121),ia=__webpack_require__(122);
+var aa=__webpack_require__(1);__webpack_require__(29);var l=__webpack_require__(77),n=__webpack_require__(35),ba=__webpack_require__(119),ca=__webpack_require__(24),da=__webpack_require__(51),ea=__webpack_require__(78),fa=__webpack_require__(120),ha=__webpack_require__(121),ia=__webpack_require__(122);
 function w(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:w("227");
 function ja(a){switch(a){case "svg":return"http://www.w3.org/2000/svg";case "math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}
 var ka={Namespaces:{html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"},getIntrinsicNamespace:ja,getChildNamespace:function(a,b){return null==a||"http://www.w3.org/1999/xhtml"===a?ja(b):"http://www.w3.org/2000/svg"===a&&"foreignObject"===b?"http://www.w3.org/1999/xhtml":a}},la=null,oa={};
@@ -35237,7 +35237,7 @@ var _assign = __webpack_require__(35);
 var EventListener = __webpack_require__(119);
 var require$$0 = __webpack_require__(52);
 var hyphenateStyleName = __webpack_require__(329);
-var emptyFunction = __webpack_require__(23);
+var emptyFunction = __webpack_require__(24);
 var camelizeStyleName = __webpack_require__(331);
 var performanceNow = __webpack_require__(333);
 var propTypes = __webpack_require__(2);
@@ -52671,7 +52671,7 @@ module.exports = performance || {};
 
 
 
-var emptyFunction = __webpack_require__(23);
+var emptyFunction = __webpack_require__(24);
 var invariant = __webpack_require__(29);
 var warning = __webpack_require__(52);
 var assign = __webpack_require__(35);
@@ -53221,7 +53221,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 
-var emptyFunction = __webpack_require__(23);
+var emptyFunction = __webpack_require__(24);
 var invariant = __webpack_require__(29);
 var ReactPropTypesSecret = __webpack_require__(75);
 
@@ -57810,13 +57810,13 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(24);
+var _reactRedux = __webpack_require__(25);
 
 var _sweetalert = __webpack_require__(19);
 
 var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
-var _reactRouterDom = __webpack_require__(25);
+var _reactRouterDom = __webpack_require__(21);
 
 var _reactHelmet = __webpack_require__(142);
 
@@ -57841,10 +57841,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Posts = function (_Component) {
   _inherits(Posts, _Component);
 
-  function Posts() {
+  function Posts(props) {
     _classCallCheck(this, Posts);
 
-    return _possibleConstructorReturn(this, (Posts.__proto__ || Object.getPrototypeOf(Posts)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Posts.__proto__ || Object.getPrototypeOf(Posts)).call(this, props));
+
+    _this.state = {
+      friendPosts: [],
+      showFriendPosts: false
+    };
+    _this.renderPosts = _this.renderPosts.bind(_this);
+    return _this;
   }
 
   _createClass(Posts, [{
@@ -57866,6 +57873,31 @@ var Posts = function (_Component) {
       }
     }
   }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      var currentUser = this.props.user.currentUser;
+
+      var posts = this.props.post.all;
+
+      if (currentUser != null && currentUser.friends) {
+        var friendArr = [];
+        currentUser.friends.map(function (friendId) {
+          posts.filter(function (post) {
+            return post.profile.id === friendId;
+          }).map(function (foundPost) {
+            friendArr.push(foundPost);
+          });
+        });
+
+        if (this.state.friendPosts.length === friendArr.length) {
+          return;
+        }
+        this.setState({
+          friendPosts: friendArr
+        });
+      }
+    }
+  }, {
     key: 'head',
     value: function head() {
       return _react2.default.createElement(
@@ -57874,7 +57906,7 @@ var Posts = function (_Component) {
         _react2.default.createElement(
           'title',
           null,
-          (this.props.post.all.length || '') + ' Posts Loaded'
+          (this.props.post.all ? this.props.post.all.length : '') + ' Posts Loaded'
         ),
         _react2.default.createElement('meta', { property: 'og:title', content: 'Ghosts App' })
       );
@@ -57906,16 +57938,105 @@ var Posts = function (_Component) {
       });
     }
   }, {
+    key: 'renderPosts',
+    value: function renderPosts(post) {
+      return _react2.default.createElement(
+        'div',
+        { key: post.id, className: 'card text-white bg-dark mb-3', style: { maxWidth: '20rem' } },
+        _react2.default.createElement(
+          'div',
+          { className: 'card-header' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/post/' + post.id },
+            _react2.default.createElement('img', { className: 'card-img-top', src: post.image, alt: 'Card image cap' })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'card-body text-white' },
+          _react2.default.createElement(
+            'h4',
+            { className: 'card-title', style: { color: 'white' } },
+            post.title.length > 17 ? post.title.substr(0, 17) + '...' : post.title
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: 'card-text' },
+            post.text.length > 30 ? post.text.substr(0, 30) + '...' : post.text
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            '~',
+            ' ',
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/profile/' + post.profile.id, style: { color: 'white' } },
+              _react2.default.createElement(
+                'strong',
+                null,
+                post.profile.username || 'Anonymous'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'card-footer' },
+          _react2.default.createElement(
+            'small',
+            { className: 'text-muted' },
+            _utils.DateUtils.relativeTime(post.timestamp)
+          )
+        )
+      );
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var posts = this.props.post.all;
       var currentUser = this.props.user.currentUser;
-      // console.log(currentUser);
 
+      console.log(posts);
       return _react2.default.createElement(
         'div',
         null,
         this.head(),
+        _react2.default.createElement(
+          'div',
+          { className: 'row', style: { marginBottom: '20px' } },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-2' },
+            _react2.default.createElement(
+              'button',
+              {
+                onClick: function onClick() {
+                  return _this2.setState({ showFriendPosts: false });
+                },
+                className: 'btn btn-secondary'
+              },
+              'ALL POSTS'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-2' },
+            _react2.default.createElement(
+              'button',
+              {
+                onClick: function onClick() {
+                  return _this2.setState({ showFriendPosts: true });
+                },
+                className: 'btn btn-secondary'
+              },
+              'FRIENDS POSTS'
+            )
+          )
+        ),
         _react2.default.createElement(
           'div',
           { className: 'row' },
@@ -57925,62 +58046,10 @@ var Posts = function (_Component) {
             _react2.default.createElement(
               'div',
               { className: 'card-columns' },
-              posts == null ? null : posts.map(function (post) {
-                return _react2.default.createElement(
-                  'div',
-                  {
-                    key: post.id,
-                    className: 'card text-white bg-dark mb-3',
-                    style: { maxWidth: '20rem' }
-                  },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'card-header' },
-                    _react2.default.createElement(
-                      _reactRouterDom.Link,
-                      { to: '/post/' + post.id },
-                      _react2.default.createElement('img', { className: 'card-img-top', src: post.image, alt: 'Card image cap' })
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'card-body text-white' },
-                    _react2.default.createElement(
-                      'h4',
-                      { className: 'card-title', style: { color: 'white' } },
-                      post.title.length > 17 ? post.title.substr(0, 17) + '...' : post.title
-                    ),
-                    _react2.default.createElement(
-                      'p',
-                      { className: 'card-text' },
-                      post.text.length > 30 ? post.text.substr(0, 30) + '...' : post.text
-                    ),
-                    _react2.default.createElement(
-                      'span',
-                      null,
-                      '~',
-                      ' ',
-                      _react2.default.createElement(
-                        _reactRouterDom.Link,
-                        { to: '/profile/' + post.profile.id, style: { color: 'white' } },
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          post.profile.username || 'Anonymous'
-                        )
-                      )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'card-footer' },
-                    _react2.default.createElement(
-                      'small',
-                      { className: 'text-muted' },
-                      _utils.DateUtils.relativeTime(post.timestamp)
-                    )
-                  )
-                );
+              posts == null ? null : this.state.showFriendPosts ? this.state.friendPosts.map(function (post) {
+                return _this2.renderPosts(post);
+              }) : posts.map(function (post) {
+                return _this2.renderPosts(post);
               })
             )
           ),
@@ -59801,7 +59870,7 @@ exports.default = {
 /* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var superagent=__webpack_require__(21),Promise=__webpack_require__(22),StripeUtils=__webpack_require__(416),Auth=__webpack_require__(417),IndexDB=__webpack_require__(145),Functions=__webpack_require__(418),Platform=__webpack_require__(419),TurboStorage=__webpack_require__(420),TurboEmail=__webpack_require__(421),Vector=__webpack_require__(422),Microservice=function(e){const r="https://api.turbo360.co";var t={site_id:e.site_id,turbo_url:"https://www.turbo360.co",base_url:r},i=function(e,i){return null==i&&(i={}),i.site=t.site_id,new Promise(function(t,o){return null==i.site?void o(new Error("Please Set Your TURBO_APP_ID")):0==i.site.length?void o(new Error("Please Set Your TURBO_APP_ID")):void superagent.get(r+"/api/"+e.toLowerCase()).query(i).set("Accept","application/json").end(function(e,r){if(e)return void o(e);if("fail"==r.body.confirmation)return void o(new Error(r.body.message));var i=r.body.results;t(i)})})},o=function(e,i){return new Promise(function(o,n){return null==t.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):t.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):void superagent.get(r+"/api/"+e.toLowerCase()+"/"+i).query(null).set("Accept","application/json").end(function(e,r){if(e)return void n(e);if("fail"==r.body.confirmation)return void n(new Error(r.body.message));var t=r.body.result;o(t)})})},n=function(e,i){return new Promise(function(o,n){return null==t.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):t.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==i?void n(new Error("Post parameters required.")):(i.site=t.site_id,void superagent.post(r+"/api/"+e.toLowerCase()).send(i).set("Accept","application/json").end(function(e,r){if(e)return void n(e);if("fail"==r.body.confirmation)return void n(new Error(r.body.message));var t=r.body.result||r.body.results;o(t)}))})},u=function(e,i,o){return new Promise(function(n,u){return null==t.site_id?void u(new Error("Please Set Your TURBO_APP_ID")):t.site_id.length<20?void u(new Error("Please Set Your TURBO_APP_ID")):null==o?void u(new Error("Post parameters required.")):(Object.keys(o).forEach(function(e,r){var t=o[e];i[e]=t}),void superagent.put(r+"/api/"+e.toLowerCase()+"/"+i.id).send(i).set("Accept","application/json").end(function(e,r){if(e)return void u(e);if("fail"==r.body.confirmation)return void u(new Error(r.body.message));var t=r.body.result||r.body.results;n(t)}))})},s=function(e,i){return new Promise(function(o,n){return null==t.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):t.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):void superagent.delete(r+"/api/"+e+"/"+i.id).set("Accept","application/json").end(function(e,r){if(e)return void n(e);if("fail"==r.body.confirmation)return void n(new Error(r.body.message));var t=r.body.result||r.body.results;o(t)})})},a=StripeUtils(t),l=Auth(t),d=Functions(t),c=Platform(t),p=TurboStorage(t),f=TurboEmail(t),P=Vector(t);return{fetch:i,fetchOne:o,create:n,update:u,remove:s,login:l.login,logout:l.logout,createUser:l.createUser,currentUser:l.currentUser,sendEmail:f.sendEmail,createStripeCharge:a.createStripeCharge,createStripeAccount:a.createStripeAccount,recurringCharge:a.recurringCharge,initializeStripe:a.initializeStripe,submitStripeCharge:a.submitStripeCharge,executeFunction:d.executeFunction,site:c.site,fetchSites:c.fetchSites,uploadFile:p.uploadFile,runVector:P.runVector}};module.exports=Microservice;
+var superagent=__webpack_require__(22),Promise=__webpack_require__(23),StripeUtils=__webpack_require__(416),Auth=__webpack_require__(417),IndexDB=__webpack_require__(145),Functions=__webpack_require__(418),Platform=__webpack_require__(419),TurboStorage=__webpack_require__(420),TurboEmail=__webpack_require__(421),Vector=__webpack_require__(422),Microservice=function(e){const r="https://api.turbo360.co";var t={site_id:e.site_id,turbo_url:"https://www.turbo360.co",base_url:r},i=function(e,i){return null==i&&(i={}),i.site=t.site_id,new Promise(function(t,o){return null==i.site?void o(new Error("Please Set Your TURBO_APP_ID")):0==i.site.length?void o(new Error("Please Set Your TURBO_APP_ID")):void superagent.get(r+"/api/"+e.toLowerCase()).query(i).set("Accept","application/json").end(function(e,r){if(e)return void o(e);if("fail"==r.body.confirmation)return void o(new Error(r.body.message));var i=r.body.results;t(i)})})},o=function(e,i){return new Promise(function(o,n){return null==t.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):t.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):void superagent.get(r+"/api/"+e.toLowerCase()+"/"+i).query(null).set("Accept","application/json").end(function(e,r){if(e)return void n(e);if("fail"==r.body.confirmation)return void n(new Error(r.body.message));var t=r.body.result;o(t)})})},n=function(e,i){return new Promise(function(o,n){return null==t.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):t.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==i?void n(new Error("Post parameters required.")):(i.site=t.site_id,void superagent.post(r+"/api/"+e.toLowerCase()).send(i).set("Accept","application/json").end(function(e,r){if(e)return void n(e);if("fail"==r.body.confirmation)return void n(new Error(r.body.message));var t=r.body.result||r.body.results;o(t)}))})},u=function(e,i,o){return new Promise(function(n,u){return null==t.site_id?void u(new Error("Please Set Your TURBO_APP_ID")):t.site_id.length<20?void u(new Error("Please Set Your TURBO_APP_ID")):null==o?void u(new Error("Post parameters required.")):(Object.keys(o).forEach(function(e,r){var t=o[e];i[e]=t}),void superagent.put(r+"/api/"+e.toLowerCase()+"/"+i.id).send(i).set("Accept","application/json").end(function(e,r){if(e)return void u(e);if("fail"==r.body.confirmation)return void u(new Error(r.body.message));var t=r.body.result||r.body.results;n(t)}))})},s=function(e,i){return new Promise(function(o,n){return null==t.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):t.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):void superagent.delete(r+"/api/"+e+"/"+i.id).set("Accept","application/json").end(function(e,r){if(e)return void n(e);if("fail"==r.body.confirmation)return void n(new Error(r.body.message));var t=r.body.result||r.body.results;o(t)})})},a=StripeUtils(t),l=Auth(t),d=Functions(t),c=Platform(t),p=TurboStorage(t),f=TurboEmail(t),P=Vector(t);return{fetch:i,fetchOne:o,create:n,update:u,remove:s,login:l.login,logout:l.logout,createUser:l.createUser,currentUser:l.currentUser,sendEmail:f.sendEmail,createStripeCharge:a.createStripeCharge,createStripeAccount:a.createStripeAccount,recurringCharge:a.recurringCharge,initializeStripe:a.initializeStripe,submitStripeCharge:a.submitStripeCharge,executeFunction:d.executeFunction,site:c.site,fetchSites:c.fetchSites,uploadFile:p.uploadFile,runVector:P.runVector}};module.exports=Microservice;
 
 /***/ }),
 /* 411 */
@@ -60920,44 +60989,44 @@ module.exports = Agent;
 /* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Promise=__webpack_require__(22),superagent=__webpack_require__(21),StripeUtils=function(e){var r=e;return{createStripeAccount:function(e){return new Promise(function(i,n){return null==r.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==e.stripeRef?void n(new Error("Missing stripeRef")):null==e.client?void n(new Error("Missing Client Parameter")):null==e.stripeToken?void n(new Error("Missing StripeToken Parameter")):void e.stripeRef.customers.create({description:e.client._id.toString(),source:e.stripeToken},function(r,t){if(r)return void n(r);var o=t.sources.data[0];e.client.stripeId=t.id,e.client.creditCard={id:t.id,lastFour:o.last4,exp_month:o.exp_month,exp_year:o.exp_year,brand:o.brand},i(e.client)})})},createStripeCharge:function(e){return new Promise(function(i,n){return null==r.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==e.stripeRef?void n(new Error("Missing stripeRef")):null==e.amount?void n(new Error("Missing Amount Parameter")):null==e.stripeToken?void n(new Error("Missing StripeToken Parameter")):null==e.description?void n(new Error("Missing Description Parameter")):void e.stripeRef.charges.create({amount:100*e.amount,currency:"usd",source:e.stripeToken,description:e.description},function(e,r){if(e)return void n(e);i(r)})})},recurringCharge:function(e){return new Promise(function(i,n){return null==r.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==e.stripeRef?void n(new Error("Missing stripeRef")):null==e.amount?void n(new Error("Missing amount parameter")):null==e.customerId?void n(new Error("Missing customerId parameter")):null==e.description?void n(new Error("Missing description parameter")):void e.stripeRef.charges.create({amount:100*e.amount,currency:"usd",customer:e.customerId,description:e.description},function(e,r){if(e)return void n(e);i(r)})})},initializeStripe:function(e){return new Promise(function(i,n){if(null==r.site_id)return void n(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void n(new Error("Please Set Your TURBO_APP_ID"));if(null==e.stripePublicKey)return void n(new Error("Missing stripePublicKey"));if(null==e.text)return void n(new Error("Missing text"));if(null==e.callback)return void n(new Error("Missing callback"));var t=e.image||"/images/logo_260.png",o=e.withAddress||!0;i(StripeCheckout.configure({key:e.stripePublicKey,image:t,address:o,locale:"auto",panelLabel:e.text,token:function(r){e.callback(r)},closed:function(){e.onClosed&&e.onClosed()}}))})},submitStripeCharge:function(e,i){return new Promise(function(n,t){if(null==r.site_id)return void t(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void t(new Error("Please Set Your TURBO_APP_ID"));var o={site:r.site_id,exec:"create-stripe-charge",stripeToken:e.id,email:e.email,name:e.card.name,amount:i.price,description:i.description};superagent.post(r.base_url+"/functions").send(o).set("Accept","application/json").end(function(e,r){return e?void t(e):"success"!=r.body.confirmation?void t({message:r.body.message}):void n(r.body)})})}}};module.exports=StripeUtils;
+var Promise=__webpack_require__(23),superagent=__webpack_require__(22),StripeUtils=function(e){var r=e;return{createStripeAccount:function(e){return new Promise(function(i,n){return null==r.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==e.stripeRef?void n(new Error("Missing stripeRef")):null==e.client?void n(new Error("Missing Client Parameter")):null==e.stripeToken?void n(new Error("Missing StripeToken Parameter")):void e.stripeRef.customers.create({description:e.client._id.toString(),source:e.stripeToken},function(r,t){if(r)return void n(r);var o=t.sources.data[0];e.client.stripeId=t.id,e.client.creditCard={id:t.id,lastFour:o.last4,exp_month:o.exp_month,exp_year:o.exp_year,brand:o.brand},i(e.client)})})},createStripeCharge:function(e){return new Promise(function(i,n){return null==r.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==e.stripeRef?void n(new Error("Missing stripeRef")):null==e.amount?void n(new Error("Missing Amount Parameter")):null==e.stripeToken?void n(new Error("Missing StripeToken Parameter")):null==e.description?void n(new Error("Missing Description Parameter")):void e.stripeRef.charges.create({amount:100*e.amount,currency:"usd",source:e.stripeToken,description:e.description},function(e,r){if(e)return void n(e);i(r)})})},recurringCharge:function(e){return new Promise(function(i,n){return null==r.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==e.stripeRef?void n(new Error("Missing stripeRef")):null==e.amount?void n(new Error("Missing amount parameter")):null==e.customerId?void n(new Error("Missing customerId parameter")):null==e.description?void n(new Error("Missing description parameter")):void e.stripeRef.charges.create({amount:100*e.amount,currency:"usd",customer:e.customerId,description:e.description},function(e,r){if(e)return void n(e);i(r)})})},initializeStripe:function(e){return new Promise(function(i,n){if(null==r.site_id)return void n(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void n(new Error("Please Set Your TURBO_APP_ID"));if(null==e.stripePublicKey)return void n(new Error("Missing stripePublicKey"));if(null==e.text)return void n(new Error("Missing text"));if(null==e.callback)return void n(new Error("Missing callback"));var t=e.image||"/images/logo_260.png",o=e.withAddress||!0;i(StripeCheckout.configure({key:e.stripePublicKey,image:t,address:o,locale:"auto",panelLabel:e.text,token:function(r){e.callback(r)},closed:function(){e.onClosed&&e.onClosed()}}))})},submitStripeCharge:function(e,i){return new Promise(function(n,t){if(null==r.site_id)return void t(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void t(new Error("Please Set Your TURBO_APP_ID"));var o={site:r.site_id,exec:"create-stripe-charge",stripeToken:e.id,email:e.email,name:e.card.name,amount:i.price,description:i.description};superagent.post(r.base_url+"/functions").send(o).set("Accept","application/json").end(function(e,r){return e?void t(e):"success"!=r.body.confirmation?void t({message:r.body.message}):void n(r.body)})})}}};module.exports=StripeUtils;
 
 /***/ }),
 /* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Promise=__webpack_require__(22),superagent=__webpack_require__(21),IndexDB=__webpack_require__(145),Auth=function(e){var r=e;return{login:function(e){return new Promise(function(n,t){return null==r.site_id?void t(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void t(new Error("Please Set Your TURBO_APP_ID")):null==e?void t(new Error("Post parameters required.")):(e.site=r.site_id,void superagent.post(r.base_url+"/auth/login").send(e).set("Accept","application/json").end(function(e,i){if(e)return void t(e);var o=i.body;if(console.log("LOGIN: "+JSON.stringify(o)),"success"!=o.confirmation){var u=o.message||"Login Failed";return void t(new Error(u))}var s=o.user||o.result,d=IndexDB(r);if(null==d)return void n(s);d.dbTransaction(function(e,i){if(e)return void t(e);i.put({id:r.site_id,token:o.token}),n(s)})}))})},logout:function(){return new Promise(function(e,n){if(null==r.site_id)return void n(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void n(new Error("Please Set Your TURBO_APP_ID"));var t=IndexDB(r);if(null==t)return void e(null);t.dbTransaction(function(t,i){if(t)return void n(t);var o=i.delete(r.site_id);o.onsuccess=function(){console.log("Token Removed"),e(null)},o.onerror=function(e){n(e.target)}})})},currentUser:function(){return new Promise(function(e,n){var t=IndexDB(r);if(null==t)return void e(null);t.dbTransaction(function(t,i){if(t)return void n(t);var o=i.get(r.site_id);o.onsuccess=function(){if(null==o.result)return void n(new Error("Not Logged In"));superagent.get(r.base_url+"/auth/currentuser").query(null).set("Accept","application/json").set("turbo-token",o.result.token).end(function(r,t){if(r)return void n(r);if("success"!=t.body.confirmation)return void n(new Error(t.body.message));var i=t.body.user||t.body.result;e(i)})},o.onerror=function(e){n(e.target)}})})},createUser:function(e){return new Promise(function(n,t){return null==r.site_id?void t(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void t(new Error("Please Set Your TURBO_APP_ID")):null==e?void t(new Error("Post parameters required.")):(e.site=r.site_id,void superagent.post(r.base_url+"/auth/createuser").send(e).set("Accept","application/json").end(function(e,i){if(e)return void t(e);var o=i.body;if(console.log("TURBO NPM - CREATE USER: "+JSON.stringify(o)),"success"!=o.confirmation){var u=o.message||"Registration Failed";return void t(new Error(u))}var s=o.user||o.result,d=IndexDB(r);if(null==d)return void n(s);d.dbTransaction(function(e,i){if(e)return void t(e);i.put({id:r.site_id,token:o.token}),n(s)})}))})}}};module.exports=Auth;
+var Promise=__webpack_require__(23),superagent=__webpack_require__(22),IndexDB=__webpack_require__(145),Auth=function(e){var r=e;return{login:function(e){return new Promise(function(n,t){return null==r.site_id?void t(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void t(new Error("Please Set Your TURBO_APP_ID")):null==e?void t(new Error("Post parameters required.")):(e.site=r.site_id,void superagent.post(r.base_url+"/auth/login").send(e).set("Accept","application/json").end(function(e,i){if(e)return void t(e);var o=i.body;if(console.log("LOGIN: "+JSON.stringify(o)),"success"!=o.confirmation){var u=o.message||"Login Failed";return void t(new Error(u))}var s=o.user||o.result,d=IndexDB(r);if(null==d)return void n(s);d.dbTransaction(function(e,i){if(e)return void t(e);i.put({id:r.site_id,token:o.token}),n(s)})}))})},logout:function(){return new Promise(function(e,n){if(null==r.site_id)return void n(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void n(new Error("Please Set Your TURBO_APP_ID"));var t=IndexDB(r);if(null==t)return void e(null);t.dbTransaction(function(t,i){if(t)return void n(t);var o=i.delete(r.site_id);o.onsuccess=function(){console.log("Token Removed"),e(null)},o.onerror=function(e){n(e.target)}})})},currentUser:function(){return new Promise(function(e,n){var t=IndexDB(r);if(null==t)return void e(null);t.dbTransaction(function(t,i){if(t)return void n(t);var o=i.get(r.site_id);o.onsuccess=function(){if(null==o.result)return void n(new Error("Not Logged In"));superagent.get(r.base_url+"/auth/currentuser").query(null).set("Accept","application/json").set("turbo-token",o.result.token).end(function(r,t){if(r)return void n(r);if("success"!=t.body.confirmation)return void n(new Error(t.body.message));var i=t.body.user||t.body.result;e(i)})},o.onerror=function(e){n(e.target)}})})},createUser:function(e){return new Promise(function(n,t){return null==r.site_id?void t(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void t(new Error("Please Set Your TURBO_APP_ID")):null==e?void t(new Error("Post parameters required.")):(e.site=r.site_id,void superagent.post(r.base_url+"/auth/createuser").send(e).set("Accept","application/json").end(function(e,i){if(e)return void t(e);var o=i.body;if(console.log("TURBO NPM - CREATE USER: "+JSON.stringify(o)),"success"!=o.confirmation){var u=o.message||"Registration Failed";return void t(new Error(u))}var s=o.user||o.result,d=IndexDB(r);if(null==d)return void n(s);d.dbTransaction(function(e,i){if(e)return void t(e);i.put({id:r.site_id,token:o.token}),n(s)})}))})}}};module.exports=Auth;
 
 /***/ }),
 /* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Promise=__webpack_require__(22),superagent=__webpack_require__(21),Functions=function(e){var r=e;return{executeFunction:function(e){return new Promise(function(n,i){return r.site_id.length<20?void i(new Error("Please Set Your TURBO_APP_ID")):null==e?void i(new Error("Post parameters required.")):null==e.exec?void i(new Error("Missing Exec Parameter")):(e.site=r.site_id,void superagent.post(r.base_url+"/functions").send(parameters).set("Accept","application/json").end(function(e,r){if(e)return void i(e);var t=r.body;if("success"!=t.confirmation)return void i(new Error(t.message));n(t)}))})}}};module.exports=Functions;
+var Promise=__webpack_require__(23),superagent=__webpack_require__(22),Functions=function(e){var r=e;return{executeFunction:function(e){return new Promise(function(n,i){return r.site_id.length<20?void i(new Error("Please Set Your TURBO_APP_ID")):null==e?void i(new Error("Post parameters required.")):null==e.exec?void i(new Error("Missing Exec Parameter")):(e.site=r.site_id,void superagent.post(r.base_url+"/functions").send(parameters).set("Accept","application/json").end(function(e,r){if(e)return void i(e);var t=r.body;if("success"!=t.confirmation)return void i(new Error(t.message));n(t)}))})}}};module.exports=Functions;
 
 /***/ }),
 /* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Promise=__webpack_require__(22),superagent=__webpack_require__(21),Platform=function(e){var r=e;return{site:function(){return new Promise(function(e,t){if(null==r.site_id)return void t(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void t(new Error("Please Set Your TURBO_APP_ID"));var i=r.turbo_url+"/api/site/"+r.site_id;superagent.get(i).query(null).set("Accept","application/json").end(function(r,i){if(r)return void t(r);var n=i.body;if("success"!=n.confirmation)return void t(new Error(n.message));e(n.result)})})},fetchSites:function(e){return new Promise(function(t,i){if(null==r.site_id)return void i(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void i(new Error("Please Set Your TURBO_APP_ID"));var n=r.turbo_url+"/api/site";superagent.get(n).query(e).set("Accept","application/json").end(function(e,r){if(e)return void i(e);var n=r.body;if("success"!=n.confirmation)return void i(new Error(n.message));var o=n.results||n.result;t(o)})})}}};module.exports=Platform;
+var Promise=__webpack_require__(23),superagent=__webpack_require__(22),Platform=function(e){var r=e;return{site:function(){return new Promise(function(e,t){if(null==r.site_id)return void t(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void t(new Error("Please Set Your TURBO_APP_ID"));var i=r.turbo_url+"/api/site/"+r.site_id;superagent.get(i).query(null).set("Accept","application/json").end(function(r,i){if(r)return void t(r);var n=i.body;if("success"!=n.confirmation)return void t(new Error(n.message));e(n.result)})})},fetchSites:function(e){return new Promise(function(t,i){if(null==r.site_id)return void i(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void i(new Error("Please Set Your TURBO_APP_ID"));var n=r.turbo_url+"/api/site";superagent.get(n).query(e).set("Accept","application/json").end(function(e,r){if(e)return void i(e);var n=r.body;if("success"!=n.confirmation)return void i(new Error(n.message));var o=n.results||n.result;t(o)})})}}};module.exports=Platform;
 
 /***/ }),
 /* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Promise=__webpack_require__(22),superagent=__webpack_require__(21),TurboStorage=function(e){var n=e;return{uploadFile:function(e){return new Promise(function(t,r){if(null==e)return void r(new Error("Missing file"));if(null==e.name)return void r(new Error("Missing file name"));if(null==e.type)return void r(new Error("Missing file type"));var i={site:n.site_id,exec:"upload-string",filename:e.name,filetype:e.type};superagent.post(n.base_url+"/functions").send(i).set("Content-Type","application/json").end(function(i,o){if(i)return void r(i);var s=o.body;if("success"!=s.confirmation)return void r(new Error(s.message));var u=s.result;if(-1==e.type.indexOf("image"))return void superagent.put(u).send(e).set("Content-Type",e.type).end(function(i,o){if(i)return void r(i);var u={site:n.site_id,name:e.name,type:e.type,size:e.size,url:"https://storage.turbo360.co/"+s.site.slug+"/"+e.name};superagent.post(n.turbo_url+"/api/blob").send(u).set("Accept","application/json").end(function(e,n){if(e)return void r(e);t(n.body)})});var a=superagent.post(u);a.attach("file",e),a.end(function(i,o){if(i)return void r(i);var s=o.body.image,u={site:n.site_id,name:e.name,type:e.type,size:e.size,url:s.address};superagent.post(n.turbo_url+"/api/blob").send(u).set("Accept","application/json").end(function(e,n){if(e)return void r(e);t(n.body)})})})})}}};module.exports=TurboStorage;
+var Promise=__webpack_require__(23),superagent=__webpack_require__(22),TurboStorage=function(e){var n=e;return{uploadFile:function(e){return new Promise(function(t,r){if(null==e)return void r(new Error("Missing file"));if(null==e.name)return void r(new Error("Missing file name"));if(null==e.type)return void r(new Error("Missing file type"));var i={site:n.site_id,exec:"upload-string",filename:e.name,filetype:e.type};superagent.post(n.base_url+"/functions").send(i).set("Content-Type","application/json").end(function(i,o){if(i)return void r(i);var s=o.body;if("success"!=s.confirmation)return void r(new Error(s.message));var u=s.result;if(-1==e.type.indexOf("image"))return void superagent.put(u).send(e).set("Content-Type",e.type).end(function(i,o){if(i)return void r(i);var u={site:n.site_id,name:e.name,type:e.type,size:e.size,url:"https://storage.turbo360.co/"+s.site.slug+"/"+e.name};superagent.post(n.turbo_url+"/api/blob").send(u).set("Accept","application/json").end(function(e,n){if(e)return void r(e);t(n.body)})});var a=superagent.post(u);a.attach("file",e),a.end(function(i,o){if(i)return void r(i);var s=o.body.image,u={site:n.site_id,name:e.name,type:e.type,size:e.size,url:s.address};superagent.post(n.turbo_url+"/api/blob").send(u).set("Accept","application/json").end(function(e,n){if(e)return void r(e);t(n.body)})})})})}}};module.exports=TurboStorage;
 
 /***/ }),
 /* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Promise=__webpack_require__(22),superagent=__webpack_require__(21),TurboEmail=function(e){var r=e;return{sendEmail:function(i){return new Promise(function(n,o){return null==e.site_id?void o(new Error("Please Set Your TURBO_APP_ID")):e.site_id.length<20?void o(new Error("Please Set Your TURBO_APP_ID")):null==i?void o(new Error("Post parameters required.")):(i.site=e.site_id,i.exec="sendemail",void superagent.post(r.base_url+"/functions").send(i).set("Accept","application/json").end(function(e,r){return e?void o(e):"fail"==r.body.confirmation?void o(new Error(r.body.message)):void n(r.body.result)}))})}}};module.exports=TurboEmail;
+var Promise=__webpack_require__(23),superagent=__webpack_require__(22),TurboEmail=function(e){var r=e;return{sendEmail:function(i){return new Promise(function(n,o){return null==e.site_id?void o(new Error("Please Set Your TURBO_APP_ID")):e.site_id.length<20?void o(new Error("Please Set Your TURBO_APP_ID")):null==i?void o(new Error("Post parameters required.")):(i.site=e.site_id,i.exec="sendemail",void superagent.post(r.base_url+"/functions").send(i).set("Accept","application/json").end(function(e,r){return e?void o(e):"fail"==r.body.confirmation?void o(new Error(r.body.message)):void n(r.body.result)}))})}}};module.exports=TurboEmail;
 
 /***/ }),
 /* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-var Promise=__webpack_require__(22),superagent=__webpack_require__(21),TURBO_VECTOR_API_KEY_HEADER="Turbo-Vector-API-Key",parsePayload=function(e){try{return JSON.parse(e)}catch(r){return e}},Vector=function(e){return{runVector:function(e){return new Promise(function(r,t){if(null==e.app)return void t(new Error("Please specify vector host app - {name: APP}"));if(e.app.length<6)return void t(new Error("Please specify vector host app - {name: APP}"));if(null==e.name)return void t(new Error("Please specify vector name - {name: VECTOR_NAME}"));if(0==e.name.length)return void t(new Error("Please specify vector name - {name: VECTOR_NAME}"));var o=e.query||{},n=e.method||"get",a={method:n.toUpperCase()};null!=e.key&&(a["Turbo-Vector-API-Key"]=e.key);var u="https://production.turbo360-vector.com/"+e.app+"/"+e.name;if("get"==n.toLowerCase())return void superagent.get(u).query(o).set(a).end(function(e,o){if(e){var n=o.text||o.body;return null==n?void t(e):void r(parsePayload(n))}var a=o.status;if(a<200||a>299)return void t(new Error(JSON.stringify(o)));var n=o.text||o.body;r(parsePayload(n))});n.toLowerCase(),n.toLowerCase(),n.toLowerCase()})}}};module.exports=Vector;
+var Promise=__webpack_require__(23),superagent=__webpack_require__(22),TURBO_VECTOR_API_KEY_HEADER="Turbo-Vector-API-Key",parsePayload=function(e){try{return JSON.parse(e)}catch(r){return e}},Vector=function(e){return{runVector:function(e){return new Promise(function(r,t){if(null==e.app)return void t(new Error("Please specify vector host app - {name: APP}"));if(e.app.length<6)return void t(new Error("Please specify vector host app - {name: APP}"));if(null==e.name)return void t(new Error("Please specify vector name - {name: VECTOR_NAME}"));if(0==e.name.length)return void t(new Error("Please specify vector name - {name: VECTOR_NAME}"));var o=e.query||{},n=e.method||"get",a={method:n.toUpperCase()};null!=e.key&&(a["Turbo-Vector-API-Key"]=e.key);var u="https://production.turbo360-vector.com/"+e.app+"/"+e.name;if("get"==n.toLowerCase())return void superagent.get(u).query(o).set(a).end(function(e,o){if(e){var n=o.text||o.body;return null==n?void t(e):void r(parsePayload(n))}var a=o.status;if(a<200||a>299)return void t(new Error(JSON.stringify(o)));var n=o.text||o.body;r(parsePayload(n))});n.toLowerCase(),n.toLowerCase(),n.toLowerCase()})}}};module.exports=Vector;
 
 /***/ }),
 /* 423 */
@@ -74797,7 +74866,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(25);
+var _reactRouterDom = __webpack_require__(21);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -74874,13 +74943,13 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(24);
+var _reactRedux = __webpack_require__(25);
 
 var _sweetalert = __webpack_require__(19);
 
 var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
-var _reactRouterDom = __webpack_require__(25);
+var _reactRouterDom = __webpack_require__(21);
 
 var _view = __webpack_require__(38);
 
@@ -74913,7 +74982,7 @@ var Account = function (_Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       if (this.props.user.currentUser == null) {
-        this.props.currentUser().then(function (data) {
+        this.props.apiCurrentUser().then(function (data) {
           return null;
         }).catch(function (err) {
           console.log(err);
@@ -74923,7 +74992,7 @@ var Account = function (_Component) {
   }, {
     key: 'register',
     value: function register(params) {
-      this.props.register(params).then(function (data) {
+      this.props.apiRegister(params).then(function (data) {
         (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Thank you for joining',
@@ -74936,7 +75005,7 @@ var Account = function (_Component) {
   }, {
     key: 'login',
     value: function login(params) {
-      this.props.loginUser(params).then(function (data) {
+      this.props.apiLogin(params).then(function (data) {
         (0, _sweetalert2.default)({
           title: '' + data.username,
           text: 'Welcome Back!',
@@ -75075,9 +75144,9 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(24);
+var _reactRedux = __webpack_require__(25);
 
-var _reactRouterDom = __webpack_require__(25);
+var _reactRouterDom = __webpack_require__(21);
 
 var _sweetalert = __webpack_require__(19);
 
@@ -75358,13 +75427,13 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(24);
+var _reactRedux = __webpack_require__(25);
 
 var _sweetalert = __webpack_require__(19);
 
 var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
-var _reactRouterDom = __webpack_require__(25);
+var _reactRouterDom = __webpack_require__(21);
 
 var _actions = __webpack_require__(34);
 
@@ -76068,13 +76137,13 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(24);
+var _reactRedux = __webpack_require__(25);
 
 var _sweetalert = __webpack_require__(19);
 
 var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
-var _reactRouterDom = __webpack_require__(25);
+var _reactRouterDom = __webpack_require__(21);
 
 var _view = __webpack_require__(38);
 
@@ -76352,11 +76421,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(24);
+var _reactRedux = __webpack_require__(25);
 
 var _reactHelmet = __webpack_require__(142);
 
-var _reactRouterDom = __webpack_require__(25);
+var _reactRouterDom = __webpack_require__(21);
 
 var _actions = __webpack_require__(34);
 
@@ -76555,7 +76624,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(24);
+var _reactRedux = __webpack_require__(25);
 
 var _geolib = __webpack_require__(658);
 
@@ -76648,7 +76717,7 @@ var GhostMap = function (_Component) {
           });
           return _this2.createMarkersWithinRadius(props.posts.all, _this2.state.radius, response.data.lat, response.data.lon);
         }).then(function (data) {
-          _this2.detState({
+          _this2.setState({
             markers: data
           });
         }).catch(function (err) {
@@ -76697,12 +76766,7 @@ var GhostMap = function (_Component) {
     value: function handleMarkerClick(targetMarker) {
       this.setState({
         markers: this.state.markers.map(function (marker) {
-          if (marker.id === targetMarker.id) {
-            return _extends({}, marker, {
-              showInfo: !marker.showInfo
-            });
-          }
-          return marker;
+          return marker.id === targetMarker.id ? _extends({}, marker, { showInfo: !marker.showInfo }) : marker;
         })
       });
     }
@@ -78457,7 +78521,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(25);
+var _reactRouterDom = __webpack_require__(21);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

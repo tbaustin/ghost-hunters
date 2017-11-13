@@ -82,7 +82,7 @@ class GhostMap extends Component {
           );
         })
         .then(data => {
-          this.detState({
+          this.setState({
             markers: data
           });
         })
@@ -131,15 +131,10 @@ class GhostMap extends Component {
 
   handleMarkerClick(targetMarker) {
     this.setState({
-      markers: this.state.markers.map(marker => {
-        if (marker.id === targetMarker.id) {
-          return {
-            ...marker,
-            showInfo: !marker.showInfo
-          };
-        }
-        return marker;
-      })
+      markers: this.state.markers.map(
+        marker =>
+          marker.id === targetMarker.id ? { ...marker, showInfo: !marker.showInfo } : marker
+      )
     });
   }
 

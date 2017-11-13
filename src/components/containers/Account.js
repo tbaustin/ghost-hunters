@@ -11,7 +11,7 @@ class Account extends Component {
   componentDidMount() {
     if (this.props.user.currentUser == null) {
       this.props
-        .currentUser()
+        .apiCurrentUser()
         .then(data => {
           return null;
         })
@@ -23,7 +23,7 @@ class Account extends Component {
 
   register(params) {
     this.props
-      .register(params)
+      .apiRegister(params)
       .then(data => {
         swal({
           title: `${data.username}`,
@@ -38,7 +38,7 @@ class Account extends Component {
 
   login(params) {
     this.props
-      .loginUser(params)
+      .apiLogin(params)
       .then(data => {
         swal({
           title: `${data.username}`,

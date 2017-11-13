@@ -5,9 +5,7 @@ const router = vertex.router();
 
 router.post('/register', (req, res) => {
   const body = req.body;
-  console.log(body);
 
-  // very basic validation:
   if (body.username.length == 0) {
     res.json({
       confirmation: 'fail',
@@ -29,6 +27,7 @@ router.post('/register', (req, res) => {
   turbo
     .createUser(body)
     .then(data => {
+      console.log(data);
       res.json({
         confirmation: 'success',
         user: data
