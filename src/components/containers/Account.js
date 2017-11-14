@@ -55,7 +55,7 @@ class Account extends Component {
 
   render() {
     const { currentUser } = this.props.user;
-    console.log(currentUser);
+    // console.log(currentUser);
     return (
       <div>
         {currentUser == null ? (

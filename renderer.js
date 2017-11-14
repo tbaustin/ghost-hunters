@@ -15,6 +15,7 @@ function handleRender(req, res) {
 
   const promises = matchRoutes(routes, req.path)
     .map(({ route }) => {
+      console.log(route);
       // Matches the route and loads data if loadData function is there
       return route.loadData ? route.loadData(store) : null;
     })

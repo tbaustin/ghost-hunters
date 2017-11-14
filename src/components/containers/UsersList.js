@@ -22,13 +22,7 @@ class UsersList extends Component {
     };
   }
 
-  componentDidMount() {
-    // if (this.props.users.all.length > 0) {
-    //   return;
-    // }
-    //
-    // this.props.fetchUsers();
-  }
+  componentDidMount() {}
 
   head() {
     return (

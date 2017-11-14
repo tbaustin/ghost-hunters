@@ -22,7 +22,6 @@ export default {
       axios
         .post(url, params)
         .then(response => {
-          console.log(response.data);
           if (response.data.confirmation !== 'success') {
             throw new Error(response.data.message);
           }

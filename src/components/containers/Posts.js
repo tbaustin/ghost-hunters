@@ -144,12 +144,14 @@ class Posts extends Component {
             </button>
           </div>
           <div className="col-sm-2">
-            <button
-              onClick={() => this.setState({ showFriendPosts: true })}
-              className="btn btn-secondary"
-            >
-              FRIENDS POSTS
-            </button>
+            {currentUser == null ? null : (
+              <button
+                onClick={() => this.setState({ showFriendPosts: true })}
+                className="btn btn-secondary"
+              >
+                FRIENDS POSTS
+              </button>
+            )}
           </div>
         </div>
         <div className="row">

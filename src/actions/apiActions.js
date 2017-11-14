@@ -5,7 +5,7 @@ const getRequest = (path, params, actionType) => {
   return dispatch => {
     return APIManager.get(path, params)
       .then(response => {
-        const data = response.results || response.result || response.user || response.users;
+        const data = response.user || response.results || response.result || response.users || null;
         dispatch({
           type: actionType,
           data,
