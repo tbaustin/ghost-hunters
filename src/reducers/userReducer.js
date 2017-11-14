@@ -28,6 +28,10 @@ export default (state = initialState, action) => {
       newState['currentUser'] = action.data;
       return newState;
 
+    case constants.USER_LOGGED_IN:
+      newState['currentUser'] = action.data;
+      return newState;
+
     case constants.USER_DELETED:
       return {
         ...state,

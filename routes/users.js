@@ -27,7 +27,6 @@ router.post('/register', (req, res) => {
   turbo
     .createUser(body)
     .then(data => {
-      console.log(data);
       res.json({
         confirmation: 'success',
         user: data
@@ -67,6 +66,7 @@ router.post('/login', (req, res) => {
     .login(body)
     .then(data => {
       req.vertexSession.user = { id: data.id }; // set vertex session - must be set to an object
+      console.log(req.vertexSession);
       res.json({
         confirmation: 'success',
         user: data
@@ -99,6 +99,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/currentuser', (req, res) => {
+  console.log(req.vertexSession);
   // user not logged in:
   if (req.vertexSession == null) {
     res.json({

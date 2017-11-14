@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
-import actions from '../../actions';
+import actions from '../../actions/apiActions';
 import { DateUtils } from '../../utils';
 
 class UsersList extends Component {
@@ -23,11 +23,11 @@ class UsersList extends Component {
   }
 
   componentDidMount() {
-    if (this.props.users.all.length > 0) {
-      return;
-    }
-
-    this.props.fetchUsers();
+    // if (this.props.users.all.length > 0) {
+    //   return;
+    // }
+    //
+    // this.props.fetchUsers();
   }
 
   head() {
@@ -103,12 +103,12 @@ const stateToProps = state => {
 
 const dispatchToProps = dispatch => {
   return {
-    fetchUsers: params => dispatch(actions.fetchUsers(params))
+    // fetchUsers: params => dispatch(actions.fetchUsers(params))
   };
 };
 
 const loadData = store => {
-  return store.dispatch(actions.fetchUsers());
+  return store.dispatch(actions.apiFetchUsers());
 };
 
 export default {

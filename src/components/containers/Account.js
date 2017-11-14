@@ -8,8 +8,6 @@ import actions from '../../actions';
 import apiActions from '../../actions/apiActions';
 
 class Account extends Component {
-  componentDidMount() {}
-
   register(params) {
     this.props
       .apiRegister(params)

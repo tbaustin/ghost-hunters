@@ -4,7 +4,7 @@ require('babel-core/register')({
 
 const pkg_json = require('./package.json');
 const vertex = require('vertex360')({ site_id: pkg_json.app });
-var renderer = require('./renderer.js');
+const renderer = require('./renderer.js');
 
 // initialize app
 const app = vertex.app();
