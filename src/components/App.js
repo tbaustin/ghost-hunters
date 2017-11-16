@@ -13,11 +13,6 @@ const App = ({ route }) => {
   );
 };
 
-const loadData = store => {
-  return store.dispatch(apiActions.apiCurrentUser());
-};
-
 export default {
-  component: App,
-  loadData: loadData
+  component: App
 };

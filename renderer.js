@@ -11,13 +11,19 @@ import routes from './src/routes';
 import createStore from './src/stores';
 
 function handleRender(req, res) {
-  const store = createStore.configure(null); // create Store in order to get data from redux
+  let initial = {};
+
+  if (req.vertexSession != null && req.vertexSession.user != null) {
+    initial.user = { currentUser: req.vertexSession.user };
+  }
+  const store = createStore.configure(initial); // create Store in order to get data from redux
 
   const promises = matchRoutes(routes, req.path)
-    .map(({ route }) => {
-      console.log(route);
+    .map(({ route, match }) => {
       // Matches the route and loads data if loadData function is there
-      return route.loadData ? route.loadData(store) : null;
+      return route.loadData
+        ? route.loadData(store)
+        : route.loadDataWithMatch ? route.loadDataWithMatch(store, match) : null;
     })
     .map(promise => {
       if (promise) {
@@ -36,15 +42,15 @@ function handleRender(req, res) {
     if (context.notFound) {
       res.status(404); // set status to 404 for unknown route
     }
-
+    console.log(req.url);
     const content = renderToString(
       <Provider store={store}>
-        <StaticRouter location={req.path} context={context}>
+        <StaticRouter location={req.url} context={context}>
           <div>{renderRoutes(routes)}</div>
         </StaticRouter>
       </Provider>
     );
-
+    // console.log(store.getState());
     const initialState = serialize(store.getState());
 
     const helmet = Helmet.renderStatic();

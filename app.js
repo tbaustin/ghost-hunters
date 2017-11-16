@@ -15,6 +15,7 @@ const api = require('./routes/api');
 const users = require('./routes/users');
 
 // set routes
+// app.use('/', index);
 app.use('/api/users', users);
 
 // hopefully will be used on every Route, this should handle SSR RR4

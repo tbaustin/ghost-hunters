@@ -566,11 +566,11 @@ const dispatchToProps = dispatch => {
   };
 };
 
-const loadData = store => {
-  return store.dispatch(actions.getProfile(this.props.match.params.id));
+const loadDataWithMatch = (store, match) => {
+  return store.dispatch(actions.getProfile(match.params.id));
 };
 
 export default {
-  loadData: loadData,
+  // loadDataWithMatch: loadDataWithMatch,
   component: connect(stateToProps, dispatchToProps)(Profile)
 };

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
-import actions from '../../actions/apiActions';
+import actions from '../../actions';
 import { DateUtils } from '../../utils';
 
 class UsersList extends Component {
@@ -22,23 +22,29 @@ class UsersList extends Component {
     };
   }
 
-  componentDidMount() {}
+  // componentDidMount() {
+  //   if (this.props.users.all.length > 0) {
+  //     return;
+  //   }
+  //
+  //   this.props.fetchUsers();
+  // }
 
-  head() {
-    return (
-      <Helmet>
-        <title>{`${this.props.users.all.length || ''} Users Loaded`}</title>
-        <meta property="og:title" content="Ghosts App" />
-      </Helmet>
-    );
-  }
+  // head() {
+  //   return (
+  //     <Helmet>
+  //       <title>{`${this.props.users.all.length || ''} Users Loaded`}</title>
+  //       <meta property="og:title" content="Ghosts App" />
+  //     </Helmet>
+  //   );
+  // }
 
   render() {
     const users = this.props.users.all;
     const { firstName, lastName, image, email, bannerImage } = this.state.profile;
     return (
       <div>
-        {this.head()}
+        {/* {this.head()} */}
         <div className="row">
           <div className="col-sm-12">
             <div className="card-columns">
@@ -97,12 +103,12 @@ const stateToProps = state => {
 
 const dispatchToProps = dispatch => {
   return {
-    // fetchUsers: params => dispatch(actions.fetchUsers(params))
+    fetchUsers: params => dispatch(actions.fetchUsers(params))
   };
 };
 
 const loadData = store => {
-  return store.dispatch(actions.apiFetchUsers());
+  return store.dispatch(actions.fetchUsers());
 };
 
 export default {

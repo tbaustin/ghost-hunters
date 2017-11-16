@@ -89,6 +89,8 @@ class Post extends Component {
   render() {
     const { id } = this.props.match.params;
     const post = this.props.posts[id];
+    console.log(post);
+
     const { currentUser } = this.props.user;
     if (post == null) {
       return <div />;
@@ -175,11 +177,11 @@ const dispatchToProps = dispatch => {
   };
 };
 
-const loadData = store => {
-  return store.dispatch(actions.getRecord(this.props.match.params.id));
+const loadDataWithMatch = (store, match) => {
+  return store.dispatch(actions.getRecord(match.params.id));
 };
 
 export default {
-  loadData: loadData,
+  // loadDataWithMatch: loadDataWithMatch,
   component: connect(stateToProps, dispatchToProps)(Post)
 };

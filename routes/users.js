@@ -65,7 +65,7 @@ router.post('/login', (req, res) => {
   turbo
     .login(body)
     .then(data => {
-      req.vertexSession.user = { id: data.id }; // set vertex session - must be set to an object
+      req.vertexSession.user = data; // set vertex session - must be set to an object
       res.json({
         confirmation: 'success',
         user: data

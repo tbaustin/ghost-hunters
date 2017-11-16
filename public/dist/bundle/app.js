@@ -33139,7 +33139,7 @@ var _routes2 = _interopRequireDefault(_routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var initialState = typeof window === 'undefined' ? {} : window.INITIAL_STATE;
+var initialState = window.INITIAL_STATE;
 
 _reactDom2.default.hydrate(_react2.default.createElement(
   _reactRedux.Provider,
@@ -73351,6 +73351,8 @@ var Post = function (_Component) {
       var id = this.props.match.params.id;
 
       var post = this.props.posts[id];
+      console.log(post);
+
       var currentUser = this.props.user.currentUser;
 
       if (post == null) {
@@ -73489,12 +73491,12 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
-var loadData = function loadData(store) {
-  return store.dispatch(_actions2.default.getRecord(undefined.props.match.params.id));
+var loadDataWithMatch = function loadDataWithMatch(store, match) {
+  return store.dispatch(_actions2.default.getRecord(match.params.id));
 };
 
 exports.default = {
-  loadData: loadData,
+  // loadDataWithMatch: loadDataWithMatch,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Post)
 };
 
@@ -74199,12 +74201,12 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
-var loadData = function loadData(store) {
-  return store.dispatch(_actions2.default.getProfile(undefined.props.match.params.id));
+var loadDataWithMatch = function loadDataWithMatch(store, match) {
+  return store.dispatch(_actions2.default.getProfile(match.params.id));
 };
 
 exports.default = {
-  loadData: loadData,
+  // loadDataWithMatch: loadDataWithMatch,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile)
 };
 
@@ -74515,9 +74517,9 @@ var _reactHelmet = __webpack_require__(143);
 
 var _reactRouterDom = __webpack_require__(19);
 
-var _apiActions = __webpack_require__(118);
+var _actions = __webpack_require__(43);
 
-var _apiActions2 = _interopRequireDefault(_apiActions);
+var _actions2 = _interopRequireDefault(_actions);
 
 var _utils = __webpack_require__(16);
 
@@ -74549,24 +74551,24 @@ var UsersList = function (_Component) {
     return _this;
   }
 
+  // componentDidMount() {
+  //   if (this.props.users.all.length > 0) {
+  //     return;
+  //   }
+  //
+  //   this.props.fetchUsers();
+  // }
+
+  // head() {
+  //   return (
+  //     <Helmet>
+  //       <title>{`${this.props.users.all.length || ''} Users Loaded`}</title>
+  //       <meta property="og:title" content="Ghosts App" />
+  //     </Helmet>
+  //   );
+  // }
+
   _createClass(UsersList, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'head',
-    value: function head() {
-      return _react2.default.createElement(
-        _reactHelmet.Helmet,
-        null,
-        _react2.default.createElement(
-          'title',
-          null,
-          (this.props.users.all.length || '') + ' Users Loaded'
-        ),
-        _react2.default.createElement('meta', { property: 'og:title', content: 'Ghosts App' })
-      );
-    }
-  }, {
     key: 'render',
     value: function render() {
       var users = this.props.users.all;
@@ -74580,7 +74582,6 @@ var UsersList = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        this.head(),
         _react2.default.createElement(
           'div',
           { className: 'row' },
@@ -74672,12 +74673,14 @@ var stateToProps = function stateToProps(state) {
 
 var dispatchToProps = function dispatchToProps(dispatch) {
   return {
-    // fetchUsers: params => dispatch(actions.fetchUsers(params))
+    fetchUsers: function fetchUsers(params) {
+      return dispatch(_actions2.default.fetchUsers(params));
+    }
   };
 };
 
 var loadData = function loadData(store) {
-  return store.dispatch(_apiActions2.default.apiFetchUsers());
+  return store.dispatch(_actions2.default.fetchUsers());
 };
 
 exports.default = {
@@ -76660,13 +76663,8 @@ var App = function App(_ref) {
   );
 };
 
-var loadData = function loadData(store) {
-  return store.dispatch(_apiActions2.default.apiCurrentUser());
-};
-
 exports.default = {
-  component: App,
-  loadData: loadData
+  component: App
 };
 
 /***/ }),
