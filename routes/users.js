@@ -27,6 +27,7 @@ router.post('/register', (req, res) => {
   turbo
     .createUser(body)
     .then(data => {
+      req.vertexSession.user = data;
       res.json({
         confirmation: 'success',
         user: data
