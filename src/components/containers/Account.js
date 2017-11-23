@@ -40,7 +40,7 @@ class Account extends Component {
 
   logout() {
     this.props
-      .logoutUser()
+      .apiLogout()
       .then(data => {
         swal({
           title: 'User Logged Out',
@@ -79,7 +79,7 @@ class Account extends Component {
             </div>
             <div className="row">
               <div className="col-md-4">
-                <Link to={`profile/${currentUser.id}`} className="btn btn-info btn-sm">
+                <Link to={`/profile/${currentUser.id}`} className="btn btn-info btn-sm">
                   Profile
                 </Link>
               </div>
@@ -110,7 +110,8 @@ const dispatchToProps = dispatch => {
     apiLogin: params => dispatch(apiActions.apiLogin(params)),
     currentUser: () => dispatch(actions.currentUser()),
     apiCurrentUser: () => dispatch(apiActions.apiCurrentUser()),
-    logoutUser: () => dispatch(actions.logoutUser())
+    logoutUser: () => dispatch(actions.logoutUser()),
+    apiLogout: () => dispatch(apiActions.apiLogout())
   };
 };
 

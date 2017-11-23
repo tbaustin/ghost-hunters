@@ -46,17 +46,6 @@ var Account = function (_Component) {
   }
 
   _createClass(Account, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      if (this.props.user.currentUser == null) {
-        this.props.apiCurrentUser().then(function (data) {
-          return null;
-        }).catch(function (err) {
-          console.log(err);
-        });
-      }
-    }
-  }, {
     key: 'register',
     value: function register(params) {
       this.props.apiRegister(params).then(function (data) {
@@ -99,6 +88,7 @@ var Account = function (_Component) {
     key: 'render',
     value: function render() {
       var currentUser = this.props.user.currentUser;
+      // console.log(currentUser);
 
       return _react2.default.createElement(
         'div',

@@ -7,7 +7,7 @@ export default ChildComponent => {
     render() {
       switch (this.props.user.currentUser) {
         case null:
-          return <Redirect to="/" />;
+          return <Redirect to="/noauth" />;
         default:
           return <ChildComponent {...this.props} />;
       }

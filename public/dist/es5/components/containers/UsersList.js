@@ -20,6 +20,10 @@ var _actions = require('../../actions');
 
 var _actions2 = _interopRequireDefault(_actions);
 
+var _apiActions = require('../../actions/apiActions');
+
+var _apiActions2 = _interopRequireDefault(_apiActions);
+
 var _utils = require('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -50,30 +54,24 @@ var UsersList = function (_Component) {
     return _this;
   }
 
-  _createClass(UsersList, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      if (this.props.users.all.length > 0) {
-        return;
-      }
+  // componentDidMount() {
+  //   if (this.props.users.all.length > 0) {
+  //     return;
+  //   }
+  //
+  //   this.props.fetchUsers();
+  // }
 
-      this.props.fetchUsers();
-    }
-  }, {
-    key: 'head',
-    value: function head() {
-      return _react2.default.createElement(
-        _reactHelmet.Helmet,
-        null,
-        _react2.default.createElement(
-          'title',
-          null,
-          (this.props.users.all.length || '') + ' Users Loaded'
-        ),
-        _react2.default.createElement('meta', { property: 'og:title', content: 'Ghosts App' })
-      );
-    }
-  }, {
+  // head() {
+  //   return (
+  //     <Helmet>
+  //       <title>{`${this.props.users.all.length || ''} Users Loaded`}</title>
+  //       <meta property="og:title" content="Ghosts App" />
+  //     </Helmet>
+  //   );
+  // }
+
+  _createClass(UsersList, [{
     key: 'render',
     value: function render() {
       var users = this.props.users.all;
@@ -87,7 +85,6 @@ var UsersList = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        this.head(),
         _react2.default.createElement(
           'div',
           { className: 'row' },
@@ -186,7 +183,7 @@ var dispatchToProps = function dispatchToProps(dispatch) {
 };
 
 var loadData = function loadData(store) {
-  return store.dispatch(_actions2.default.fetchUsers());
+  return store.dispatch(_apiActions2.default.apiFetchUsers());
 };
 
 exports.default = {

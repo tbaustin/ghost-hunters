@@ -30,6 +30,8 @@ var _actions2 = _interopRequireDefault(_actions);
 
 var _utils = require('../../utils');
 
+var _HOC = require('../HOC');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -272,5 +274,5 @@ exports.default = {
       enableHighAccuracy: false
     },
     userDecisionTimeout: 5000
-  })(GhostMap))
+  })((0, _HOC.requireAuth)(GhostMap)))
 };

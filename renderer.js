@@ -42,10 +42,10 @@ function handleRender(req, res) {
     if (context.notFound) {
       res.status(404); // set status to 404 for unknown route
     }
-    console.log(req.url);
+
     const content = renderToString(
       <Provider store={store}>
-        <StaticRouter location={req.url} context={context}>
+        <StaticRouter location={req.path} context={context}>
           <div>{renderRoutes(routes)}</div>
         </StaticRouter>
       </Provider>

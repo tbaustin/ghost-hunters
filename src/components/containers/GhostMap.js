@@ -30,7 +30,6 @@ class GhostMap extends Component {
     if (this.props.posts.all) {
       return;
     }
-    console.log(this.props);
     this.props
       .fetchPosts()
       .then(data => {
@@ -133,8 +132,7 @@ class GhostMap extends Component {
   handleMarkerClick(targetMarker) {
     this.setState({
       markers: this.state.markers.map(
-        marker =>
-          marker.id === targetMarker.id ? { ...marker, showInfo: !marker.showInfo } : marker
+        marker => (marker.id === targetMarker.id ? { ...marker, showInfo: true } : marker)
       )
     });
   }

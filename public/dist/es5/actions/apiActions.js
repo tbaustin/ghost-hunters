@@ -15,7 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var getRequest = function getRequest(path, params, actionType) {
   return function (dispatch) {
     return _utils.APIManager.get(path, params).then(function (response) {
-      var data = response.results || response.result || response.user || response.users;
+      var data = response.user || response.results || response.result || response.users || null;
       dispatch({
         type: actionType,
         data: data,
@@ -82,42 +82,42 @@ var deleteRequest = function deleteRequest(path, actionType) {
 exports.default = {
   apiRegister: function apiRegister(params) {
     return function (dispatch) {
-      return dispatch(postRequest('/api/users/register', params, _constants2.default.USER_CREATED));
+      return dispatch(postRequest('http://localhost:3000/api/users/register', params, _constants2.default.USER_CREATED));
     };
   },
   apiLogin: function apiLogin(params) {
     return function (dispatch) {
-      return dispatch(postRequest('/api/users/login', params, _constants2.default.USER_LOGGED_IN));
+      return dispatch(postRequest('http://localhost:3000/api/users/login', params, _constants2.default.USER_LOGGED_IN));
     };
   },
   apiCurrentUser: function apiCurrentUser() {
     return function (dispatch) {
-      return dispatch(getRequest('/api/users/currentuser', null, _constants2.default.CURRENT_USER_RECEIVED));
+      return dispatch(getRequest('http://localhost:3000/api/users/currentuser', null, _constants2.default.CURRENT_USER_RECEIVED));
     };
   },
   apiLogout: function apiLogout() {
     return function (dispatch) {
-      return dispatch(getRequest('/api/users/logout', null, _constants2.default.USER_LOGGED_OUT));
+      return dispatch(getRequest('http://localhost:3000/api/users/logout', null, _constants2.default.USER_LOGGED_OUT));
     };
   },
   apiUpdateUser: function apiUpdateUser(params, id) {
     return function (dispatch) {
-      return dispatch(putRequest('/api/users/update/' + id, params, _constants2.default.UPDATE_PROFILE));
+      return dispatch(putRequest('http://localhost:3000/api/users/update/' + id, params, _constants2.default.UPDATE_PROFILE));
     };
   },
   apiDeleteUser: function apiDeleteUser(id) {
     return function (dispatch) {
-      return dispatch(deleteRequest('/api/users/delete/' + id, _constants2.default.USER_DELETED));
+      return dispatch(deleteRequest('http://localhost:3000/api/users/delete/' + id, _constants2.default.USER_DELETED));
     };
   },
   apiFetchUsers: function apiFetchUsers(params) {
     return function (dispatch) {
-      return dispatch(getRequest('/api/users', params, _constants2.default.USERS_RECEIVED));
+      return dispatch(getRequest('http://localhost:3000/users', params, _constants2.default.USERS_RECEIVED));
     };
   },
   apiFetchUser: function apiFetchUser(id) {
     return function (dispatch) {
-      return dispatch('/api/users/' + id, null, _constants2.default.GET_PROFILE);
+      return dispatch('http://localhost:3000/api/users/' + id, null, _constants2.default.GET_PROFILE);
     };
   }
 };

@@ -43,6 +43,10 @@ exports.default = function () {
       newState['currentUser'] = action.data;
       return newState;
 
+    case _constants2.default.USER_LOGGED_IN:
+      newState['currentUser'] = action.data;
+      return newState;
+
     case _constants2.default.USER_DELETED:
       return _extends({}, state, {
         currentUser: action.data,

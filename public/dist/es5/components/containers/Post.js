@@ -129,6 +129,8 @@ var Post = function (_Component) {
       var id = this.props.match.params.id;
 
       var post = this.props.posts[id];
+      console.log(post);
+
       var currentUser = this.props.user.currentUser;
 
       if (post == null) {
@@ -267,11 +269,11 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
-var loadData = function loadData(store) {
-  return store.dispatch(_actions2.default.getRecord(undefined.props.match.params.id));
+var loadDataWithMatch = function loadDataWithMatch(store, match) {
+  return store.dispatch(_actions2.default.getRecord(match.params.id));
 };
 
 exports.default = {
-  loadData: loadData,
+  // loadDataWithMatch: loadDataWithMatch,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Post)
 };

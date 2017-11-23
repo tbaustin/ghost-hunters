@@ -17,7 +17,6 @@ function ssrRequest(req, res, resource) {
     .fetch(resource, null)
     .then(data => {
       let initial = {};
-      console.log(resource);
       initial[resource] = { all: data };
       const store = createStore.configure(initial);
       const context = {};

@@ -200,7 +200,6 @@ var Posts = function (_Component) {
       var posts = this.props.post.all;
       var currentUser = this.props.user.currentUser;
 
-      console.log(posts);
       return _react2.default.createElement(
         'div',
         null,
@@ -225,7 +224,7 @@ var Posts = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'col-sm-2' },
-            _react2.default.createElement(
+            currentUser == null ? null : _react2.default.createElement(
               'button',
               {
                 onClick: function onClick() {

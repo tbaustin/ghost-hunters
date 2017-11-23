@@ -31,11 +31,6 @@ var App = function App(_ref) {
   );
 };
 
-var loadData = function loadData(store) {
-  return store.dispatch(_apiActions2.default.apiCurrentUser());
-};
-
 exports.default = {
-  component: App,
-  loadData: loadData
+  component: App
 };

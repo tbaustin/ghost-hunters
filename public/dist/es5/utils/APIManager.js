@@ -27,7 +27,6 @@ exports.default = {
   post: function post(url, params) {
     return new Promise(function (resolve, reject) {
       _axios2.default.post(url, params).then(function (response) {
-        console.log(response.data);
         if (response.data.confirmation !== 'success') {
           throw new Error(response.data.message);
         }

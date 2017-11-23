@@ -694,11 +694,11 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
-var loadData = function loadData(store) {
-  return store.dispatch(_actions2.default.getProfile(undefined.props.match.params.id));
+var loadDataWithMatch = function loadDataWithMatch(store, match) {
+  return store.dispatch(_actions2.default.getProfile(match.params.id));
 };
 
 exports.default = {
-  loadData: loadData,
+  // loadDataWithMatch: loadDataWithMatch,
   component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile)
 };

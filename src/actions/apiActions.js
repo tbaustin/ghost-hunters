@@ -104,9 +104,7 @@ export default {
   },
   apiLogout: () => {
     return dispatch => {
-      return dispatch(
-        getRequest('http://localhost:3000/api/users/logout', null, constants.USER_LOGGED_OUT)
-      );
+      return dispatch(getRequest('/api/users/logout', null, constants.USER_LOGGED_OUT));
     };
   },
   apiUpdateUser: (params, id) => {
@@ -125,9 +123,7 @@ export default {
   },
   apiFetchUsers: params => {
     return dispatch => {
-      return dispatch(
-        getRequest('http://localhost:3000/api/users', params, constants.USERS_RECEIVED)
-      );
+      return dispatch(getRequest('http://localhost:3000/users', params, constants.USERS_RECEIVED));
     };
   },
   apiFetchUser: id => {

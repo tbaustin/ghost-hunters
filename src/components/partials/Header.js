@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <Link className="navbar-brand" to="/">
+        <a className="navbar-brand" href="/">
           Ghost-Hunters
-        </Link>
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,19 +23,19 @@ class Header extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link className="nav-link" to="/">
+              <a className="nav-link" href="/">
                 Posts <span className="sr-only">(current)</span>
-              </Link>
+              </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/users">
+              <a className="nav-link" href="/users">
                 Users
-              </Link>
+              </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/map">
+              <a className="nav-link" href="/map">
                 Map
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

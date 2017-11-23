@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import actions from '../../actions';
+import apiActions from '../../actions/apiActions';
 import { DateUtils } from '../../utils';
 
 class UsersList extends Component {
@@ -22,29 +24,30 @@ class UsersList extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   if (this.props.users.all.length > 0) {
-  //     return;
-  //   }
-  //
-  //   this.props.fetchUsers();
-  // }
+  componentDidMount() {
+    if (this.props.users.all.length > 0) {
+      return;
+    }
 
-  // head() {
-  //   return (
-  //     <Helmet>
-  //       <title>{`${this.props.users.all.length || ''} Users Loaded`}</title>
-  //       <meta property="og:title" content="Ghosts App" />
-  //     </Helmet>
-  //   );
-  // }
+    this.props.fetchUsers();
+  }
+
+  head() {
+    return (
+      <Helmet>
+        <title>{`${this.props.users.all.length || ''} Users Loaded`}</title>
+        <meta property="og:title" content="Ghosts App" />
+      </Helmet>
+    );
+  }
 
   render() {
     const users = this.props.users.all;
+    console.log(users);
     const { firstName, lastName, image, email, bannerImage } = this.state.profile;
     return (
       <div>
-        {/* {this.head()} */}
+        {this.head()}
         <div className="row">
           <div className="col-sm-12">
             <div className="card-columns">
@@ -113,5 +116,5 @@ const loadData = store => {
 
 export default {
   loadData: loadData,
-  component: connect(stateToProps, dispatchToProps)(UsersList)
+  component: withRouter(connect(stateToProps)(UsersList))
 };
