@@ -3,10 +3,44 @@ import { connect } from 'react-redux';
 import geolib from 'geolib';
 import { geolocated } from 'react-geolocated';
 import axios from 'axios';
+import { compose, withProps } from 'recompose';
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
 import actions from '../../actions';
-import { MapComponent, Geocode } from '../../utils';
+import { Geocode } from '../../utils';
 import { requireAuth } from '../HOC';
+import config from '../../config';
+import { MarkerInfo } from '../view';
+
+const Map = compose(
+  withProps({
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${config.GOOGLE_API_KEY}&v=3.exp&libraries=geometry,drawing,places`,
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `500px` }} />,
+    mapElement: <div style={{ height: `100%` }} />
+  }),
+  withScriptjs,
+  withGoogleMap
+)(props => (
+  <GoogleMap defaultZoom={10} center={props.center}>
+    {props.markers.map((marker, i) => {
+      const onClick = () => props.onMarkerClick(marker);
+      const onCloseClick = () => props.onCloseClick(marker);
+
+      return (
+        <Marker key={i} position={marker.position} title={marker.title} onClick={onClick}>
+          {marker.showInfo && (
+            <InfoWindow onCloseClick={onCloseClick}>
+              <div>
+                <MarkerInfo marker={marker} />
+              </div>
+            </InfoWindow>
+          )}
+        </Marker>
+      );
+    })}
+  </GoogleMap>
+));
 
 class GhostMap extends Component {
   constructor(props) {
@@ -21,7 +55,6 @@ class GhostMap extends Component {
 
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.handleCloseClick = this.handleCloseClick.bind(this);
-    this.handleHomeMarkerClick = this.handleHomeMarkerClick.bind(this);
     this.createMarkersWithinRadius = this.createMarkersWithinRadius.bind(this);
     this.updateRadius = this.updateRadius.bind(this);
   }
@@ -132,7 +165,8 @@ class GhostMap extends Component {
   handleMarkerClick(targetMarker) {
     this.setState({
       markers: this.state.markers.map(
-        marker => (marker.id === targetMarker.id ? { ...marker, showInfo: true } : marker)
+        marker =>
+          marker.id === targetMarker.id ? { ...marker, showInfo: !marker.showInfo } : marker
       )
     });
   }
@@ -149,10 +183,6 @@ class GhostMap extends Component {
         return marker;
       })
     });
-  }
-
-  handleHomeMarkerClick() {
-    this.setState({ isMarkerShown: false });
   }
 
   updateRadius(event) {
@@ -188,10 +218,9 @@ class GhostMap extends Component {
           </div>
         </div>
         <div className="col-sm-12">
-          <MapComponent
+          <Map
             onMarkerClick={this.handleMarkerClick}
             isMarkerShown={this.state.isMarkerShown}
-            onHomeMarkerClick={this.handleHomeMarkerClick}
             center={this.state.currentLocation}
             markers={this.state.markers}
             onCloseClick={this.handleCloseClick}

@@ -4,7 +4,7 @@ class NotAuth extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.history.push('/');
-    }, 3000);
+    }, 2000);
   }
 
   render() {

@@ -8,13 +8,14 @@
     "dev:server": "turbo devserver",
     "dev:client": "webpack -w",
     "clean": "rimraf ./public/dist/*",
-    "build": "npm run clean && set NODE_ENV=production && webpack && gulp prod",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack && gulp prod",
     "postinstall": "npm run build"
   },
   "dependencies": {
     "axios": "^0.17.0",
     "bluebird": "latest",
     "concurrently": "^3.5.0",
+    "cross-env": "^5.1.1",
     "debug": "latest",
     "dotenv": "latest",
     "geolib": "^2.0.24",
@@ -74,8 +75,6 @@
     "turbo360": "latest"
   },
   "app": "59e0c137221d130012ee41dc",
-  "deploy": [
-    "."
-  ],
+  "deploy": ["."],
   "format": "vertex"
 }

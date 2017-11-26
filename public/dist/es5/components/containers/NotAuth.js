@@ -10,10 +10,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = require('react-redux');
-
-var _reactRouterDom = require('react-router-dom');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22,36 +18,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-exports.default = function (ChildComponent) {
-  var RequireAuth = function (_Component) {
-    _inherits(RequireAuth, _Component);
+var NotAuth = function (_Component) {
+  _inherits(NotAuth, _Component);
 
-    function RequireAuth() {
-      _classCallCheck(this, RequireAuth);
+  function NotAuth() {
+    _classCallCheck(this, NotAuth);
 
-      return _possibleConstructorReturn(this, (RequireAuth.__proto__ || Object.getPrototypeOf(RequireAuth)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (NotAuth.__proto__ || Object.getPrototypeOf(NotAuth)).apply(this, arguments));
+  }
+
+  _createClass(NotAuth, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.props.history.push('/');
+      }, 3000);
     }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Please Login/Sign up to access this feature'
+        )
+      );
+    }
+  }]);
 
-    _createClass(RequireAuth, [{
-      key: 'render',
-      value: function render() {
-        switch (this.props.user.currentUser) {
-          case null:
-            return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/noauth' });
-          default:
-            return _react2.default.createElement(ChildComponent, this.props);
-        }
-      }
-    }]);
+  return NotAuth;
+}(_react.Component);
 
-    return RequireAuth;
-  }(_react.Component);
-
-  var stateToProps = function stateToProps(state) {
-    return {
-      user: state.user
-    };
-  };
-
-  return (0, _reactRedux.connect)(stateToProps)(RequireAuth);
+exports.default = {
+  component: NotAuth
 };

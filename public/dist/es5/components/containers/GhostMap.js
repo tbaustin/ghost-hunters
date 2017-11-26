@@ -69,7 +69,6 @@ var GhostMap = function (_Component) {
       if (this.props.posts.all) {
         return;
       }
-      console.log(this.props);
       this.props.fetchPosts().then(function (data) {
         return data;
       }).catch(function (err) {
@@ -156,7 +155,7 @@ var GhostMap = function (_Component) {
     value: function handleMarkerClick(targetMarker) {
       this.setState({
         markers: this.state.markers.map(function (marker) {
-          return marker.id === targetMarker.id ? _extends({}, marker, { showInfo: !marker.showInfo }) : marker;
+          return marker.id === targetMarker.id ? _extends({}, marker, { showInfo: true }) : marker;
         })
       });
     }

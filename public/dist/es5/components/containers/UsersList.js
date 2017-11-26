@@ -54,27 +54,34 @@ var UsersList = function (_Component) {
     return _this;
   }
 
-  // componentDidMount() {
-  //   if (this.props.users.all.length > 0) {
-  //     return;
-  //   }
-  //
-  //   this.props.fetchUsers();
-  // }
-
-  // head() {
-  //   return (
-  //     <Helmet>
-  //       <title>{`${this.props.users.all.length || ''} Users Loaded`}</title>
-  //       <meta property="og:title" content="Ghosts App" />
-  //     </Helmet>
-  //   );
-  // }
-
   _createClass(UsersList, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (this.props.users.all.length > 0) {
+        return;
+      }
+
+      this.props.fetchUsers();
+    }
+  }, {
+    key: 'head',
+    value: function head() {
+      return _react2.default.createElement(
+        _reactHelmet.Helmet,
+        null,
+        _react2.default.createElement(
+          'title',
+          null,
+          (this.props.users.all.length || '') + ' Users Loaded'
+        ),
+        _react2.default.createElement('meta', { property: 'og:title', content: 'Ghosts App' })
+      );
+    }
+  }, {
     key: 'render',
     value: function render() {
       var users = this.props.users.all;
+      console.log(users);
       var _state$profile = this.state.profile,
           firstName = _state$profile.firstName,
           lastName = _state$profile.lastName,
@@ -85,6 +92,7 @@ var UsersList = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
+        this.head(),
         _react2.default.createElement(
           'div',
           { className: 'row' },
@@ -183,10 +191,10 @@ var dispatchToProps = function dispatchToProps(dispatch) {
 };
 
 var loadData = function loadData(store) {
-  return store.dispatch(_apiActions2.default.apiFetchUsers());
+  return store.dispatch(_actions2.default.fetchUsers());
 };
 
 exports.default = {
   loadData: loadData,
-  component: (0, _reactRedux.connect)(stateToProps, dispatchToProps)(UsersList)
+  component: (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(stateToProps)(UsersList))
 };

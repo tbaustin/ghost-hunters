@@ -74,7 +74,7 @@ var Account = function (_Component) {
   }, {
     key: 'logout',
     value: function logout() {
-      this.props.logoutUser().then(function (data) {
+      this.props.apiLogout().then(function (data) {
         (0, _sweetalert2.default)({
           title: 'User Logged Out',
           text: 'We hope to see you again',
@@ -128,7 +128,7 @@ var Account = function (_Component) {
               { className: 'col-md-4' },
               _react2.default.createElement(
                 _reactRouterDom.Link,
-                { to: 'profile/' + currentUser.id, className: 'btn btn-info btn-sm' },
+                { to: '/profile/' + currentUser.id, className: 'btn btn-info btn-sm' },
                 'Profile'
               )
             ),
@@ -178,6 +178,9 @@ var dispatchToProps = function dispatchToProps(dispatch) {
     },
     logoutUser: function logoutUser() {
       return dispatch(_actions2.default.logoutUser());
+    },
+    apiLogout: function apiLogout() {
+      return dispatch(_apiActions2.default.apiLogout());
     }
   };
 };
