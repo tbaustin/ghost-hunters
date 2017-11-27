@@ -166,9 +166,7 @@ class GhostMap extends Component {
   }
 
   render() {
-    if (this.state.markers.length === 0) {
-      return <div>Loading...</div>;
-    }
+    const { markers } = this.state;
 
     return (
       <div className="row">
@@ -196,7 +194,7 @@ class GhostMap extends Component {
             onMarkerClick={this.handleMarkerClick}
             isMarkerShown={this.state.isMarkerShown}
             center={this.state.currentLocation}
-            markers={this.state.markers}
+            markers={markers}
             zoom={10}
             onCloseClick={this.handleCloseClick}
             containerElement={<div style={{ height: 100 + '%' }} />}
