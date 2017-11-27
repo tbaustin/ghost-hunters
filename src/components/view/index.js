@@ -5,6 +5,7 @@ import UpdateProfile from './UpdateProfile';
 import UpdateRecord from './UpdateRecord';
 import UpdateReply from './UpdateReply';
 import MarkerInfo from './MarkerInfo';
+import Map from './Map';
 
 export {
   CreatePost,
@@ -13,5 +14,6 @@ export {
   UpdateProfile,
   UpdateRecord,
   UpdateReply,
-  MarkerInfo
+  MarkerInfo,
+  Map
 };

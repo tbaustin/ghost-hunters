@@ -3,44 +3,11 @@ import { connect } from 'react-redux';
 import geolib from 'geolib';
 import { geolocated } from 'react-geolocated';
 import axios from 'axios';
-import { compose, withProps } from 'recompose';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
 import actions from '../../actions';
 import { Geocode } from '../../utils';
 import { requireAuth } from '../HOC';
-import config from '../../config';
-import { MarkerInfo } from '../view';
-
-const Map = compose(
-  withProps({
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${config.GOOGLE_API_KEY}&v=3.exp&libraries=geometry,drawing,places`,
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `500px` }} />,
-    mapElement: <div style={{ height: `100%` }} />
-  }),
-  withScriptjs,
-  withGoogleMap
-)(props => (
-  <GoogleMap defaultZoom={10} center={props.center}>
-    {props.markers.map((marker, i) => {
-      const onClick = () => props.onMarkerClick(marker);
-      const onCloseClick = () => props.onCloseClick(marker);
-
-      return (
-        <Marker key={i} position={marker.position} title={marker.title} onClick={onClick}>
-          {marker.showInfo && (
-            <InfoWindow onCloseClick={onCloseClick}>
-              <div>
-                <MarkerInfo marker={marker} />
-              </div>
-            </InfoWindow>
-          )}
-        </Marker>
-      );
-    })}
-  </GoogleMap>
-));
+import { Map } from '../view';
 
 class GhostMap extends Component {
   constructor(props) {
@@ -48,7 +15,6 @@ class GhostMap extends Component {
 
     this.state = {
       map: null,
-      isMarkerShown: true,
       currentLocation: null,
       radius: 100,
       markers: []
@@ -218,7 +184,7 @@ class GhostMap extends Component {
             />
           </div>
         </div>
-        <div className="col-sm-12">
+        <div className="col-sm-12" style={{ height: '600px' }}>
           <Map
             onMapReady={map => {
               if (this.state.map != null) return;
@@ -231,7 +197,10 @@ class GhostMap extends Component {
             isMarkerShown={this.state.isMarkerShown}
             center={this.state.currentLocation}
             markers={this.state.markers}
+            zoom={10}
             onCloseClick={this.handleCloseClick}
+            containerElement={<div style={{ height: 100 + '%' }} />}
+            mapElement={<div style={{ height: 100 + '%' }} />}
           />
         </div>
       </div>
