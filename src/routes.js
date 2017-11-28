@@ -7,7 +7,8 @@ import {
   NotFound,
   UsersList,
   GhostMap,
-  NotAuth
+  NotAuth,
+  TestMap
 } from './components/containers';
 import App from './components/App';
 
@@ -39,6 +40,10 @@ export default [
       {
         ...NotAuth,
         path: '/noauth'
+      },
+      {
+        component: TestMap,
+        path: '/testmap'
       },
       {
         ...NotFound
