@@ -43,7 +43,6 @@ class UsersList extends Component {
 
   render() {
     const users = this.props.users.all;
-    console.log(users);
     const { firstName, lastName, image, email, bannerImage } = this.state.profile;
     return (
       <div>

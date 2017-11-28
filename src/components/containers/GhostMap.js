@@ -17,7 +17,7 @@ class GhostMap extends Component {
       map: null,
       currentLocation: null,
       radius: 100,
-      markers: []
+      markers: null
     };
 
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
@@ -41,6 +41,7 @@ class GhostMap extends Component {
   }
 
   componentWillReceiveProps(props) {
+    const posts = props.posts.all ? props.posts.all : [];
     if (props.coords) {
       this.setState({
         currentLocation: {
@@ -49,21 +50,14 @@ class GhostMap extends Component {
         }
       });
 
-      this.createMarkersWithinRadius(
-        props.posts.all,
-        this.state.radius,
-        props.coords.latitude,
-        props.coords.longitude
-      )
-        .then(data => {
-          this.setState({
-            markers: data
-          });
-          return data;
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      this.setState({
+        markers: this.createMarkersWithinRadius(
+          posts,
+          this.state.radius,
+          props.coords.latitude,
+          props.coords.longitude
+        )
+      });
     } else {
       axios
         .get('http://ip-api.com/json')
@@ -74,16 +68,14 @@ class GhostMap extends Component {
               lng: response.data.lon
             }
           });
-          return this.createMarkersWithinRadius(
-            props.posts.all,
-            this.state.radius,
-            response.data.lat,
-            response.data.lon
-          );
-        })
-        .then(data => {
+
           this.setState({
-            markers: data
+            markers: this.createMarkersWithinRadius(
+              posts,
+              this.state.radius,
+              response.data.lat,
+              response.data.lon
+            )
           });
         })
         .catch(err => {
@@ -93,40 +85,29 @@ class GhostMap extends Component {
   }
 
   createMarkersWithinRadius(posts, radius, lat, lng) {
-    return new Promise((resolve, reject) => {
-      const markers = [];
-      const currentLocation = {
-        latitude: lat,
-        longitude: lng
-      };
+    const markers = [];
+    const currentLocation = {
+      latitude: lat,
+      longitude: lng
+    };
 
-      posts.map(post => {
-        let postGeolocation = {};
+    posts.map(post => {
+      const distanceArr = geolib.orderByDistance(currentLocation, [post.coords]);
+      const miles = (distanceArr[0].distance / 1609.34).toFixed(2);
 
-        Geocode(post.address, post.city, post.state, post.zipCode)
-          .then(response => {
-            postGeolocation.lat = response.lat;
-            postGeolocation.lng = response.lng;
-            const distanceArr = geolib.orderByDistance(currentLocation, [postGeolocation]);
-            const miles = (distanceArr[0].distance / 1609.34).toFixed(2);
-
-            if (miles <= radius) {
-              markers.push({
-                id: post.id,
-                position: postGeolocation,
-                title: post.title,
-                description: post.text,
-                image: post.image,
-                showInfo: false
-              });
-            }
-            resolve(markers);
-          })
-          .catch(err => {
-            reject(err);
-          });
-      });
+      if (miles <= radius) {
+        markers.push({
+          id: post.id,
+          position: post.coords,
+          title: post.title,
+          description: post.text,
+          image: post.image,
+          showInfo: false
+        });
+      }
     });
+
+    return markers;
   }
 
   handleMarkerClick(targetMarker) {
@@ -154,6 +135,9 @@ class GhostMap extends Component {
 
   updateRadius(event) {
     const radius = event.target.value;
+    this.setState({
+      radius: radius
+    });
     const posts = this.props.posts.all;
     const { lat, lng } = this.state.currentLocation;
     if (typeof radius !== 'number') {
@@ -167,7 +151,9 @@ class GhostMap extends Component {
 
   render() {
     const { markers } = this.state;
-
+    if (markers == null) {
+      return <div>Loading...</div>;
+    }
     return (
       <div className="row">
         <div className="col-sm-4">
@@ -192,7 +178,6 @@ class GhostMap extends Component {
               });
             }}
             onMarkerClick={this.handleMarkerClick}
-            isMarkerShown={this.state.isMarkerShown}
             center={this.state.currentLocation}
             markers={markers}
             zoom={10}

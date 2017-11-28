@@ -50,7 +50,6 @@ function handleRender(req, res) {
         </StaticRouter>
       </Provider>
     );
-    // console.log(store.getState());
     const initialState = serialize(store.getState());
 
     const helmet = Helmet.renderStatic();

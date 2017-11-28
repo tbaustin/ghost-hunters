@@ -28,7 +28,6 @@ function ssrRequest(req, res, resource) {
       if (context.notFound) {
         res.status(404); // set status to 404 for unknown route
       }
-      console.log(store.getState());
       const content = renderToString(
         <Provider store={store}>
           <StaticRouter location={req.url} context={context}>

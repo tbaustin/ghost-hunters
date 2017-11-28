@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import swal from 'sweetalert';
 import Dropzone from 'react-dropzone';
 
-import { TurboClient } from '../../utils';
+import { TurboClient, Geocode } from '../../utils';
 
 class CreatePost extends Component {
   constructor() {
@@ -91,8 +91,9 @@ class CreatePost extends Component {
   }
 
   createPost(event) {
+    let updated = Object.assign({}, this.state.post);
     event.preventDefault();
-    const { title, text } = this.state.post;
+    const { title, text, address, city, state, zipCode } = this.state.post;
     if (title.length == 0) {
       swal({
         title: 'Oops...',
@@ -109,7 +110,19 @@ class CreatePost extends Component {
       });
       return;
     }
-    this.props.onCreate(this.state.post);
+
+    Geocode(address, city, state, zipCode)
+      .then(response => {
+        updated['coords'] = response;
+        this.setState({
+          post: updated
+        });
+
+        this.props.onCreate(this.state.post);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {

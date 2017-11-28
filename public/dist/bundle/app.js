@@ -57457,10 +57457,17 @@ var CreatePost = function (_Component) {
   }, {
     key: 'createPost',
     value: function createPost(event) {
+      var _this4 = this;
+
+      var updated = Object.assign({}, this.state.post);
       event.preventDefault();
       var _state$post = this.state.post,
           title = _state$post.title,
-          text = _state$post.text;
+          text = _state$post.text,
+          address = _state$post.address,
+          city = _state$post.city,
+          state = _state$post.state,
+          zipCode = _state$post.zipCode;
 
       if (title.length == 0) {
         (0, _sweetalert2.default)({
@@ -57478,7 +57485,17 @@ var CreatePost = function (_Component) {
         });
         return;
       }
-      this.props.onCreate(this.state.post);
+
+      (0, _utils.Geocode)(address, city, state, zipCode).then(function (response) {
+        updated['coords'] = response;
+        _this4.setState({
+          post: updated
+        });
+
+        _this4.props.onCreate(_this4.state.post);
+      }).catch(function (err) {
+        console.log(err);
+      });
     }
   }, {
     key: 'render',
@@ -74635,7 +74652,6 @@ var UsersList = function (_Component) {
     key: 'render',
     value: function render() {
       var users = this.props.users.all;
-      console.log(users);
       var _state$profile = this.state.profile,
           firstName = _state$profile.firstName,
           lastName = _state$profile.lastName,
@@ -74814,7 +74830,7 @@ var GhostMap = function (_Component) {
       map: null,
       currentLocation: null,
       radius: 100,
-      markers: []
+      markers: null
     };
 
     _this.handleMarkerClick = _this.handleMarkerClick.bind(_this);
@@ -74841,6 +74857,7 @@ var GhostMap = function (_Component) {
     value: function componentWillReceiveProps(props) {
       var _this2 = this;
 
+      var posts = props.posts.all ? props.posts.all : [];
       if (props.coords) {
         this.setState({
           currentLocation: {
@@ -74849,13 +74866,8 @@ var GhostMap = function (_Component) {
           }
         });
 
-        this.createMarkersWithinRadius(props.posts.all, this.state.radius, props.coords.latitude, props.coords.longitude).then(function (data) {
-          _this2.setState({
-            markers: data
-          });
-          return data;
-        }).catch(function (err) {
-          console.log(err);
+        this.setState({
+          markers: this.createMarkersWithinRadius(posts, this.state.radius, props.coords.latitude, props.coords.longitude)
         });
       } else {
         _axios2.default.get('http://ip-api.com/json').then(function (response) {
@@ -74865,10 +74877,9 @@ var GhostMap = function (_Component) {
               lng: response.data.lon
             }
           });
-          return _this2.createMarkersWithinRadius(props.posts.all, _this2.state.radius, response.data.lat, response.data.lon);
-        }).then(function (data) {
+
           _this2.setState({
-            markers: data
+            markers: _this2.createMarkersWithinRadius(posts, _this2.state.radius, response.data.lat, response.data.lon)
           });
         }).catch(function (err) {
           console.log(err);
@@ -74878,38 +74889,29 @@ var GhostMap = function (_Component) {
   }, {
     key: 'createMarkersWithinRadius',
     value: function createMarkersWithinRadius(posts, radius, lat, lng) {
-      return new Promise(function (resolve, reject) {
-        var markers = [];
-        var currentLocation = {
-          latitude: lat,
-          longitude: lng
-        };
+      var markers = [];
+      var currentLocation = {
+        latitude: lat,
+        longitude: lng
+      };
 
-        posts.map(function (post) {
-          var postGeolocation = {};
+      posts.map(function (post) {
+        var distanceArr = _geolib2.default.orderByDistance(currentLocation, [post.coords]);
+        var miles = (distanceArr[0].distance / 1609.34).toFixed(2);
 
-          (0, _utils.Geocode)(post.address, post.city, post.state, post.zipCode).then(function (response) {
-            postGeolocation.lat = response.lat;
-            postGeolocation.lng = response.lng;
-            var distanceArr = _geolib2.default.orderByDistance(currentLocation, [postGeolocation]);
-            var miles = (distanceArr[0].distance / 1609.34).toFixed(2);
-
-            if (miles <= radius) {
-              markers.push({
-                id: post.id,
-                position: postGeolocation,
-                title: post.title,
-                description: post.text,
-                image: post.image,
-                showInfo: false
-              });
-            }
-            resolve(markers);
-          }).catch(function (err) {
-            reject(err);
+        if (miles <= radius) {
+          markers.push({
+            id: post.id,
+            position: post.coords,
+            title: post.title,
+            description: post.text,
+            image: post.image,
+            showInfo: false
           });
-        });
+        }
       });
+
+      return markers;
     }
   }, {
     key: 'handleMarkerClick',
@@ -74938,6 +74940,9 @@ var GhostMap = function (_Component) {
     key: 'updateRadius',
     value: function updateRadius(event) {
       var radius = event.target.value;
+      this.setState({
+        radius: radius
+      });
       var posts = this.props.posts.all;
       var _state$currentLocatio = this.state.currentLocation,
           lat = _state$currentLocatio.lat,
@@ -74956,14 +74961,15 @@ var GhostMap = function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      if (this.state.markers.length === 0) {
+      var markers = this.state.markers;
+
+      if (markers == null) {
         return _react2.default.createElement(
           'div',
           null,
           'Loading...'
         );
       }
-
       return _react2.default.createElement(
         'div',
         { className: 'row' },
@@ -74999,9 +75005,8 @@ var GhostMap = function (_Component) {
               });
             },
             onMarkerClick: this.handleMarkerClick,
-            isMarkerShown: this.state.isMarkerShown,
             center: this.state.currentLocation,
-            markers: this.state.markers,
+            markers: markers,
             zoom: 10,
             onCloseClick: this.handleCloseClick,
             containerElement: _react2.default.createElement('div', { style: { height: 100 + '%' } }),
