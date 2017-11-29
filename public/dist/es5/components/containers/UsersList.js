@@ -81,7 +81,6 @@ var UsersList = function (_Component) {
     key: 'render',
     value: function render() {
       var users = this.props.users.all;
-      console.log(users);
       var _state$profile = this.state.profile,
           firstName = _state$profile.firstName,
           lastName = _state$profile.lastName,

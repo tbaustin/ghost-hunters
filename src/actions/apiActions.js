@@ -79,27 +79,17 @@ const deleteRequest = (path, actionType) => {
 export default {
   apiRegister: params => {
     return dispatch => {
-      return dispatch(
-        postRequest('http://localhost:3000/api/users/register', params, constants.USER_CREATED)
-      );
+      return dispatch(postRequest('/api/users/register', params, constants.USER_CREATED));
     };
   },
   apiLogin: params => {
     return dispatch => {
-      return dispatch(
-        postRequest('http://localhost:3000/api/users/login', params, constants.USER_LOGGED_IN)
-      );
+      return dispatch(postRequest('/api/users/login', params, constants.USER_LOGGED_IN));
     };
   },
   apiCurrentUser: () => {
     return dispatch => {
-      return dispatch(
-        getRequest(
-          'http://localhost:3000/api/users/currentuser',
-          null,
-          constants.CURRENT_USER_RECEIVED
-        )
-      );
+      return dispatch(getRequest('/api/users/currentuser', null, constants.CURRENT_USER_RECEIVED));
     };
   },
   apiLogout: () => {
@@ -109,26 +99,22 @@ export default {
   },
   apiUpdateUser: (params, id) => {
     return dispatch => {
-      return dispatch(
-        putRequest(`http://localhost:3000/api/users/update/${id}`, params, constants.UPDATE_PROFILE)
-      );
+      return dispatch(putRequest(`/api/users/update/${id}`, params, constants.UPDATE_PROFILE));
     };
   },
   apiDeleteUser: id => {
     return dispatch => {
-      return dispatch(
-        deleteRequest(`http://localhost:3000/api/users/delete/${id}`, constants.USER_DELETED)
-      );
+      return dispatch(deleteRequest(`/api/users/delete/${id}`, constants.USER_DELETED));
     };
   },
   apiFetchUsers: params => {
     return dispatch => {
-      return dispatch(getRequest('http://localhost:3000/users', params, constants.USERS_RECEIVED));
+      return dispatch(getRequest('/api/users', params, constants.USERS_RECEIVED));
     };
   },
   apiFetchUser: id => {
     return dispatch => {
-      return dispatch(`http://localhost:3000/api/users/${id}`, null, constants.GET_PROFILE);
+      return dispatch(`/api/users/${id}`, null, constants.GET_PROFILE);
     };
   }
 };

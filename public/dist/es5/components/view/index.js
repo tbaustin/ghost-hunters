@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MarkerInfo = exports.UpdateReply = exports.UpdateRecord = exports.UpdateProfile = exports.CreateReply = exports.CreateAccount = exports.CreatePost = undefined;
+exports.Map = exports.MarkerInfo = exports.UpdateReply = exports.UpdateRecord = exports.UpdateProfile = exports.CreateReply = exports.CreateAccount = exports.CreatePost = undefined;
 
 var _CreatePost = require('./CreatePost');
 
@@ -33,6 +33,10 @@ var _MarkerInfo = require('./MarkerInfo');
 
 var _MarkerInfo2 = _interopRequireDefault(_MarkerInfo);
 
+var _Map = require('./Map');
+
+var _Map2 = _interopRequireDefault(_Map);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.CreatePost = _CreatePost2.default;
@@ -42,3 +46,4 @@ exports.UpdateProfile = _UpdateProfile2.default;
 exports.UpdateRecord = _UpdateRecord2.default;
 exports.UpdateReply = _UpdateReply2.default;
 exports.MarkerInfo = _MarkerInfo2.default;
+exports.Map = _Map2.default;

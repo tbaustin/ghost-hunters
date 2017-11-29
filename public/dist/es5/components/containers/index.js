@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.NotAuth = exports.GhostMap = exports.UsersList = exports.NotFound = exports.Reply = exports.Post = exports.Profile = exports.Account = exports.Posts = undefined;
+exports.TestMap = exports.NotAuth = exports.GhostMap = exports.UsersList = exports.NotFound = exports.Reply = exports.Post = exports.Profile = exports.Account = exports.Posts = undefined;
 
 var _Posts = require('./Posts');
 
@@ -41,6 +41,10 @@ var _NotAuth = require('./NotAuth');
 
 var _NotAuth2 = _interopRequireDefault(_NotAuth);
 
+var _TestMap = require('./TestMap');
+
+var _TestMap2 = _interopRequireDefault(_TestMap);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Posts = _Posts2.default;
@@ -52,3 +56,4 @@ exports.NotFound = _NotFound2.default;
 exports.UsersList = _UsersList2.default;
 exports.GhostMap = _GhostMap2.default;
 exports.NotAuth = _NotAuth2.default;
+exports.TestMap = _TestMap2.default;

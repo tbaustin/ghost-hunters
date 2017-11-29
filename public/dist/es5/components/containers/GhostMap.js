@@ -32,6 +32,8 @@ var _utils = require('../../utils');
 
 var _HOC = require('../HOC');
 
+var _view = require('../view');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49,15 +51,14 @@ var GhostMap = function (_Component) {
     var _this = _possibleConstructorReturn(this, (GhostMap.__proto__ || Object.getPrototypeOf(GhostMap)).call(this, props));
 
     _this.state = {
-      isMarkerShown: true,
+      map: null,
       currentLocation: null,
       radius: 100,
-      markers: []
+      markers: null
     };
 
     _this.handleMarkerClick = _this.handleMarkerClick.bind(_this);
     _this.handleCloseClick = _this.handleCloseClick.bind(_this);
-    _this.handleHomeMarkerClick = _this.handleHomeMarkerClick.bind(_this);
     _this.createMarkersWithinRadius = _this.createMarkersWithinRadius.bind(_this);
     _this.updateRadius = _this.updateRadius.bind(_this);
     return _this;
@@ -80,6 +81,7 @@ var GhostMap = function (_Component) {
     value: function componentWillReceiveProps(props) {
       var _this2 = this;
 
+      var posts = props.posts.all ? props.posts.all : [];
       if (props.coords) {
         this.setState({
           currentLocation: {
@@ -88,13 +90,8 @@ var GhostMap = function (_Component) {
           }
         });
 
-        this.createMarkersWithinRadius(props.posts.all, this.state.radius, props.coords.latitude, props.coords.longitude).then(function (data) {
-          _this2.setState({
-            markers: data
-          });
-          return data;
-        }).catch(function (err) {
-          console.log(err);
+        this.setState({
+          markers: this.createMarkersWithinRadius(posts, this.state.radius, props.coords.latitude, props.coords.longitude)
         });
       } else {
         _axios2.default.get('http://ip-api.com/json').then(function (response) {
@@ -104,10 +101,9 @@ var GhostMap = function (_Component) {
               lng: response.data.lon
             }
           });
-          return _this2.createMarkersWithinRadius(props.posts.all, _this2.state.radius, response.data.lat, response.data.lon);
-        }).then(function (data) {
+
           _this2.setState({
-            markers: data
+            markers: _this2.createMarkersWithinRadius(posts, _this2.state.radius, response.data.lat, response.data.lon)
           });
         }).catch(function (err) {
           console.log(err);
@@ -117,45 +113,36 @@ var GhostMap = function (_Component) {
   }, {
     key: 'createMarkersWithinRadius',
     value: function createMarkersWithinRadius(posts, radius, lat, lng) {
-      return new Promise(function (resolve, reject) {
-        var markers = [];
-        var currentLocation = {
-          latitude: lat,
-          longitude: lng
-        };
+      var markers = [];
+      var currentLocation = {
+        latitude: lat,
+        longitude: lng
+      };
 
-        posts.map(function (post) {
-          var postGeolocation = {};
+      posts.map(function (post) {
+        var distanceArr = _geolib2.default.orderByDistance(currentLocation, [post.coords]);
+        var miles = (distanceArr[0].distance / 1609.34).toFixed(2);
 
-          (0, _utils.Geocode)(post.address, post.city, post.state, post.zipCode).then(function (response) {
-            postGeolocation.lat = response.lat;
-            postGeolocation.lng = response.lng;
-            var distanceArr = _geolib2.default.orderByDistance(currentLocation, [postGeolocation]);
-            var miles = (distanceArr[0].distance / 1609.34).toFixed(2);
-
-            if (miles <= radius) {
-              markers.push({
-                id: post.id,
-                position: postGeolocation,
-                title: post.title,
-                description: post.text,
-                image: post.image,
-                showInfo: false
-              });
-            }
-            resolve(markers);
-          }).catch(function (err) {
-            reject(err);
+        if (miles <= radius) {
+          markers.push({
+            id: post.id,
+            position: post.coords,
+            title: post.title,
+            description: post.text,
+            image: post.image,
+            showInfo: false
           });
-        });
+        }
       });
+
+      return markers;
     }
   }, {
     key: 'handleMarkerClick',
     value: function handleMarkerClick(targetMarker) {
       this.setState({
         markers: this.state.markers.map(function (marker) {
-          return marker.id === targetMarker.id ? _extends({}, marker, { showInfo: true }) : marker;
+          return marker.id === targetMarker.id ? _extends({}, marker, { showInfo: !marker.showInfo }) : marker;
         })
       });
     }
@@ -174,14 +161,12 @@ var GhostMap = function (_Component) {
       });
     }
   }, {
-    key: 'handleHomeMarkerClick',
-    value: function handleHomeMarkerClick() {
-      this.setState({ isMarkerShown: false });
-    }
-  }, {
     key: 'updateRadius',
     value: function updateRadius(event) {
       var radius = event.target.value;
+      this.setState({
+        radius: radius
+      });
       var posts = this.props.posts.all;
       var _state$currentLocatio = this.state.currentLocation,
           lat = _state$currentLocatio.lat,
@@ -198,14 +183,17 @@ var GhostMap = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (this.state.markers.length === 0) {
+      var _this3 = this;
+
+      var markers = this.state.markers;
+
+      if (markers == null) {
         return _react2.default.createElement(
           'div',
           null,
           'Loading...'
         );
       }
-
       return _react2.default.createElement(
         'div',
         { className: 'row' },
@@ -231,14 +219,22 @@ var GhostMap = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'col-sm-12' },
-          _react2.default.createElement(_utils.MapComponent, {
+          { className: 'col-sm-12', style: { height: '600px' } },
+          _react2.default.createElement(_view.Map, {
+            onMapReady: function onMapReady(map) {
+              if (_this3.state.map != null) return;
+
+              _this3.setState({
+                map: map
+              });
+            },
             onMarkerClick: this.handleMarkerClick,
-            isMarkerShown: this.state.isMarkerShown,
-            onHomeMarkerClick: this.handleHomeMarkerClick,
             center: this.state.currentLocation,
-            markers: this.state.markers,
-            onCloseClick: this.handleCloseClick
+            markers: markers,
+            zoom: 10,
+            onCloseClick: this.handleCloseClick,
+            containerElement: _react2.default.createElement('div', { style: { height: 100 + '%' } }),
+            mapElement: _react2.default.createElement('div', { style: { height: 100 + '%' } })
           })
         )
       );

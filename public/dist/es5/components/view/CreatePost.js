@@ -125,10 +125,17 @@ var CreatePost = function (_Component) {
   }, {
     key: 'createPost',
     value: function createPost(event) {
+      var _this4 = this;
+
+      var updated = Object.assign({}, this.state.post);
       event.preventDefault();
       var _state$post = this.state.post,
           title = _state$post.title,
-          text = _state$post.text;
+          text = _state$post.text,
+          address = _state$post.address,
+          city = _state$post.city,
+          state = _state$post.state,
+          zipCode = _state$post.zipCode;
 
       if (title.length == 0) {
         (0, _sweetalert2.default)({
@@ -146,7 +153,17 @@ var CreatePost = function (_Component) {
         });
         return;
       }
-      this.props.onCreate(this.state.post);
+
+      (0, _utils.Geocode)(address, city, state, zipCode).then(function (response) {
+        updated['coords'] = response;
+        _this4.setState({
+          post: updated
+        });
+
+        _this4.props.onCreate(_this4.state.post);
+      }).catch(function (err) {
+        console.log(err);
+      });
     }
   }, {
     key: 'render',

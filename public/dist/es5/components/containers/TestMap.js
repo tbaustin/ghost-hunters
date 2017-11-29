@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = require('react-redux');
+
+var _view = require('../view');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18,42 +22,47 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var NotAuth = function (_Component) {
-  _inherits(NotAuth, _Component);
+var TestMap = function (_Component) {
+  _inherits(TestMap, _Component);
 
-  function NotAuth() {
-    _classCallCheck(this, NotAuth);
+  function TestMap(props) {
+    _classCallCheck(this, TestMap);
 
-    return _possibleConstructorReturn(this, (NotAuth.__proto__ || Object.getPrototypeOf(NotAuth)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (TestMap.__proto__ || Object.getPrototypeOf(TestMap)).call(this, props));
+
+    _this.state = {
+      map: null
+    };
+    return _this;
   }
 
-  _createClass(NotAuth, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      setTimeout(function () {
-        _this2.props.history.push('/');
-      }, 2000);
-    }
-  }, {
+  _createClass(TestMap, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Please Login/Sign up to access this feature'
-        )
+        { className: 'container', style: { height: '600px' } },
+        _react2.default.createElement(_view.Map, {
+          onMapReady: function onMapReady(map) {
+            if (_this2.state.map != null) return;
+
+            _this2.setState({
+              map: map
+            });
+          },
+          markers: [],
+          zoom: 13,
+          center: { lat: 40.7224017, lng: -73.9896719 },
+          containerElement: _react2.default.createElement('div', { style: { height: 100 + '%' } }),
+          mapElement: _react2.default.createElement('div', { style: { height: 100 + '%' } })
+        })
       );
     }
   }]);
 
-  return NotAuth;
+  return TestMap;
 }(_react.Component);
 
-exports.default = {
-  component: NotAuth
-};
+exports.default = TestMap;
